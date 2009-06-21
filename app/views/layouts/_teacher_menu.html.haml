@@ -2,3 +2,4 @@
   %li= link_to "Logout #{current_user.login}", user_session_path, :method => :delete
   %li= link_to "Questions", teacher_questions_path
   %li= link_to "Exams", teacher_exams_path
+  %li= link_to "New exam for student", new_exam_path

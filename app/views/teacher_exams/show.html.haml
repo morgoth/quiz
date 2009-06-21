@@ -16,7 +16,12 @@
   - @teacher_exam.teacher_questions.each do |question|
     %br
     = question.content
-
+%p
+  %b
+    Students:
+  - @teacher_exam.exams.each do |exam|
+    %br
+    = exam.student.login
 = link_to 'Edit', edit_teacher_exam_path(@teacher_exam)
 |
 = link_to 'Back', teacher_exams_path
