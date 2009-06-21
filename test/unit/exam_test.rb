@@ -5,7 +5,7 @@ class ExamTest < ActiveSupport::TestCase
     setup do
       @teacher_exam = Factory(:teacher_exam)
       4.times { @teacher_exam.teacher_questions << Factory(:teacher_question) }
-      @exam = Exam.new(:student => Factory(:student), :teacher_exam => @teacher_exam)
+      @exam = Factory.build(:exam, :teacher_exam => @teacher_exam)
     end
 
     should "be equal to question_number defined in teacher exam" do
