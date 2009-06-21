@@ -11,7 +11,7 @@ class TeacherExam < ActiveRecord::Base
   private
 
   def size_of_question_number
-    errors.add(:question_number, "wrong") if question_number && question_number > teacher_questions_size
+    errors.add(:question_number, "can not be greater than questions total") if question_number && question_number > teacher_questions_size
   end
 
   def teacher_questions_size

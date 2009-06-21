@@ -1,0 +1,22 @@
+%p
+  %b
+    Name:
+  = h @teacher_exam.name
+%p
+  %b
+    Question number in exam:
+  = h @teacher_exam.question_number
+%p
+  %b
+    Teacher:
+  = h @teacher_exam.teacher.login
+%p
+  %b
+    Questions:
+  - @teacher_exam.teacher_questions.each do |question|
+    %br
+    = question.content
+
+= link_to 'Edit', edit_teacher_exam_path(@teacher_exam)
+|
+= link_to 'Back', teacher_exams_path

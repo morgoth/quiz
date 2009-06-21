@@ -1,0 +1,22 @@
+%h1
+  Listing exams
+%table
+  %tr
+    %th
+      Name
+    %th
+      Teacher
+  - @teacher_exams.each do |exam|
+    %tr
+      %td
+        = h exam.name
+      %td
+        = h exam.teacher.login
+      %td
+        = link_to 'Show', exam
+      %td
+        = link_to 'Edit', edit_teacher_exam_path(exam)
+      %td
+        = link_to 'Destroy', exam, :method => :delete
+%br
+= link_to 'New exam', new_teacher_exam_path

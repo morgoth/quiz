@@ -1,0 +1,11 @@
+%h1 Edit question
+- semantic_form_for @teacher_question do |f|
+  = render :partial => 'form', :locals => { :f => f }
+  - f.fields_for :teacher_answers do |answer_form|
+    = answer_form.input :content
+    = answer_form.input :points
+    - unless answer_form.object.new_record?
+      = answer_form.input :_delete, :as => :boolean, :required => false
+  - f.buttons do
+    = f.commit_button
+= link_to 'Back', teacher_questions_path

@@ -1,0 +1,7 @@
+%h1 Editing exam
+- semantic_form_for @teacher_exam do |f|
+  = f.error_messages
+  = render :partial => 'form', :locals => { :f => f }
+  - f.buttons do
+    = f.commit_button "Update"
+= link_to 'Back', teacher_exams_path
