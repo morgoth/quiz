@@ -1,0 +1,5 @@
+%ul
+  - if current_user
+    %li= link_to "Logout #{current_user.login}", user_session_path, :method => :delete
+  - else
+    %li= link_to "Login", new_user_session_path

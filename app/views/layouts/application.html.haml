@@ -1,0 +1,16 @@
+!!! Strict
+%html{html_attrs}
+  %head
+    %title Quiz
+    = stylesheet_link_tag "quiz", "formtastic"
+    = javascript_include_tag 'jquery'
+  %body
+    %div#menu
+      - if teacher
+        = render 'layouts/teacher_menu'
+      - elsif student
+        = render 'layouts/student_menu'
+      - else
+        = render 'layouts/no_user_menu'
+    %span#notice= flash[:notice]
+    = yield
