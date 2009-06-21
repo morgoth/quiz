@@ -9,7 +9,49 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090621110911) do
+ActiveRecord::Schema.define(:version => 20090621154322) do
+
+  create_table "exams", :force => true do |t|
+    t.integer  "student_id"
+    t.integer  "teacher_exam_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "questions", :force => true do |t|
+    t.integer  "teacher_question_id"
+    t.integer  "exam_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "teacher_answers", :force => true do |t|
+    t.integer  "teacher_question_id"
+    t.text     "content"
+    t.float    "points"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "teacher_exams", :force => true do |t|
+    t.integer  "teacher_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "question_number"
+  end
+
+  create_table "teacher_exams_teacher_questions", :id => false, :force => true do |t|
+    t.integer "teacher_exam_id"
+    t.integer "teacher_question_id"
+  end
+
+  create_table "teacher_questions", :force => true do |t|
+    t.text     "content"
+    t.string   "question_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "login"

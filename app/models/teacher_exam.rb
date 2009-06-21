@@ -1,0 +1,20 @@
+class TeacherExam < ActiveRecord::Base
+  belongs_to :teacher
+  has_many :exams
+  has_and_belongs_to_many :teacher_questions
+
+  validates_presence_of :teacher
+  validates_numericality_of :question_number, :only_integer => true, :allow_nil => true
+  validate :size_of_question_number
+  #validates_numericality_of :question_number, :greater_than_or_equal_to => :teacher_questions_size
+
+  private
+
+  def size_of_question_number
+    errors.add(:question_number, "wrong") if question_number && question_number > teacher_questions_size
+  end
+
+  def teacher_questions_size
+    teacher_questions.try(:size) || 0
+  end
+end
