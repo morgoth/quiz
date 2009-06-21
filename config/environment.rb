@@ -12,6 +12,7 @@ Rails::Initializer.run do |config|
   config.gem 'state_machine'
   #config.gem "mbleigh-acts-as-taggable-on", :lib => "acts-as-taggable-on"
   config.gem "justinfrench-formtastic", :lib => 'formtastic'
+  config.gem 'ryanb-acts-as-list', :lib => 'acts_as_list'
 
   config.time_zone = 'Warsaw'
 

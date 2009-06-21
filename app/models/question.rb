@@ -1,4 +1,6 @@
 class Question < ActiveRecord::Base
+  acts_as_list :scope => :exam
+
   belongs_to :exam
   belongs_to :teacher_question
 

@@ -1,7 +1,7 @@
 class Exam < ActiveRecord::Base
   belongs_to :student
   belongs_to :teacher_exam
-  has_many :questions
+  has_many :questions, :order => "position"
   validates_presence_of :student, :teacher_exam
 
   after_create :set_teacher_questions
