@@ -6,7 +6,19 @@ class Answer < ActiveRecord::Base
 
   validates_presence_of :question, :teacher_answer
 
+  before_update :calculate_points
+
   def content
     teacher_answer.content
+  end
+
+  private
+
+  def calculate_points
+    if value == 'true'
+      self.points = teacher_answer.points
+    elsif value == 'false'
+      self.points = 0
+    end
   end
 end

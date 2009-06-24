@@ -1,8 +1,9 @@
 class ExamsController < ApplicationController
-  before_filter :require_teacher, :only => [:new, :create]
+  before_filter :require_teacher, :only => [:new, :create, :destroy]
+  before_filter :require_student, :only => [:index, :update, :edit, :show]
 
   def index
-    @exams = Exam.all
+    @exams = @current_user.exams
     respond_to do |format|
       format.html
     end
@@ -23,7 +24,7 @@ class ExamsController < ApplicationController
   end
 
   def edit
-    @exam = Exam.find(params[:id])
+    @exam = @current_user.exams.find(params[:id])
   end
 
   def create
@@ -39,16 +40,13 @@ class ExamsController < ApplicationController
   end
 
   def update
-    params[:exam][:question_ids] ||= [] #see railscasts episode 17 why it's necessary
-    params[:exam][:student_ids] ||= []
-    params[:exam][:finished_preparing] ||= '0'
-    @exam = Exam.find(params[:id])
+    @exam = @current_user.exams.find(params[:id])
     respond_to do |format|
       if @exam.update_attributes(params[:exam])
-        flash[:notice] = 'Exam was successfully updated.'
-        format.html { redirect_to(@exam) }
+        flash[:notice] = 'Exam started'
+        format.html { redirect_to edit_exam_question_path @exam, @exam.questions.first }
       else
-        format.html { render :action => "edit" }
+        format.html { render :action => 'edit' }
       end
     end
   end

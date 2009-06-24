@@ -1,0 +1,4 @@
+%h1 Your exams:
+%ul
+  - @exams.each do |exam|
+    %li= link_to exam.name, edit_exam_path(exam)

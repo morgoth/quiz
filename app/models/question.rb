@@ -1,7 +1,7 @@
 class Question < ActiveRecord::Base
   acts_as_list :scope => :exam
 
-  has_many :answers, :order => "position"
+  has_many :answers, :order => "position", :dependent => :destroy
   belongs_to :exam
   belongs_to :teacher_question
 
@@ -10,6 +10,18 @@ class Question < ActiveRecord::Base
 
   def content
     teacher_question.content
+  end
+
+  def sum_points
+    answers.map { |a| a.points }.compact.inject { |sum, a| sum += a }
+  end
+
+  def update_answers=(value)
+    if value.kind_of? Hash
+      answers.each do |answer|
+        value.values.include?(answer.id.to_s) ? answer.update_attributes(:value => 'true') : answer.update_attributes(:value => 'false')
+      end
+    end
   end
 
   private

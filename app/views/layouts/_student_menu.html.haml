@@ -2,6 +2,5 @@
   %li= link_to 'exams', exams_path
   - if current_user
     %li= link_to "Logout #{current_user.login}", user_session_path, :method => :delete
-    %li= link_to 'My account', student_path( current_user )
   - else
     %li= link_to "Login", new_user_session_path
