@@ -1,0 +1,7 @@
+- semantic_form_for(@teacher_answer) do |f|
+  = f.error_messages
+  = f.input :teacher_question_id, :as => :hidden
+  = f.input :content
+  = f.input :points
+  - f.buttons do
+    = f.commit_button 'Update'

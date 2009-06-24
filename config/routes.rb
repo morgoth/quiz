@@ -3,7 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
   map.resource :user_session
   map.resources :teacher_questions
-  map.resources :teacher_answers, :except => [:index, :show, :new]
+  map.resources :teacher_answers, :except => [:index, :show]
   map.resources :teacher_exams
   map.resources :exams do |exams|
     exams.resources :questions, :only => [:edit, :update]

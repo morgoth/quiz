@@ -1,6 +1,10 @@
 class TeacherAnswersController < ApplicationController
   before_filter :require_teacher
 
+  def new
+    @teacher_answer = TeacherAnswer.new
+  end
+
   def edit
     @teacher_answer = TeacherAnswer.find(params[:id])
   end
@@ -10,12 +14,10 @@ class TeacherAnswersController < ApplicationController
 
     respond_to do |format|
       if @teacher_answer.save
-        # FIXME: catch validation errors in question show template
         flash[:notice] = 'Answer was successfully created.'
         format.html { redirect_to(@teacher_answer.teacher_question) }
       else
-        flash[:notice] = 'Could not create'
-        format.html { redirect_to(@teacher_answer.teacher_question) }
+        format.html { render 'new' }
       end
     end
   end
