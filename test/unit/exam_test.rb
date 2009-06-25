@@ -12,14 +12,14 @@ class ExamTest < ActiveSupport::TestCase
       @teacher_exam.question_number = 2
       @teacher_exam.save!
       @exam.save!
-      assert 2, Question.all.count
+      assert_equal 2, Question.all.count
     end
 
     should "be equal to all teacher questions when question_number is nil" do
       @teacher_exam.question_number = nil
       @teacher_exam.save!
       @exam.save!
-      assert 4, Question.all.count
+      assert_equal 4, Question.all.count
     end
   end
 end

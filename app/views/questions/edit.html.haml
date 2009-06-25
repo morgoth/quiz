@@ -1,7 +1,6 @@
 - semantic_form_for [@exam, @question] do |f|
   = @question.content
-  - @question.answers.each do |answer|
-    = radio_button_tag "question[update_answers][value]", answer.id, answer.value == 'true'
-    = answer.content
+  = f.input :state_event, :as => :hidden, :value => 'visit'
+  = render :partial => @question.teacher_question.question_type, :locals => { :question => @question }
   - f.buttons do
     = f.commit_button

@@ -5,7 +5,7 @@ class Question < ActiveRecord::Base
   belongs_to :exam
   belongs_to :teacher_question
 
-  validates_presence_of :teacher_question, :exam
+  validates_presence_of :teacher_question, :exam, :state
   after_create :set_teacher_answers
 
   def content
@@ -19,8 +19,14 @@ class Question < ActiveRecord::Base
   def update_answers=(value)
     if value.kind_of? Hash
       answers.each do |answer|
-        value.values.include?(answer.id.to_s) ? answer.update_attributes(:value => 'true') : answer.update_attributes(:value => 'false')
+        value.values.flatten.include?(answer.id.to_s) ? answer.update_attributes(:value => 'true') : answer.update_attributes(:value => 'false')
       end
+    end
+  end
+
+  state_machine :initial => :prepared do
+    event :visit do
+      transition [:prepared, :visited] => :visited
     end
   end
 

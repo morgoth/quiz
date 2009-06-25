@@ -8,6 +8,7 @@ class QuestionsController < ApplicationController
 
   def update
     @question = @exam.questions.find(params[:id])
+    params[:question][:update_answers] ||= {}
     respond_to do |format|
       if @question.update_attributes(params[:question])
         format.html { redirect_to edit_exam_question_path(@exam, rotate_question(@question)) }
