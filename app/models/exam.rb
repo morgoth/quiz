@@ -2,13 +2,12 @@ class Exam < ActiveRecord::Base
   belongs_to :student
   belongs_to :teacher_exam
   has_many :questions, :order => "position", :dependent => :destroy
-  validates_presence_of :student, :teacher_exam
+  validates_presence_of :student, :teacher_exam, :state
 
+  # OPTIMIZE: do it using state machine callback
   after_create :set_teacher_questions
 
-  def name
-    teacher_exam.name
-  end
+  delegate :name, :to => :teacher_exam
 
   state_machine do
     event :prepare do
@@ -16,12 +15,15 @@ class Exam < ActiveRecord::Base
     end
 
     event :start do
-      transition [:prepared, :started] => :started
+      transition [:prepared, :started, :finished] => :started
     end
 
     event :finish do
-      transition :started => :finished
+      transition :started => :finished, :if => :time_to_finish?
+      transition :started => :started
     end
+
+    before_transition [:prepared, :finished] => :started, :do => :set_started_at
   end
 
   def sum_points
@@ -29,6 +31,14 @@ class Exam < ActiveRecord::Base
   end
 
   private
+
+  def set_started_at
+    self.started_at = Time.now
+  end
+
+  def time_to_finish?
+    (started_at + teacher_exam.duration.min*60).past?
+  end
 
   def set_teacher_questions
     teacher_exam.teacher_questions.shuffle[0...question_number].each do |teacher_question|

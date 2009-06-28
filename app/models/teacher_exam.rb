@@ -3,7 +3,8 @@ class TeacherExam < ActiveRecord::Base
   has_many :exams
   has_and_belongs_to_many :teacher_questions
 
-  validates_presence_of :teacher
+  # FIXME: duration includes only minutes - fix the form to not select hours
+  validates_presence_of :teacher, :duration
   validates_numericality_of :question_number, :only_integer => true, :allow_nil => true
   validate :size_of_question_number
   #validates_numericality_of :question_number, :greater_than_or_equal_to => :teacher_questions_size

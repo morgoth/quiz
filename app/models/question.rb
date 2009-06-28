@@ -14,6 +14,8 @@ class Question < ActiveRecord::Base
     answers.map { |a| a.points }.compact.inject { |sum, a| sum += a }
   end
 
+  # TODO: hint for answer - size of matching string
+
   def update_answers=(value)
     case value.keys.first
     when 'radio_button', 'check_box'
@@ -29,9 +31,15 @@ class Question < ActiveRecord::Base
     event :visit do
       transition [:prepared, :visited] => :visited
     end
+
+    after_transition any => :visited, :do => :finish_exam
   end
 
   private
+
+  def finish_exam
+    exam.finish
+  end
 
   def set_teacher_answers
     teacher_question.teacher_answers.shuffle.each do |teacher_answer|
