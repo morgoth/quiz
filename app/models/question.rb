@@ -8,19 +8,20 @@ class Question < ActiveRecord::Base
   validates_presence_of :teacher_question, :exam, :state
   after_create :set_teacher_answers
 
-  def content
-    teacher_question.content
-  end
+  delegate :content, :to => :teacher_question
 
   def sum_points
     answers.map { |a| a.points }.compact.inject { |sum, a| sum += a }
   end
 
   def update_answers=(value)
-    if value.kind_of? Hash
+    case value.keys.first
+    when 'radio_button', 'check_box'
       answers.each do |answer|
         value.values.flatten.include?(answer.id.to_s) ? answer.update_attributes(:value => 'true') : answer.update_attributes(:value => 'false')
       end
+    when 'text_field'
+      answers.first.update_attributes(:value => value.values.first)
     end
   end
 

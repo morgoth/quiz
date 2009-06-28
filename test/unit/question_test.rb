@@ -16,7 +16,7 @@ class QuestionTest < ActiveSupport::TestCase
 
   context "When updated" do
     setup do
-      @teacher_question = Factory(:teacher_question)
+      @teacher_question = Factory(:teacher_question, :question_type => 'check_box')
       @teacher_answer1 = Factory(:teacher_answer, :teacher_question => @teacher_question, :points => 0.1)
       @teacher_answer2 = Factory(:teacher_answer, :teacher_question => @teacher_question, :points => 0.4)
       @teacher_answer3 = Factory(:teacher_answer, :teacher_question => @teacher_question, :points => -0.1)
@@ -30,9 +30,9 @@ class QuestionTest < ActiveSupport::TestCase
       answer1 = Answer.find_by_teacher_answer_id(@teacher_answer1.id)
       answer2 = Answer.find_by_teacher_answer_id(@teacher_answer2.id)
       assert_not_nil answer1
-      @question.update_answers = { 'value' => [answer1.id.to_s] }
+      @question.update_answers = { 'check_box' => [answer1.id.to_s] }
       answer1.reload
-      @question.update_answers = { 'value' => [answer2.id.to_s] }
+      @question.update_answers = { 'check_box' => [answer2.id.to_s] }
       answer1.reload
       answer2.reload
       assert_equal 0, answer1.points

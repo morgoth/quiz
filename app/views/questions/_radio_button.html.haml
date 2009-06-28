@@ -1,3 +1,3 @@
 - question.answers.each do |answer|
-  = radio_button_tag "question[update_answers][value]", answer.id, answer.value == 'true'
+  = radio_button_tag "question[update_answers][radio_button]", answer.id, answer.value == 'true'
   = answer.content

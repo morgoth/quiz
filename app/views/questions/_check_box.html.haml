@@ -1,3 +1,3 @@
 - question.answers.each do |answer|
-  = check_box_tag "question[update_answers][value][]", answer.id, answer.value == 'true'
+  = check_box_tag "question[update_answers][check_box][]", answer.id, answer.value == 'true'
   = answer.content

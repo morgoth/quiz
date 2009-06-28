@@ -29,4 +29,39 @@ class AnswerTest < ActiveSupport::TestCase
     end
 
   end
+
+  context "when question type is text field, answer" do
+    setup do
+      teacher_question = Factory(:teacher_question, :question_type => 'text_field')
+      teacher_answer = TeacherAnswer.new(:teacher_question => teacher_question)
+      teacher_answer.content = "string to match"
+      teacher_answer.points = 1
+      assert teacher_answer.save
+      teacher_question.teacher_answers << teacher_answer
+      teacher_exam = Factory(:teacher_exam)
+      teacher_exam.teacher_questions << teacher_question
+      exam = Factory(:exam, :teacher_exam => teacher_exam)
+      @answer = Answer.first
+    end
+
+    should "be incorrect when does not match content" do
+      assert_equal 1, Answer.count
+      @answer.value = "wrong answer"
+      @answer.save!
+      assert_equal 0, @answer.points
+    end
+
+    should "correct when match content" do
+      @answer.value = 'string to match'
+      @answer.save!
+      assert_equal 1, @answer.points
+    end
+
+    should "correct when match content with ignore case" do
+      @answer.value = "String To Match"
+      @answer.save!
+      assert_equal 1, @answer.points
+    end
+
+  end
 end
