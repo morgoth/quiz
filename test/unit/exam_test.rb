@@ -43,18 +43,25 @@ class ExamTest < ActiveSupport::TestCase
       assert_not_nil @exam.started_at
     end
 
-    should "be started when finish and duration not gone beyond" do
+    should "be started when try finish and duration not gone beyond" do
       @exam.save!
       @exam.start
-      @exam.finish
+      @exam.try_finish
       assert_equal 'started', @exam.state
     end
 
-    should "be finished when finish and duration gone beyond" do
+    should "be finished when try finish and duration gone beyond" do
       @exam.save!
       @exam.start
       @exam.started_at -= 6*60
       @exam.save(false)
+      @exam.try_finish
+      assert_equal 'finished', @exam.state
+    end
+
+    should "be finished when finish" do
+      @exam.save!
+      @exam.start
       @exam.finish
       assert_equal 'finished', @exam.state
     end

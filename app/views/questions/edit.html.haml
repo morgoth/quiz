@@ -3,4 +3,7 @@
   = f.input :state_event, :as => :hidden, :value => 'visit'
   = render :partial => @question.teacher_question.question_type, :locals => { :question => @question }
   - f.buttons do
-    = f.commit_button
+    = f.commit_button "next"
+    - @exam.questions.each do |question|
+      = f.commit_button "#{question.position}"
+    = f.commit_button "finish"

@@ -22,7 +22,15 @@ class QuestionsController < ApplicationController
   private
 
   def rotate_question(question)
-    question.last? ? @exam.questions.first : question.lower_item
+    case params[:commit]
+    when 'finish'
+      @exam.finish
+      question
+    when 'next'
+      question.last? ? @exam.questions.first : question.lower_item
+    else
+      @exam.questions.find_by_position(params[:commit])
+    end
   end
 
   def fetch_exam

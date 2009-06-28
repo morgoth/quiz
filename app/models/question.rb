@@ -38,7 +38,7 @@ class Question < ActiveRecord::Base
   private
 
   def finish_exam
-    exam.finish
+    exam.try_finish
   end
 
   def set_teacher_answers

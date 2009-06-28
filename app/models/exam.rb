@@ -18,9 +18,13 @@ class Exam < ActiveRecord::Base
       transition [:prepared, :started, :finished] => :started
     end
 
-    event :finish do
+    event :try_finish do
       transition :started => :finished, :if => :time_to_finish?
       transition :started => :started
+    end
+
+    event :finish do
+      transition any => :finished
     end
 
     before_transition [:prepared, :finished] => :started, :do => :set_started_at
