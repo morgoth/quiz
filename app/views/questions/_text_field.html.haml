@@ -1,1 +1,2 @@
-= text_field_tag "question[update_answers][text_field]", question.answers.first.value
+= text_field_tag "question[update_answers][text_field]", question.answers.first.value, :disabled => disabled
+= question.answers.first.points if disabled

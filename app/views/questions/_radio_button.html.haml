@@ -1,3 +1,6 @@
-- question.answers.each do |answer|
-  = radio_button_tag "question[update_answers][radio_button]", answer.id, answer.value == 'true'
-  = answer.content
+%ul
+  - question.answers.each do |answer|
+    %li
+      = radio_button_tag "question[update_answers][radio_button]", answer.id, answer.value == 'true', :disabled => disabled
+      = answer.content
+      = answer.points if disabled and answer.value == 'true'

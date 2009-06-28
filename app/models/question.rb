@@ -6,7 +6,6 @@ class Question < ActiveRecord::Base
   belongs_to :teacher_question
 
   validates_presence_of :teacher_question, :exam, :state
-  after_create :set_teacher_answers
 
   delegate :content, :to => :teacher_question
 
@@ -27,17 +26,22 @@ class Question < ActiveRecord::Base
     end
   end
 
-  state_machine :initial => :prepared do
+  state_machine do
+    event :prepare do
+      transition nil => :prepared
+    end
+
     event :visit do
       transition [:prepared, :visited] => :visited
     end
 
-    after_transition any => :visited, :do => :finish_exam
+    after_transition nil => :prepared, :do => :set_teacher_answers
+    after_transition any => :visited, :do => :try_finish_exam
   end
 
   private
 
-  def finish_exam
+  def try_finish_exam
     exam.try_finish
   end
 

@@ -8,6 +8,10 @@
   = h @teacher_exam.question_number
 %p
   %b
+    Duration:
+  = h pluralize(@teacher_exam.duration.min, 'minute')
+%p
+  %b
     Teacher:
   = h @teacher_exam.teacher.login
 %p
@@ -22,6 +26,8 @@
   - @teacher_exam.exams.each do |exam|
     %br
     = exam.student.login
+    = exam.sum_points
+    = exam.state
 = link_to 'Edit', edit_teacher_exam_path(@teacher_exam)
 |
 = link_to 'Back', teacher_exams_path

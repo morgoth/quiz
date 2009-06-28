@@ -6,7 +6,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :teacher_answers, :except => [:index, :show]
   map.resources :teacher_exams
   map.resources :exams do |exams|
-    exams.resources :questions, :only => [:edit, :update]
+    exams.resources :questions, :only => [:index, :edit, :update]
   end
   map.root :controller => "user_sessions", :action => "new"
 

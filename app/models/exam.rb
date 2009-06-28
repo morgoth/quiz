@@ -4,9 +4,6 @@ class Exam < ActiveRecord::Base
   has_many :questions, :order => "position", :dependent => :destroy
   validates_presence_of :student, :teacher_exam, :state
 
-  # OPTIMIZE: do it using state machine callback
-  after_create :set_teacher_questions
-
   delegate :name, :to => :teacher_exam
 
   state_machine do
@@ -27,6 +24,7 @@ class Exam < ActiveRecord::Base
       transition any => :finished
     end
 
+    after_transition nil => :prepared, :do => :set_teacher_questions
     before_transition [:prepared, :finished] => :started, :do => :set_started_at
   end
 
@@ -46,7 +44,7 @@ class Exam < ActiveRecord::Base
 
   def set_teacher_questions
     teacher_exam.teacher_questions.shuffle[0...question_number].each do |teacher_question|
-      questions.create(:teacher_question_id => teacher_question.id)
+      questions.create(:teacher_question_id => teacher_question.id, :state_event => 'prepare')
     end
   end
 

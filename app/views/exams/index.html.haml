@@ -1,4 +1,6 @@
 %h1 Your exams:
 %ul
   - @exams.each do |exam|
-    %li= link_to exam.name, edit_exam_path(exam)
+    %li
+      = link_to exam.name, edit_exam_path(exam)
+      = link_to_if exam.finished?, "Show quesitons", exam_questions_path(exam)

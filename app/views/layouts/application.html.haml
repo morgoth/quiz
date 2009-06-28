@@ -6,10 +6,8 @@
     = javascript_include_tag 'jquery'
   %body
     %div#menu
-      - if teacher
-        = render 'layouts/teacher_menu'
-      - elsif student
-        = render 'layouts/student_menu'
+      - if current_user
+        = render "layouts/#{@current_user.type.underscore}_menu"
       - else
         = render 'layouts/no_user_menu'
     %span#notice= flash[:notice]

@@ -1,7 +1,12 @@
 class QuestionsController < ApplicationController
   before_filter :require_student
   before_filter :fetch_exam
-  before_filter :exam_finished
+  before_filter :exam_finished, :only => [:edit, :update]
+  before_filter :show_results, :only => [:index]
+
+  def index
+    @questions = @exam.questions
+  end
 
   def edit
     @question = @exam.questions.find(params[:id])
@@ -35,6 +40,13 @@ class QuestionsController < ApplicationController
 
   def fetch_exam
     @exam = @current_user.exams.find(params[:exam_id])
+  end
+
+  def show_results
+    unless @exam.finished?
+      flash[:notice] = "You can see questions after finishing exam"
+      redirect_to exams_path
+    end
   end
 
   def exam_finished

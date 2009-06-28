@@ -5,7 +5,7 @@ class QuestionTest < ActiveSupport::TestCase
     setup do
       @teacher_question = Factory(:teacher_question)
       4.times { Factory(:teacher_answer, :teacher_question => @teacher_question) }
-      @question = Question.new(:teacher_question => @teacher_question, :exam => Factory(:exam))
+      @question = Factory.build(:question, :teacher_question => @teacher_question)
     end
 
     should "be equal to associated teacher question answers" do
@@ -21,7 +21,7 @@ class QuestionTest < ActiveSupport::TestCase
       @teacher_answer2 = Factory(:teacher_answer, :teacher_question => @teacher_question, :points => 0.4)
       @teacher_answer3 = Factory(:teacher_answer, :teacher_question => @teacher_question, :points => -0.1)
       @teacher_question.teacher_answers << [@teacher_answer1, @teacher_answer2, @teacher_answer3]
-      @question = Question.new(:teacher_question => @teacher_question, :exam => Factory(:exam))
+      @question = Factory.build(:question, :teacher_question => @teacher_question)
     end
 
     should "update answers values if changed" do
