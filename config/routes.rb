@@ -7,6 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :teacher_answers, :except => [:index, :show]
   map.resources :teacher_exams
   map.resources :student_imports, :only => [:new, :create]
+  map.resources :mass_exams, :only => [:new, :create]
   map.resources :exams do |exams|
     exams.resources :questions, :only => [:index, :edit, :update]
   end

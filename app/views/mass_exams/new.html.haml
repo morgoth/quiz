@@ -1,0 +1,8 @@
+%h1 Create exams:
+= link_to "Create exam", new_exam_path
+- semantic_form_for @mass_exam do |f|
+  = f.error_messages
+  = f.input :teacher_exam, :as => :select, :collection => current_user.teacher_exams
+  = f.input :student_ids, :as => :select, :collection => Student.all, :input_html => { :multiple => true }
+  - f.buttons do
+    = f.commit_button "Create exams"

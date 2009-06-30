@@ -7,7 +7,7 @@
   %body
     %div#menu
       - if current_user
-        = render "layouts/#{@current_user.type.underscore}_menu"
+        = render "layouts/#{current_user.type.underscore}_menu"
       - else
         = render 'layouts/no_user_menu'
     %span#notice= flash[:notice]

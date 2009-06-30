@@ -15,9 +15,9 @@ class StudentImport < ActiveRecord::Base
 
   # OPTIMIZE: cleanup yaml parsing
   def parse_file
-    users_hash = YAML::load(file)
-    users_hash.each_key do |name|
-      Student.create(:login => name, :password => users_hash[name]['password'], :password_confirmation => users_hash[name]['password'])
+    users = YAML::load(file)
+    users.each do |key, attributes|
+      Student.create(attributes.merge('password_confirmation' => attributes['password']))
     end
   end
 end
