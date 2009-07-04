@@ -2,7 +2,8 @@ class TeacherQuestionsController < ApplicationController
   before_filter :require_teacher
 
   def index
-    @teacher_questions = TeacherQuestion.all
+    @teacher_questions = params[:tag].nil? ? TeacherQuestion.all : TeacherQuestion.find_tagged_with( params[:tag])
+    @tags = TeacherQuestion.tag_counts
   end
 
   def new
@@ -35,5 +36,12 @@ class TeacherQuestionsController < ApplicationController
     else
       render :action => :edit
     end
+  end
+
+  def destroy
+    @teacher_question = TeacherQuestion.find(params[:id])
+    @teacher_question.destroy
+    flash[:notice] = "Question deleted"
+    redirect_to teacher_questions_path
   end
 end

@@ -10,7 +10,7 @@ Rails::Initializer.run do |config|
   config.gem 'haml'
   config.gem 'authlogic'
   config.gem 'state_machine'
-  #config.gem "mbleigh-acts-as-taggable-on", :lib => "acts-as-taggable-on"
+  config.gem "mbleigh-acts-as-taggable-on", :lib => "acts-as-taggable-on"
   config.gem "justinfrench-formtastic", :lib => 'formtastic'
   config.gem 'ryanb-acts-as-list', :lib => 'acts_as_list'
 

@@ -1,3 +1,7 @@
 = f.error_messages
 = f.input :content
-= f.input :question_type, :as => :select, :collection => TeacherQuestion::QUESTION_TYPES
+- if f.object.new_record?
+  = f.input :question_type, :as => :select, :collection => TeacherQuestion::QUESTION_TYPES
+- else
+  = text_field_tag :question_type, f.object.question_type, :disabled => true
+= f.input :tag_list, :required => false

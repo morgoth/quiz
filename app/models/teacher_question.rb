@@ -1,4 +1,5 @@
 class TeacherQuestion < ActiveRecord::Base
+  acts_as_taggable_on :tags
   has_and_belongs_to_many :teacher_exams
   has_many :teacher_answers, :dependent => :destroy
   has_many :questions, :dependent => :destroy
@@ -8,7 +9,7 @@ class TeacherQuestion < ActiveRecord::Base
 
   validates_inclusion_of :question_type, :in => QUESTION_TYPES
   validate_on_update :question_type_not_changed
-  # FIXME: validate :method, :on => :update does not work
+
   private
 
   def question_type_not_changed

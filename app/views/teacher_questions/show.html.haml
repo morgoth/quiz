@@ -6,17 +6,21 @@
   %b
     Question type:
   = h @teacher_question.question_type
+%p
+  %b
+    Tags:
+  = h @teacher_question.tags.to_sentence(:last_word_connector => ', ', :two_words_connector => ', ')
 = link_to 'Edit', edit_teacher_question_path(@teacher_question)
 |
 = link_to 'Back', teacher_questions_path
 %h3 Answers:
 %p
   = render @teacher_question.teacher_answers
-%hr
-- semantic_form_for TeacherAnswer.new(:teacher_question => @teacher_question) do |f|
-  = f.error_messages
-  = f.input :teacher_question_id, :as => :hidden
-  = f.input :content
-  = f.input :points
-  - f.buttons do
-    = f.commit_button "Create"
+- unless @teacher_question.question_type == 'text_field' and !@teacher_question.teacher_answers.empty?
+  %hr
+  - semantic_form_for TeacherAnswer.new(:teacher_question => @teacher_question) do |f|
+    = f.input :teacher_question_id, :as => :hidden
+    = f.input :content
+    = f.input :points
+    - f.buttons do
+      = f.commit_button "Create"

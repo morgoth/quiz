@@ -3,7 +3,7 @@ class TeacherAnswer < ActiveRecord::Base
 
   validates_numericality_of :points
   validates_presence_of :teacher_question
-  validate :one_answer_only, :if => :text_field?
+  validate_on_create :one_answer_only, :if => :text_field?
 
   private
 
