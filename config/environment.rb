@@ -7,7 +7,7 @@ RAILS_GEM_VERSION = '2.3.2' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
-  config.gem 'haml'
+  config.gem 'haml-edge', :lib => 'haml'
   config.gem 'authlogic'
   config.gem 'state_machine'
   config.gem "mbleigh-acts-as-taggable-on", :lib => "acts-as-taggable-on"

@@ -2,13 +2,22 @@
 %html{html_attrs}
   %head
     %title Quiz
-    = stylesheet_link_tag "quiz", "formtastic"
+    =# stylesheet_link_tag "quiz", "formtastic"
+    = stylesheet_link_tag 'compiled/screen.css', :media => 'screen, projection'
+    =# stylesheet_link_tag 'compiled/partials/_base.css'
+    = stylesheet_link_tag 'compiled/print.css', :media => 'print'
+    = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
+
     = javascript_include_tag 'jquery'
-  %body
-    %div#menu
-      - if current_user
-        = render "layouts/#{current_user.type.underscore}_menu"
-      - else
-        = render 'layouts/no_user_menu'
-    %span#notice= flash[:notice]
-    = yield
+  %body.three-col
+    #container
+      #header
+      #sidebar
+        - if current_user
+          = render "layouts/#{current_user.type.underscore}_menu"
+        - else
+          = render 'layouts/no_user_menu'
+      #content
+        %span#notice= flash[:notice]
+        = yield
+      #footer
