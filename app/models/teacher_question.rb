@@ -1,6 +1,7 @@
 class TeacherQuestion < ActiveRecord::Base
   acts_as_taggable_on :tags
   has_and_belongs_to_many :teacher_exams
+  belongs_to :teacher
   has_many :teacher_answers, :dependent => :destroy
   has_many :questions, :dependent => :destroy
   accepts_nested_attributes_for :teacher_answers, :allow_destroy => true

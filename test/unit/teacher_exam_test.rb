@@ -3,9 +3,10 @@ require 'test_helper'
 class TeacherExamTest < ActiveSupport::TestCase
   context "Valid teacher exam" do
     setup do
-      @teacher_exam = Factory(:teacher_exam)
-      @teacher_exam.teacher_questions << Factory(:teacher_question)
-      @teacher_exam.teacher_questions << Factory(:teacher_question)
+      teacher = Factory(:teacher)
+      @teacher_exam = Factory(:teacher_exam, :teacher => teacher)
+      @teacher_exam.teacher_questions << Factory(:teacher_question, :teacher => teacher)
+      @teacher_exam.teacher_questions << Factory(:teacher_question, :teacher => teacher)
     end
 
     should "have question number less or equal to teacher questions size" do
@@ -20,5 +21,11 @@ class TeacherExamTest < ActiveSupport::TestCase
       exam = Factory(:exam, :teacher_exam => @teacher_exam)
       assert_equal 2, Question.count
     end
+
+    should "not allow to create with questions not belonging to teacher" do
+      @teacher_exam.teacher_questions << Factory(:teacher_question, :teacher => Factory(:teacher))
+      assert !@teacher_exam.valid?
+    end
+
   end
 end

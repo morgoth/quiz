@@ -2,7 +2,7 @@ class TeacherQuestionsController < ApplicationController
   before_filter :require_teacher
 
   def index
-    @teacher_questions = params[:tag].nil? ? TeacherQuestion.all : TeacherQuestion.find_tagged_with( params[:tag])
+    @teacher_questions = params[:tag].nil? ? @current_user.teacher_questions.all : @current_user.teacher_questions.find_tagged_with( params[:tag])
     @tags = TeacherQuestion.tag_counts
   end
 
@@ -11,7 +11,7 @@ class TeacherQuestionsController < ApplicationController
   end
 
   def create
-    @teacher_question = TeacherQuestion.new(params[:teacher_question])
+    @teacher_question = @current_user.teacher_questions.build(params[:teacher_question])
     if @teacher_question.save
       flash[:notice] = "Question created"
       redirect_to teacher_question_path @teacher_question
@@ -21,15 +21,15 @@ class TeacherQuestionsController < ApplicationController
   end
 
   def show
-    @teacher_question = TeacherQuestion.find(params[:id])
+    @teacher_question = @current_user.teacher_questions.find(params[:id])
   end
 
   def edit
-    @teacher_question = TeacherQuestion.find(params[:id])
+    @teacher_question = @current_user.teacher_questions.find(params[:id])
   end
 
   def update
-    @teacher_question = TeacherQuestion.find(params[:id])
+    @teacher_question = @current_user.teacher_questions.find(params[:id])
     if @teacher_question.update_attributes(params[:teacher_question])
       flash[:notice] = "Question updated"
       redirect_to teacher_questions_path
@@ -39,7 +39,7 @@ class TeacherQuestionsController < ApplicationController
   end
 
   def destroy
-    @teacher_question = TeacherQuestion.find(params[:id])
+    @teacher_question = @current_user.teacher_questions.find(params[:id])
     @teacher_question.destroy
     flash[:notice] = "Question deleted"
     redirect_to teacher_questions_path

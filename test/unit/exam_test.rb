@@ -3,8 +3,9 @@ require 'test_helper'
 class ExamTest < ActiveSupport::TestCase
   context "Number of created questions" do
     setup do
-      @teacher_exam = Factory(:teacher_exam)
-      4.times { @teacher_exam.teacher_questions << Factory(:teacher_question) }
+      teacher = Factory(:teacher)
+      @teacher_exam = Factory(:teacher_exam, :teacher => teacher)
+      4.times { @teacher_exam.teacher_questions << Factory(:teacher_question, :teacher => teacher) }
       @exam = Factory.build(:exam, :teacher_exam => @teacher_exam)
     end
 
