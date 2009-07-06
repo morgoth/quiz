@@ -26,7 +26,7 @@ class ExamTest < ActiveSupport::TestCase
 
   context "Exam state" do
     setup do
-      @teacher_exam = Factory(:teacher_exam, :duration => '2001-01-01 00:05:00')
+      @teacher_exam = Factory(:teacher_exam, :duration => '00:05:00')
       4.times { @teacher_exam.teacher_questions << Factory(:teacher_question) }
       @exam = Factory.build(:exam, :teacher_exam => @teacher_exam, :state_event => 'prepare')
     end

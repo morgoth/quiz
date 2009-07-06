@@ -25,7 +25,7 @@ class TeacherQuestionsController < ApplicationController
   end
 
   def edit
-    @teacher_question = @current_user.teacher_questions.find(params[:id])
+    @teacher_question = @current_user.teacher_questions.find(params[:id], :include => :teacher_answers)
   end
 
   def update

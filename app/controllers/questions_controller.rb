@@ -9,7 +9,7 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-    @question = @exam.questions.find(params[:id])
+    @question = @exam.questions.find(params[:id], :include => :answers)
   end
 
   def update

@@ -5,6 +5,10 @@ module QuestionHelper
     hint.chop
   end
 
+  def time_to_end_exam(exam)
+    ((exam.started_at + exam.teacher_exam.duration.min.minutes) - Time.now).round
+  end
+
   def generate_chars(word)
     sign = word =~ /\A[+-]?\d+\Z/ ? '#' : 'x'
     sign*word.size+' '
