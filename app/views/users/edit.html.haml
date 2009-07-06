@@ -1,0 +1,5 @@
+- semantic_form_for :user, @user, :url => account_path, :html => { :method => :put } do |f|
+  = f.input :password
+  = f.input :password_confirmation
+  - f.buttons do
+    = f.submit "Commit"

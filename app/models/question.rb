@@ -13,8 +13,6 @@ class Question < ActiveRecord::Base
     answers.map { |a| a.points }.compact.inject { |sum, a| sum += a }
   end
 
-  # TODO: hint for answer - size of matching string
-
   def update_answers=(value)
     case value.keys.first
     when 'radio_button', 'check_box'

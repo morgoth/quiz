@@ -17,7 +17,11 @@ class Answer < ActiveRecord::Base
     when 'check_box', 'radio_button'
       self.points = value == 'true' ? teacher_answer.points : 0
     when 'text_field'
-      self.points = teacher_answer.content =~ /#{value}/i ? teacher_answer.points : 0
+      if value.empty?
+        self.points = 0
+      else
+        self.points = teacher_answer.content =~ /#{value}/i ? teacher_answer.points : 0
+      end
     end
   end
 end

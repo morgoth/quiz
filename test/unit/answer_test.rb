@@ -51,16 +51,22 @@ class AnswerTest < ActiveSupport::TestCase
       assert_equal 0, @answer.points
     end
 
-    should "correct when match content" do
+    should "be correct when match content" do
       @answer.value = 'string to match'
       @answer.save!
       assert_equal 1, @answer.points
     end
 
-    should "correct when match content with ignore case" do
+    should "be correct when match content with ignore case" do
       @answer.value = "String To Match"
       @answer.save!
       assert_equal 1, @answer.points
+    end
+
+    should "be incorrect when is empty" do
+      @answer.value = ''
+      @answer.save!
+      assert_equal 0, @answer.points
     end
 
   end
