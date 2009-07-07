@@ -31,3 +31,5 @@
 = link_to 'Edit', edit_teacher_exam_path(@teacher_exam)
 |
 = link_to 'Back', teacher_exams_path
+%br
+= link_to "PDF version", teacher_exam_path(@teacher_exam, :format => "pdf")

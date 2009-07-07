@@ -7,12 +7,13 @@ RAILS_GEM_VERSION = '2.3.2' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
-  config.gem 'haml-edge', :lib => 'haml'
+  config.gem 'haml'
   config.gem 'authlogic'
   config.gem 'state_machine'
   config.gem "mbleigh-acts-as-taggable-on", :lib => "acts-as-taggable-on"
   config.gem "justinfrench-formtastic", :lib => 'formtastic'
   config.gem 'ryanb-acts-as-list', :lib => 'acts_as_list'
+  config.gem 'prawn'
 
   config.time_zone = 'Warsaw'
 
