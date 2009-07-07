@@ -3,7 +3,7 @@
 - semantic_form_for [@exam, @question] do |f|
   = @question.content
   = f.input :state_event, :as => :hidden, :value => 'visit'
-  = render :partial => @question.teacher_question.question_type, :locals => { :question => @question, :disabled => nil }
+  = render :partial => @question.teacher_question.question_type, :locals => { :question => @question, :disabled => false }
   - f.buttons do
     = f.commit_button "next"
     - @exam.questions.each do |question|

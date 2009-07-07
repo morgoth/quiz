@@ -18,4 +18,11 @@ class StudentsController < ApplicationController
       render :action => :new
     end
   end
+
+  def destroy
+    @student = Student.find params[:id]
+    @student.destroy
+    flash[:notice] = "Student destroyed"
+    redirect_to students_path
+  end
 end

@@ -1,6 +1,8 @@
 %h1 Students:
 %ul
 - @students.each do |student|
-  %li= student.login
+  %li
+    = student.login
+    = link_to "delete", student, :method => :delete
 = link_to "Create student", new_student_path
 = link_to "Import students", new_student_import_path
