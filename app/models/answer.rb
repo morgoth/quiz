@@ -20,8 +20,15 @@ class Answer < ActiveRecord::Base
       if value.empty?
         self.points = 0
       else
-        self.points = teacher_answer.content =~ /#{value}/i ? teacher_answer.points : 0
+        self.points = levenshtein_match? ? teacher_answer.points : 0
       end
     end
+  end
+
+  def levenshtein_match?
+    # FIXME: problem with ruby 1.8 String.length on polish letters
+    # number 6 is taken from polish nerd quiz
+    distance = Levenshtein.distance(teacher_answer.content.downcase, value.downcase)
+    teacher_answer.content.gsub(' ','').length/6 >= distance
   end
 end

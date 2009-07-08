@@ -36,7 +36,7 @@ class AnswerTest < ActiveSupport::TestCase
       teacher_answer = TeacherAnswer.new(:teacher_question => teacher_question)
       teacher_answer.content = "string to match"
       teacher_answer.points = 1
-      assert teacher_answer.save
+      teacher_answer.save!
       teacher_question.teacher_answers << teacher_answer
       teacher_exam = Factory(:teacher_exam)
       teacher_exam.teacher_questions << teacher_question
@@ -67,6 +67,18 @@ class AnswerTest < ActiveSupport::TestCase
       @answer.value = ''
       @answer.save!
       assert_equal 0, @answer.points
+    end
+
+    should "be correct including levenshtein distance - typo" do
+      @answer.value = "string to atch"
+      @answer.save!
+      assert_equal 1, @answer.points
+    end
+
+    should "be correct including levenshtein distance on every 6 chars" do
+      @answer.value = "string to tch"
+      @answer.save!
+      assert_equal 1, @answer.points
     end
 
   end

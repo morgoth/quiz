@@ -14,7 +14,7 @@ Rails::Initializer.run do |config|
   config.gem "justinfrench-formtastic", :lib => 'formtastic'
   config.gem 'ryanb-acts-as-list', :lib => 'acts_as_list'
   config.gem 'prawn'
-
+  config.gem 'levenshtein'
   config.time_zone = 'Warsaw'
 
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
