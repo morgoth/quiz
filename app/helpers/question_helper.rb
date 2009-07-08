@@ -11,6 +11,6 @@ module QuestionHelper
 
   def generate_chars(word)
     sign = word =~ /\A[+-]?\d+\Z/ ? '#' : 'x'
-    sign*word.size+' '
+    sign*word.mb_chars.length+' '
   end
 end

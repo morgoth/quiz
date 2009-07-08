@@ -81,5 +81,11 @@ class AnswerTest < ActiveSupport::TestCase
       assert_equal 1, @answer.points
     end
 
+    should "be correct including polish letters" do
+      @answer.value = 'string to ąćtch'
+      @answer.save!
+      assert_equal 1, @answer.points
+    end
+
   end
 end

@@ -26,7 +26,6 @@ class Answer < ActiveRecord::Base
   end
 
   def levenshtein_match?
-    # FIXME: problem with ruby 1.8 String.length on polish letters
     # number 6 is taken from polish nerd quiz
     distance = Levenshtein.distance(teacher_answer.content.downcase, value.downcase)
     teacher_answer.content.gsub(' ','').length/6 >= distance
