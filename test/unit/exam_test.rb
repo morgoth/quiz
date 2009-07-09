@@ -26,8 +26,9 @@ class ExamTest < ActiveSupport::TestCase
 
   context "Exam state" do
     setup do
-      @teacher_exam = Factory(:teacher_exam, :duration => '00:05:00')
-      4.times { @teacher_exam.teacher_questions << Factory(:teacher_question) }
+      teacher = Factory(:teacher)
+      @teacher_exam = Factory(:teacher_exam, :duration => '00:05:00', :teacher => teacher)
+      4.times { @teacher_exam.teacher_questions << Factory(:teacher_question, :teacher => teacher) }
       @exam = Factory.build(:exam, :teacher_exam => @teacher_exam, :state_event => 'prepare')
     end
 
@@ -76,5 +77,20 @@ class ExamTest < ActiveSupport::TestCase
       assert_not_equal @exam.started_at, @exam.updated_at
     end
 
+    should "not be started when start date is not a past" do
+      @teacher_exam.start_date = (Time.now + 5.minutes)
+      @teacher_exam.save!
+      @exam.save!
+      @exam.start
+      assert_not_equal "started", @exam.state
+    end
+
+    should "be started when start date is nil" do
+      @teacher_exam.start_date = nil
+      @teacher_exam.save!
+      @exam.save!
+      @exam.start
+      assert_equal "started", @exam.state
+    end
   end
 end

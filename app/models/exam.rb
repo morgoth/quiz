@@ -12,7 +12,7 @@ class Exam < ActiveRecord::Base
     end
 
     event :start do
-      transition [:prepared, :started, :finished] => :started
+      transition [:prepared, :started, :finished] => :started, :if => :time_to_start?
     end
 
     event :try_finish do
@@ -36,6 +36,10 @@ class Exam < ActiveRecord::Base
 
   def set_started_at
     self.started_at = Time.now
+  end
+
+  def time_to_start?
+    teacher_exam.start_date.nil? ? true : teacher_exam.start_date.past?
   end
 
   def time_to_finish?

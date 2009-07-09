@@ -11,6 +11,10 @@ class TeacherQuestion < ActiveRecord::Base
   validates_inclusion_of :question_type, :in => QUESTION_TYPES
   validate_on_update :question_type_not_changed
 
+  def max_points
+    teacher_answers.map { |q| q.points if q.points > 0 }.compact.inject { |sum, q| sum += q }
+  end
+
   private
 
   def question_type_not_changed

@@ -9,6 +9,10 @@ class TeacherExam < ActiveRecord::Base
   validate :size_of_question_number, :owner_of_question
   #validates_numericality_of :question_number, :greater_than_or_equal_to => :teacher_questions_size
 
+  def max_points
+    teacher_questions.map { |q| q.max_points }.compact.inject { |sum, q| sum += q }
+  end
+
   private
 
   def size_of_question_number

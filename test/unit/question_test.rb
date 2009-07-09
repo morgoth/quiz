@@ -24,7 +24,7 @@ class QuestionTest < ActiveSupport::TestCase
       @question = Factory.build(:question, :teacher_question => @teacher_question)
     end
 
-    should "update answers values if changed" do
+    should "update answers value if changed" do
       @question.save!
       assert_equal 3, Answer.count
       answer1 = Answer.find_by_teacher_answer_id(@teacher_answer1.id)

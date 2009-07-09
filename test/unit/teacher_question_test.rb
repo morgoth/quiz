@@ -12,4 +12,16 @@ class TeacherQuestionTest < ActiveSupport::TestCase
       assert @teacher_question.errors.invalid? :question_type
     end
   end
+
+  context "Max points" do
+    setup { @teacher_question = Factory.build(:teacher_question) }
+
+    should "be calculated" do
+      @teacher_question.teacher_answers << Factory(:teacher_answer, :points => 0.3)
+      @teacher_question.teacher_answers << Factory(:teacher_answer, :points => -0.8)
+      @teacher_question.teacher_answers << Factory(:teacher_answer, :points => 0.2)
+      @teacher_question.save!
+      assert_equal 0.5, @teacher_question.max_points
+    end
+  end
 end
