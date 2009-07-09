@@ -1,3 +1,3 @@
-= generate_hint(question.answers.first.value) unless disabled
+= generate_hint(question.teacher_question.teacher_answers.first.content) unless disabled
 = text_field_tag "question[update_answers][text_field]", question.answers.first.value, :disabled => disabled
 = question.answers.first.points if disabled
