@@ -1,7 +1,10 @@
-%h1 New student
-- semantic_form_for @student do |f|
-  = f.input :login
-  = f.input :password
-  = f.input :password_confirmation
-  - f.buttons do
-    = f.commit_button
+.block
+  .hd
+    %h1 New student
+  .bd
+    - semantic_form_for @student do |f|
+      = f.input :login
+      = f.input :password
+      = f.input :password_confirmation
+      - f.buttons do
+        = f.commit_button "Commit"

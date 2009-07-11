@@ -1,6 +1,23 @@
-%h1 Your exams:
-%ul
-  - @exams.each do |exam|
-    %li
-      = link_to exam.name, edit_exam_path(exam)
-      = link_to_if exam.finished?, "Show quesitons", exam_questions_path(exam)
+.block
+  .hd
+    %h1 Listing exams
+  .bd
+    %table
+      %thead
+        %tr
+          %td
+            Name
+          %td
+            Go to exam
+          %td
+            Show questions
+          %td
+      %tbody
+        - @exams.each do |exam|
+          %tr
+            %td
+              = h exam.name
+            %td
+              = link_to exam.name, edit_exam_path(exam)
+            %td
+              = link_to_if exam.finished?, "Show quesitons", exam_questions_path(exam)

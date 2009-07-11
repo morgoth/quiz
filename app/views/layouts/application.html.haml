@@ -3,21 +3,34 @@
   %head
     %title Quiz
     =# stylesheet_link_tag "quiz", "formtastic"
-    = stylesheet_link_tag 'compiled/screen.css', :media => 'screen, projection'
+    =# stylesheet_link_tag 'compiled/screen.css', :media => 'screen, projection'
     =# stylesheet_link_tag 'compiled/partials/_base.css'
-    = stylesheet_link_tag 'compiled/print.css', :media => 'print'
-    = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
+    =# stylesheet_link_tag 'compiled/print.css', :media => 'print'
+    =# stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
+    = stylesheet_link_tag "http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css"
+    = stylesheet_link_tag 'yuiapp'
+    = stylesheet_link_tag 'aqua'
 
     = javascript_include_tag 'jquery'
-  %body.three-col
-    #container
-      #header
-      #sidebar
-        - if current_user
-          = render "layouts/#{current_user.type.underscore}_menu"
-        - else
-          = render 'layouts/no_user_menu'
-      #content
-        %span#notice= flash[:notice]
-        = yield
-      #footer
+  %body.rounded
+    #doc4
+      #hd
+        %h1 Quiz
+        #navigation
+          - if current_user
+            = render "layouts/#{current_user.type.underscore}_menu"
+          %ul#user-navigation
+            - if current_user
+              %li= link_to "Account", account_path
+              %li= link_to "Log out", user_session_path, :method => :delete
+            - else
+              %li= link_to "Log in", new_user_session_path
+          .clear
+      #bd
+        #yui-main
+          - if flash[:notice]
+            %p.alert.notice= flash[:notice]
+          = yield
+        #sidebar
+      #ft
+        2009

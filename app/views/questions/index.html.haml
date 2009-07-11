@@ -1,7 +1,12 @@
-%h1 Questions:
-Score:
-= @exam.sum_points
-%ul
-  - @questions.each do |question|
-    %li= question.content
-    = render :partial => question.teacher_question.question_type, :locals => { :question => question, :disabled => true }
+.block
+  .hd
+    %h1 Questions
+  .bd
+    %h2
+      Score:
+      = @exam.sum_points
+    %ul.list
+      - @questions.each do |question|
+        %li
+          = question.content
+          = render :partial => question.teacher_question.question_type, :locals => { :question => question, :disabled => true }

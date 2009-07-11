@@ -1,21 +1,24 @@
-%h1
-  Listing exams
-%table
-  %tr
-    %th
-      Name
-    %th
-      Teacher
-  - @teacher_exams.each do |exam|
-    %tr
-      %td
-        = h exam.name
-      %td
-        = h exam.teacher.login
-      %td
-        = link_to 'Show', exam
-      %td
-        = link_to 'Edit', edit_teacher_exam_path(exam)
-      %td
-        = link_to 'Destroy', exam, :method => :delete
-= link_to 'New exam', new_teacher_exam_path
+.block
+  .hd
+    %h1 Listing exams
+  .bd
+    %table
+      %thead
+        %tr
+          %td
+            Name
+          %td
+            Teacher
+          %td
+      %tbody
+        - @teacher_exams.each do |exam|
+          %tr
+            %td
+              = h exam.name
+            %td
+              = h exam.teacher.login
+            %td.text-right
+              = link_to 'Show', exam
+              = link_to 'Edit', edit_teacher_exam_path(exam)
+              = link_to 'Destroy', exam, :method => :delete
+    = link_to 'New exam', new_teacher_exam_path

@@ -1,5 +1,8 @@
-= @exam.name
-- semantic_form_for @exam do |f|
-  = f.input :state_event, :as => :hidden, :value => 'start'
-  - f.buttons do
-    = f.commit_button "start exam"
+.block
+  .hd
+    = @exam.name
+  .bd
+    - semantic_form_for @exam do |f|
+      = f.input :state_event, :as => :hidden, :value => 'start'
+      - f.buttons do
+        = f.commit_button "start exam"

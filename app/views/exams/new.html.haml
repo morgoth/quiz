@@ -1,7 +1,10 @@
-- semantic_form_for @exam do |f|
-  = f.error_messages
-  = f.input :state_event, :as => :hidden, :value => 'prepare'
-  = f.input :teacher_exam, :collection => @current_user.teacher_exams
-  = f.input :student
-  - f.buttons do
-    = f.commit_button
+.block
+  .hd
+    %h1 New exam
+  .bd
+    - semantic_form_for @exam do |f|
+      = f.input :state_event, :as => :hidden, :value => 'prepare'
+      = f.input :teacher_exam, :collection => @current_user.teacher_exams
+      = f.input :student
+      - f.buttons do
+        = f.commit_button "Commit"

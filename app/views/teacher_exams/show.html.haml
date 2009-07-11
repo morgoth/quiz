@@ -1,43 +1,49 @@
-%p
-  %b
-    Name:
-  = h @teacher_exam.name
-%p
-  %b
-    Question number in exam:
-  = h @teacher_exam.question_number
-%p
-  %b
-    Duration:
-  = h pluralize(@teacher_exam.duration.min, 'minute')
-%p
-  %b
-    Start date:
-  = h @teacher_exam.start_date
-%p
-  %b
-    Teacher:
-  = h @teacher_exam.teacher.login
-%p
-  %b
-    Questions:
-  - @teacher_exam.teacher_questions.each do |question|
+.block
+  .hd
+  .bd
+    %p
+      %b
+        Name:
+      = h @teacher_exam.name
+    %p
+      %b
+        Question number in exam:
+      = h @teacher_exam.question_number
+    %p
+      %b
+        Duration:
+      = h pluralize(@teacher_exam.duration.min, 'minute')
+    %p
+      %b
+        Start date:
+      = h @teacher_exam.start_date
+    %p
+      %b
+        Teacher:
+      = h @teacher_exam.teacher.login
+    %p
+      %b
+        Questions:
+      - @teacher_exam.teacher_questions.each do |question|
+        %br
+        = question.content
+    %p
+      %b
+        Max points:
+      = @teacher_exam.max_points
+    %p
+      %b
+        Students:
+      - @teacher_exam.exams.each do |exam|
+        %br
+        = exam.student.login
+        = exam.sum_points
+        = exam.state
+    = link_to 'Edit', edit_teacher_exam_path(@teacher_exam)
+    |
+    = link_to 'Back', teacher_exams_path
     %br
-    = question.content
-%p
-  %b
-    Max points:
-  = @teacher_exam.max_points
-%p
-  %b
-    Students:
-  - @teacher_exam.exams.each do |exam|
-    %br
-    = exam.student.login
-    = exam.sum_points
-    = exam.state
-= link_to 'Edit', edit_teacher_exam_path(@teacher_exam)
-|
-= link_to 'Back', teacher_exams_path
-%br
-= link_to "PDF version", teacher_exam_path(@teacher_exam, :format => "pdf")
+    = link_to "PDF version", teacher_exam_path(@teacher_exam, :format => "pdf")
+
+
+

@@ -1,28 +1,32 @@
-%h1
-  Listing questions
-- unless @tags.empty?
-  - tag_cloud @tags, %w(tag1 tag2 tag3 tag4) do |tag, css_class|
-    = link_to tag.name, teacher_questions_path(:tag => tag.name), :class => css_class
-%table
-  %tr
-    %th
-      Content
-    %th
-      Answers
-    %th
-      Question type
-  - @teacher_questions.each do |question|
-    %tr
-      %td
-        = h question.content
-      %td
-        =  question.teacher_answers.count
-      %td
-        =  question.question_type
-      %td
-        = link_to 'Show', question
-      %td
-        = link_to 'Edit', edit_teacher_question_path(question)
-      %td
-        = link_to 'Destroy', question, :method => :delete
-= link_to 'New question', new_teacher_question_path
+.block
+  .hd
+    %h1 Listing questions
+  .bd
+    - unless @tags.empty?
+      %h3
+        - tag_cloud @tags, %w(tag1 tag2 tag3 tag4) do |tag, css_class|
+          = link_to tag.name, teacher_questions_path(:tag => tag.name), :class => css_class
+    %table
+      %thead
+        %tr
+          %td
+            Content
+          %td
+            Answers
+          %td
+            Question type
+          %td
+      %tbody
+        - @teacher_questions.each do |question|
+          %tr
+            %td
+              = h question.content
+            %td
+              =  question.teacher_answers.count
+            %td
+              =  question.question_type
+            %td.text-right
+              = link_to 'Show', question
+              = link_to 'Edit', edit_teacher_question_path(question)
+              = link_to 'Destroy', question, :method => :delete
+    = link_to 'New question', new_teacher_question_path

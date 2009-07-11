@@ -1,3 +1,6 @@
-= generate_hint(question.teacher_question.teacher_answers.first.content) unless disabled
+%label
+  = question.content
 = text_field_tag "question[student_answers][text_field]", question.answers.first.value, :disabled => disabled
+- unless disabled
+  %p.inline-hints= generate_hint(question.teacher_question.teacher_answers.first.content)
 = question.answers.first.points if disabled

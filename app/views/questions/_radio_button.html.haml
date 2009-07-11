@@ -1,6 +1,11 @@
-%ul
-  - question.answers.each do |answer|
-    %li
-      = radio_button_tag "question[student_answers][radio_button]", answer.id, answer.value == 'true', :disabled => disabled
-      = answer.content
-      = answer.points if disabled and answer.value == 'true'
+%fieldset
+  %legend
+    %span.label
+      = question.content
+  %ol.list
+    - question.answers.each do |answer|
+      %li
+        %label
+          = radio_button_tag "question[student_answers][radio_button]", answer.id, answer.value == 'true', :disabled => disabled
+          = answer.content
+        = answer.points if disabled and answer.value == 'true'

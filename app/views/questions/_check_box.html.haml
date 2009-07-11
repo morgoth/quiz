@@ -1,6 +1,11 @@
-%ul
-  - question.answers.each do |answer|
-    %li
-      = check_box_tag "question[student_answers][check_box][]", answer.id, answer.value == 'true', :disabled => disabled
-      = answer.content
-      = answer.points if disabled and answer.value == 'true'
+%fieldset
+  %legend
+    %span.label
+      = question.content
+  %ol.list
+    - question.answers.each do |answer|
+      %li
+        %label
+          = check_box_tag "question[student_answers][check_box][]", answer.id, answer.value == 'true', :disabled => disabled
+          = answer.content
+        = answer.points if disabled and answer.value == 'true'

@@ -1,5 +1,8 @@
-%h1 New question
-- semantic_form_for @teacher_question do |f|
-  = render :partial => 'form', :locals => { :f => f }
-  - f.buttons do
-    = f.commit_button
+.block
+  .hd
+    %h2 New question
+  .bd
+    - semantic_form_for @teacher_question do |f|
+      = render :partial => 'form', :locals => { :f => f }
+      - f.buttons do
+        = f.commit_button "Commit"
