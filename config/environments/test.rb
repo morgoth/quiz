@@ -30,3 +30,4 @@ config.gem 'thoughtbot-factory_girl', :lib => 'factory_girl'
 config.gem 'cucumber', :lib => false
 config.gem 'webrat', :lib => false
 config.gem 'thoughtbot-shoulda', :lib => 'shoulda'
+config.gem 'rr'

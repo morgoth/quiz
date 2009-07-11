@@ -22,4 +22,14 @@ class QuestionHelperTest < ActiveSupport::TestCase
     value = "33-1: one, two:"
     assert_equal '##-#: xxx, xxx: (5 4 4)', generate_hint(value)
   end
+
+  should "change polish letters" do
+    value = "Żółty wór"
+    assert_equal 'xxxxx xxx (5 3)', generate_hint(value)
+  end
+
+  should "not change _" do
+    value = "some_word "
+    assert_equal 'xxxx_xxxx (9)', generate_hint(value)
+  end
 end

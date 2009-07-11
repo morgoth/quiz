@@ -13,15 +13,8 @@ class Question < ActiveRecord::Base
     answers.map { |a| a.points }.compact.inject { |sum, a| sum += a }
   end
 
-  def update_answers=(value)
-    case value.keys.first
-    when 'radio_button', 'check_box'
-      answers.each do |answer|
-        value.values.flatten.include?(answer.id.to_s) ? answer.update_attributes(:value => 'true') : answer.update_attributes(:value => 'false')
-      end
-    when 'text_field'
-      answers.first.update_attributes(:value => value.values.first)
-    end
+  def student_answers=(value)
+    @student_answers = value
   end
 
   state_machine do
@@ -34,13 +27,25 @@ class Question < ActiveRecord::Base
     end
 
     after_transition nil => :prepared, :do => :set_teacher_answers
-    after_transition any => :visited, :do => :try_finish_exam
+    after_transition any => :visited, :do => :manage_exam_and_answers
   end
 
   private
 
-  def try_finish_exam
+  def manage_exam_and_answers
     exam.try_finish
+    set_student_answers unless exam.finished?
+  end
+
+  def set_student_answers
+    case @student_answers.keys.first
+    when 'radio_button', 'check_box'
+      answers.each do |answer|
+        @student_answers.values.flatten.include?(answer.id.to_s) ? answer.update_attributes(:value => 'true') : answer.update_attributes(:value => 'false')
+      end
+    when 'text_field'
+      answers.first.update_attributes(:value => @student_answers.values.first)
+    end
   end
 
   def set_teacher_answers

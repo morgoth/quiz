@@ -1,6 +1,6 @@
 %ul
   - question.answers.each do |answer|
     %li
-      = check_box_tag "question[update_answers][check_box][]", answer.id, answer.value == 'true', :disabled => disabled
+      = check_box_tag "question[student_answers][check_box][]", answer.id, answer.value == 'true', :disabled => disabled
       = answer.content
       = answer.points if disabled and answer.value == 'true'

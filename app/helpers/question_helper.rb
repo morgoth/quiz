@@ -3,7 +3,7 @@ module QuestionHelper
     hint = ''
     sizes = '('
     value.split(' ').each do |word|
-      chars = word.gsub(/[A-Za-z]/, 'x').gsub(/\d/, '#')
+      chars = word.gsub(/\d/, '#').gsub(/\w/) { |x| x != '_' ? 'x' : '_' }
       hint << chars + ' '
       sizes << chars.mb_chars.length.to_s + ' '
     end
