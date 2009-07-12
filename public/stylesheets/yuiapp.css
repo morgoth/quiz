@@ -4,7 +4,7 @@ html, body { background-color:#f0f0ee; color:#222; }
 #doc3 { margin:0; }
 
 /* Header */
-#header { padding:1.2em 0 1.2em 0; background-color:#7a1818; }
+#header { background-color:#7a1818; }
 h1 { font-size:230%; color:#fff; }
 
 #navigation { margin-top:1.5em; background-color:#262626; height:1%; }

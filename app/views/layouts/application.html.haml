@@ -9,7 +9,7 @@
     =# stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
     =# stylesheet_link_tag "http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css"
     = stylesheet_link_tag 'compiled/screen.css', :media => 'screen, projection'
-    = stylesheet_link_tag 'yuiapp'
+    =# stylesheet_link_tag 'yuiapp'
     =# stylesheet_link_tag 'aqua'
 
     = javascript_include_tag 'jquery'
@@ -22,11 +22,10 @@
             = render "layouts/#{current_user.type.underscore}_menu"
           %ul#user-navigation
             - if current_user
-              %li= link_to "Account", account_path
-              %li= link_to "Log out", user_session_path, :method => :delete
+              %li.first= link_to "Account", account_path
+              %li.last= link_to "Log out", user_session_path, :method => :delete
             - else
-              %li= link_to "Log in", new_user_session_path
-          .clear
+              %li.last= link_to "Log in", new_user_session_path
       #sidebar
         .block
           .hd

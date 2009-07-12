@@ -1,23 +1,49 @@
 @import partials/base.sass
 @import blueprint.sass
 @import compass/reset.sass, compass/utilities.sass
+@import partials/block.sass
+@import partials/rounded.sass
+@import partials/table.sass
 
 +blueprint-typography
 +blueprint-debug
 
-body
-  font-size: 13px
-  line-height: 1.231
+!block_background= #187a7a
+//#7a1818
 
+body
+  background-color: #f0f0ee
+  color: #222
 #container
   +container
-#header, #footer
-  +column(24)
+  +block(!block_background)
+
 #header
+  +column(24)
+  background-color= !block_background
+  margin-bottom: 1em
+
+#header
+  #navigation
+    background-color: #262626
+    +rounded
+    a
+      +hover-link
+    #primary-navigation
+      +horizontal-list
+      float: left
+      font-size: 116%
+    #user-navigation
+      +horizontal-list
+      float: right
+      font-size: 93%
 #content
   +column(20, true)
+  +table
 #sidebar
   +column(4)
+
+
 
 
 
