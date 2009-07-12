@@ -10,12 +10,12 @@
     =# stylesheet_link_tag "http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css"
     = stylesheet_link_tag 'compiled/screen.css', :media => 'screen, projection'
     = stylesheet_link_tag 'yuiapp'
-    = stylesheet_link_tag 'aqua'
+    =# stylesheet_link_tag 'aqua'
 
     = javascript_include_tag 'jquery'
   %body.rounded
-    #doc4
-      #hd
+    #container
+      #header
         %h1 Quiz
         #navigation
           - if current_user
@@ -27,11 +27,15 @@
             - else
               %li= link_to "Log in", new_user_session_path
           .clear
-      #bd
-        #yui-main
-          - if flash[:notice]
-            %p.alert.notice= flash[:notice]
-          = yield
-        #sidebar
-      #ft
+      #sidebar
+        .block
+          .hd
+            links
+          .bd
+            dupa
+      #content
+        - if flash[:notice]
+          %p.alert.notice= flash[:notice]
+        = yield
+      #footer
         2009

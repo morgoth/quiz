@@ -1,13 +1,32 @@
-@import blueprint.sass
-//@import blueprint/modules/scaffolding.sass
 @import partials/base.sass
-//@import blueprint/modules/typography.sass
-//@import blueprint/modules/colors.sass
+@import blueprint.sass
+@import compass/reset.sass, compass/utilities.sass
+
++blueprint-typography
++blueprint-debug
+
 body
   font-size: 13px
   line-height: 1.231
-  #doc4
-    +container
+
+#container
+  +container
+#header, #footer
+  +column(24)
+#header
+#content
+  +column(20, true)
+#sidebar
+  +column(4)
+
+
+
+
+//body
+  //font-size: 13px
+  //line-height: 1.231
+  //#doc4
+    //+container
     //width: 74.923em
   //+blueprint-typography
   // Remove the scaffolding when you're ready to start doing visual design.
