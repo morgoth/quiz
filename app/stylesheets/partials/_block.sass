@@ -1,7 +1,9 @@
-=block(!block_background= #7a1818)
+@import rounded.sass
+=block(!block_background= #7a1818, !header_color=#fff)
   .block
     margin-bottom: 1.5em
     .hd
+      +rounded
       background-color= !block_background
       padding: 0.7em 1em
       color: #fff
@@ -10,7 +12,7 @@
         font-size:100%
         margin-bottom:0
       h1
-        color: #fff
+        color= !header_color
     .bd
       padding: 1em
       background-color: #fff
@@ -18,3 +20,5 @@
         color= !block_background
       h3
         color= !block_background
+      a
+        +link-colors(!block_background)

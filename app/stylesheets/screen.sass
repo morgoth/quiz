@@ -2,46 +2,74 @@
 @import blueprint.sass
 @import compass/reset.sass, compass/utilities.sass
 @import partials/block.sass
-@import partials/rounded.sass
 @import partials/table.sass
+@import partials/formtastic.sass
 
 +blueprint-typography
 +blueprint-debug
 
-!block_background= #187a7a
+!main_color= #187a7a
+!header_color= #fff
 //#7a1818
 
 body
   background-color: #f0f0ee
   color: #222
+  font-size: 13px
+  line-height: 1.231
+a
+  +hover-link
 #container
   +container
-  +block(!block_background)
-
+  +block(!main_color, !header_color)
 #header
-  +column(24)
-  background-color= !block_background
-  margin-bottom: 1em
+  +column(24, true)
+  background-color= !main_color
+  margin-bottom= !blueprint_grid_margin
+  h1
+    padding: 0.4em 0 0 0.4em
+    margin-bottom: 0
+    color= !header_color
 
-#header
-  #navigation
-    background-color: #262626
-    +rounded
+#navigation
+  +column(24, true)
+  background-color: #262626
+  margin-top: 1.5em
+  +rounded
+  a
+    +link-colors(#fff)
+    line-height: 2.5em
+
+  #primary-navigation
+    +horizontal-list
+    float: left
+    li
+      a
+        padding: 1em 0.8em
+        font-size: 116%
+    .active
+      a
+        background-color: #f0f0ee
+        color: #000
+        +rounded
+  #user-navigation
+    +horizontal-list
+    float: right
     a
-      +hover-link
-    #primary-navigation
-      +horizontal-list
-      float: left
-      font-size: 116%
-    #user-navigation
-      +horizontal-list
-      float: right
+      padding: 1em 0.5em
       font-size: 93%
+
 #content
   +column(20, true)
   +table
 #sidebar
   +column(4)
+#footer
+  +column(24, true)
+  text-align: center
+  font-size: 85%
+  padding: 1em 0
+  color: #262626
 
 
 
