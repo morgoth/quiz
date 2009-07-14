@@ -33,8 +33,7 @@
           .bd
             dupa
       #content
-        - if flash[:notice]
-          %p.alert.notice= flash[:notice]
+        = flash_messages
         = yield
       #footer
         2009
