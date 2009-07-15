@@ -14,8 +14,6 @@
         Tags:
       = h @teacher_question.tags.to_sentence(:last_word_connector => ', ', :two_words_connector => ', ')
     = link_to 'Edit', edit_teacher_question_path(@teacher_question)
-    |
-    = link_to 'Back', teacher_questions_path
     %h3 Answers:
     %table
       %thead
@@ -34,3 +32,4 @@
         = f.input :points
         - f.buttons do
           = f.commit_button "Create"
+= render :partial => 'sidebar/teacher_questions'

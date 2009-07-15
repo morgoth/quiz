@@ -32,9 +32,11 @@ a
     color= !header_color
 
 #navigation
-  +column(24, true)
+  +push(1)
+  +column(22)
   background-color: #262626
   margin-top: 1.5em
+  margin-bottom: 0
   +rounded
   a
     +link-colors(#fff)
@@ -47,11 +49,10 @@ a
       a
         padding: 1em 0.8em
         font-size: 116%
-    .active
-      a
-        background-color: #f0f0ee
-        color: #000
-        +rounded
+        &.active
+          background-color: #f0f0ee
+          color: #000
+          +rounded
   #user-navigation
     +horizontal-list
     float: right
@@ -62,8 +63,12 @@ a
 #content
   +column(20, true)
   +table
+
 #sidebar
   +column(4)
+  +no-bullets
+  ul
+    margin: 0
 #footer
   +column(24, true)
   text-align: center

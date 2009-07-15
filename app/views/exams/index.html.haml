@@ -21,3 +21,4 @@
               = link_to exam.name, edit_exam_path(exam)
             %td
               = link_to_if exam.finished?, "Show quesitons", exam_questions_path(exam)
+= render :partial => 'sidebar/exams'

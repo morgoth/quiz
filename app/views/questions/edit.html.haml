@@ -12,3 +12,4 @@
         - @exam.questions.each do |question|
           = f.commit_button "#{question.position}"
         = f.commit_button "finish", :button_html => { :class => 'finish' }
+= render :partial => 'sidebar/exams'

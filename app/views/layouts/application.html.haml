@@ -27,11 +27,7 @@
             - else
               %li.last= link_to "Log in", new_user_session_path
       #sidebar
-        .block
-          .hd
-            links
-          .bd
-            dupa
+        = yield :sidebar
       #content
         = flash_messages
         = yield

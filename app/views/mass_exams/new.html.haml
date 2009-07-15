@@ -2,10 +2,9 @@
   .hd
     %h1 New exam
   .bd
-    %h3
-      = link_to "Create single exam", new_exam_path
     - semantic_form_for @mass_exam do |f|
       = f.input :teacher_exam, :as => :select, :collection => current_user.teacher_exams
       = f.input :student_ids, :as => :select, :collection => Student.all, :input_html => { :multiple => true }
       - f.buttons do
         = f.commit_button "Commit"
+= render :partial => 'sidebar/new_exams'

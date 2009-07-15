@@ -29,4 +29,4 @@
               = link_to 'Show', question
               = link_to 'Edit', edit_teacher_question_path(question)
               = link_to 'Destroy', question, :method => :delete
-    = link_to 'New question', new_teacher_question_path
+= render :partial => 'sidebar/teacher_questions'

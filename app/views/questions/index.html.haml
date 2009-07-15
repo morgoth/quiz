@@ -10,3 +10,4 @@
         %li
           = question.content
           = render :partial => question.teacher_question.question_type, :locals => { :question => question, :disabled => true }
+= render :partial => 'sidebar/exams'

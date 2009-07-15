@@ -21,4 +21,4 @@
               = link_to 'Show', exam
               = link_to 'Edit', edit_teacher_exam_path(exam)
               = link_to 'Destroy', exam, :method => :delete
-    = link_to 'New exam', new_teacher_exam_path
+= render :partial => 'sidebar/teacher_exams'

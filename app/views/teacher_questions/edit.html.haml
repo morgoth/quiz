@@ -11,4 +11,4 @@
           = af.input :_delete, :as => :boolean, :required => false
       - f.buttons do
         = f.commit_button, "Commit"
-    = link_to 'Back', teacher_questions_path
+= render :partial => 'sidebar/teacher_questions'

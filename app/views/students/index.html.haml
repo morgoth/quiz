@@ -2,9 +2,6 @@
   .hd
     %h1 Listing students
   .bd
-    %h2
-      = link_to "Create student", new_student_path
-      = link_to "Import students", new_student_import_path
     %table
       %thead
         %tr
@@ -18,3 +15,4 @@
               = h student.login
             %td.text-right
               = link_to 'Destroy', student, :method => :delete
+= render :partial => 'sidebar/students'

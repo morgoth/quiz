@@ -1,0 +1,7 @@
+- content_for :sidebar do
+  .block
+    .hd
+    .bd
+      %ul
+        %li= link_to 'List exams', teacher_exams_path
+        %li= link_to 'New exam', new_teacher_exam_path

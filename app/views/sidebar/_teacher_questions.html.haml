@@ -1,0 +1,7 @@
+- content_for :sidebar do
+  .block
+    .hd
+    .bd
+      %ul
+        %li= link_to "List questions", teacher_questions_path
+        %li= link_to "New question", new_teacher_question_path

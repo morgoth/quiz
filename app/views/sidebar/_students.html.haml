@@ -1,0 +1,8 @@
+- content_for :sidebar do
+  .block
+    .hd
+    .bd
+      %ul
+        %li= link_to "List students", students_path
+        %li= link_to "Create student", new_student_path
+        %li= link_to "Import students", new_student_import_path
