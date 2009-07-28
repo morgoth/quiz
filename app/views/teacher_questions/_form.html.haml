@@ -4,3 +4,5 @@
 - else
   = text_field_tag :question_type, f.object.question_type, :disabled => true
 = f.input :tag_list, :required => false
+- semantic_fields_for :picture do |fp|
+  = fp.input :picture_file_size#:picture, :as => :file

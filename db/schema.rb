@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090709181000) do
+ActiveRecord::Schema.define(:version => 20090728164221) do
 
   create_table "answers", :force => true do |t|
     t.integer  "teacher_answer_id"
@@ -33,6 +33,17 @@ ActiveRecord::Schema.define(:version => 20090709181000) do
   create_table "mass_exams", :force => true do |t|
     t.integer  "teacher_id"
     t.integer  "teacher_exam_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pictures", :force => true do |t|
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
