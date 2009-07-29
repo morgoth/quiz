@@ -3,6 +3,7 @@ class TeacherAnswersController < ApplicationController
 
   def new
     @teacher_answer = TeacherAnswer.new
+    @teacher_answer.picture = Picture.new
   end
 
   def edit

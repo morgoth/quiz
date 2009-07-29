@@ -1,10 +1,12 @@
 class TeacherAnswer < ActiveRecord::Base
   belongs_to :teacher_question
-  has_one :picture, :as => :imageable
+  has_one :picture, :as => :imageable, :dependent => :destroy
 
   validates_numericality_of :points
   validates_presence_of :teacher_question
   validate_on_create :one_answer_only, :if => :text_field?
+
+  accepts_nested_attributes_for :picture
 
   private
 

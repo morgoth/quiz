@@ -3,3 +3,4 @@ tmp/**/*
 db/*.sqlite3
 config/database.yml
 public/stylesheets/compiled/*
+public/images/pictures/**/*

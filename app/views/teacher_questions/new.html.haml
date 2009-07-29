@@ -2,7 +2,7 @@
   .hd
     %h2 New question
   .bd
-    - semantic_form_for @teacher_question, :html => { :multipart => true } do |f|
+    - semantic_form_for setup_picture(@teacher_question), :html => { :multipart => true } do |f|
       = render :partial => 'form', :locals => { :f => f }
       - f.buttons do
         = f.commit_button "Commit"

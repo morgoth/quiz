@@ -24,7 +24,7 @@
             %td
               =  question.teacher_answers.count
             %td
-              =  question.question_type
+              =  question.question_type.titleize
             %td.text-right
               = link_to 'Show', question
               = link_to 'Edit', edit_teacher_question_path(question)

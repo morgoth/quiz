@@ -2,10 +2,12 @@
   %legend
     %span.label
       = question.content
+      = picture_tag(question)
   %ol.list
     - question.answers.each do |answer|
       %li
         %label
           = radio_button_tag "question[student_answers][radio_button]", answer.id, answer.value == 'true', :disabled => disabled
           = answer.content
+          = picture_tag(answer)
         = answer.points if disabled and answer.value == 'true'

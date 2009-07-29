@@ -5,7 +5,7 @@ class TeacherQuestion < ActiveRecord::Base
   belongs_to :teacher
   has_many :teacher_answers, :dependent => :destroy
   has_many :questions, :dependent => :destroy
-  has_one :picture, :as => :imageable
+  has_one :picture, :as => :imageable, :dependent => :destroy
 
   accepts_nested_attributes_for :teacher_answers, :allow_destroy => true
   accepts_nested_attributes_for :picture

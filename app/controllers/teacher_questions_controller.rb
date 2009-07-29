@@ -8,6 +8,7 @@ class TeacherQuestionsController < ApplicationController
 
   def new
     @teacher_question = TeacherQuestion.new
+    #@teacher_question.picture = Picture.new
   end
 
   def create
@@ -22,6 +23,7 @@ class TeacherQuestionsController < ApplicationController
 
   def show
     @teacher_question = @current_user.teacher_questions.find(params[:id])
+
   end
 
   def edit

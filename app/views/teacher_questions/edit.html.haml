@@ -2,7 +2,7 @@
   .hd
     %h1 Edit question
   .bd
-    - semantic_form_for @teacher_question do |f|
+    - semantic_form_for setup_picture(@teacher_question), :html => { :multipart => true } do |f|
       = render :partial => 'form', :locals => { :f => f }
       - f.fields_for :teacher_answers do |af|
         = af.input :content
@@ -10,5 +10,5 @@
         - unless af.object.new_record?
           = af.input :_delete, :as => :boolean, :required => false
       - f.buttons do
-        = f.commit_button, "Commit"
+        = f.commit_button "Commit"
 = render :partial => 'sidebar/teacher_questions'
