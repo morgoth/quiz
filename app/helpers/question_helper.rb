@@ -1,13 +1,8 @@
 module QuestionHelper
   def generate_hint(value)
-    hint = ''
-    sizes = '('
-    value.split(' ').each do |word|
-      chars = word.gsub(/\d/, '#').gsub(/\w/) { |x| x != '_' ? 'x' : '_' }
-      hint << chars + ' '
-      sizes << chars.mb_chars.length.to_s + ' '
-    end
-    hint + sizes.chop + ')'
+    marks = value.gsub(/\d/, '#').gsub(/\w/) { |x| x != '_' ? 'x' : '_' }
+    counts = marks.gsub(/(x+)/) { |x| x.size }.gsub(/(#+)/) { |x| x.size }
+    "#{marks} (#{counts})"
   end
 
   def time_to_end_exam(exam)

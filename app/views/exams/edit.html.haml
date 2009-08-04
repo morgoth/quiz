@@ -2,6 +2,19 @@
   .hd
     = @exam.name
   .bd
+    %p
+      %b
+        Starting at:
+      = h @exam.start_date
+    %p
+      %b
+        Duration in minutes:
+      = h @exam.duration.min
+    %p
+      %b
+        Question number:
+      = h @exam.questions.count
+
     - semantic_form_for @exam do |f|
       = f.input :state_event, :as => :hidden, :value => 'start'
       - f.buttons do

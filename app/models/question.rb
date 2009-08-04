@@ -50,7 +50,7 @@ class Question < ActiveRecord::Base
 
   def set_teacher_answers
     teacher_question.teacher_answers.shuffle.each do |teacher_answer|
-      answers.create(:teacher_answer_id => teacher_answer.id, :points => 0)
+      answers.create(:teacher_answer=> teacher_answer, :points => 0)
     end
   end
 end

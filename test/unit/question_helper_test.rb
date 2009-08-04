@@ -20,7 +20,7 @@ class QuestionHelperTest < ActiveSupport::TestCase
 
   should "change only word characters and numbers" do
     value = "33-1: one, two:"
-    assert_equal '##-#: xxx, xxx: (5 4 4)', generate_hint(value)
+    assert_equal '##-#: xxx, xxx: (2-1: 3, 3:)', generate_hint(value)
   end
 
   should "change polish letters" do
@@ -29,7 +29,12 @@ class QuestionHelperTest < ActiveSupport::TestCase
   end
 
   should "not change _" do
-    value = "some_word "
-    assert_equal 'xxxx_xxxx (9)', generate_hint(value)
+    value = "some_word"
+    assert_equal 'xxxx_xxxx (4_4)', generate_hint(value)
+  end
+
+  should "not crash when value is blank" do
+    value = ''
+    assert_nothing_raised { generate_hint(value) }
   end
 end

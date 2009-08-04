@@ -4,7 +4,7 @@ class Exam < ActiveRecord::Base
   has_many :questions, :order => "position", :dependent => :destroy
   validates_presence_of :student, :teacher_exam, :state
 
-  delegate :name, :to => :teacher_exam
+  delegate :name, :start_date, :duration, :to => :teacher_exam
 
   state_machine do
     event :prepare do
@@ -43,16 +43,16 @@ class Exam < ActiveRecord::Base
   end
 
   def time_to_finish?
-    (started_at + teacher_exam.duration.min*60).past?
+    (started_at + teacher_exam.duration.min * 60).past?
   end
 
   def set_teacher_questions
-    teacher_exam.teacher_questions.shuffle[0...question_number].each do |teacher_question|
-      questions.create(:teacher_question_id => teacher_question.id, :state_event => 'prepare')
+    teacher_exam.teacher_questions.shuffle[0...exam_question_number].each do |teacher_question|
+      questions.create(:teacher_question => teacher_question, :state_event => 'prepare')
     end
   end
 
-  def question_number
-    teacher_exam.try(:question_number) || teacher_exam.teacher_questions.size
+  def exam_question_number
+    teacher_exam.try(:question_number) || teacher_exam.teacher_questions.count
   end
 end
