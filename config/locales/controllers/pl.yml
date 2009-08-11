@@ -5,3 +5,4 @@ pl:
       student_destroyed: "Student usunięty"
       user_session_created: "Logowanie pomyślne"
       user_session_destroyed: "Wylogowanie pomyślne"
+      account_updated: "Profil zaktualizowany"

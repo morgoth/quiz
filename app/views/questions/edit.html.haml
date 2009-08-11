@@ -2,7 +2,7 @@
   .hd
   .bd
     %h2
-      Time to end exam:
+      = t("views.questions.edit.time_to_end")
       = time_to_end_exam(@exam)
     - semantic_form_for [@exam, @question] do |f|
       = f.input :state_event, :as => :hidden, :value => 'visit'

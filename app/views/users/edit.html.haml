@@ -1,10 +1,10 @@
 .block
   .hd
-    %h1 Editing account
+    %h1= t("views.users.edit.header")
   .bd
     - semantic_form_for :user, @user, :url => account_path, :html => { :method => :put } do |f|
       = f.input :password
       = f.input :password_confirmation
       - f.buttons do
-        = f.submit "Commit"
+        = f.submit t("views.confirm")
 = render :partial => 'sidebar/account'

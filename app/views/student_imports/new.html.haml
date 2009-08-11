@@ -1,9 +1,9 @@
 .block
   .hd
-    %h2 Import students from file
+    %h1= t("views.student_imports.new.header")
   .bd
     - semantic_form_for @student_import, :html => { :multipart => true } do |f|
-      = f.input :file, :as => :file, :hint => 'only YAML'
+      = f.input :file, :as => :file, :hint => t("views.student_imports.new.yaml_hint")
       - f.buttons do
-        = f.commit_button "Commit"
+        = f.commit_button t("views.confirm")
 = render :partial => 'sidebar/students'

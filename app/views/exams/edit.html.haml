@@ -1,22 +1,22 @@
 .block
   .hd
-    = @exam.name
+    %h1= @exam.name
   .bd
     %p
       %b
-        Starting at:
+        = t("activerecord.attributes.teacher_exam.start_date")
       = h @exam.start_date
     %p
       %b
-        Duration in minutes:
+        = t("activerecord.attributes.teacher_exam.duration")
       = h @exam.duration.min
     %p
       %b
-        Question number:
+        = t("activerecord.attributes.teacher_exam.question_number")
       = h @exam.questions.count
 
     - semantic_form_for @exam do |f|
       = f.input :state_event, :as => :hidden, :value => 'start'
       - f.buttons do
-        = f.commit_button "start exam"
+        = f.commit_button t("views.exams.edit.start")
 = render :partial => 'sidebar/exams'

@@ -1,14 +1,14 @@
 .block
   .hd
-    %h1 Listing exams
+    %h1= t("views.teacher_exams.index.header")
   .bd
     %table
       %thead
         %tr
           %td
-            Name
+            = t("activerecord.attributes.teacher_exam.name")
           %td
-            Teacher
+            = t("activerecord.attributes.user.login")
           %td
       %tbody
         - @teacher_exams.each do |exam|
@@ -16,9 +16,9 @@
             %td
               = h exam.name
             %td
-              = h exam.teacher.login
+              = h exam.teacher_login
             %td.text-right
-              = link_to 'Show', exam
-              = link_to 'Edit', edit_teacher_exam_path(exam)
-              = link_to 'Destroy', exam, :method => :delete
+              = link_to t("views.show"), exam
+              = link_to t("views.edit"), edit_teacher_exam_path(exam)
+              = link_to t("views.delete"), exam, :method => :delete
 = render :partial => 'sidebar/teacher_exams'

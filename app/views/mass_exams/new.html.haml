@@ -1,10 +1,10 @@
 .block
   .hd
-    %h1 New exam
+    %h1= t("views.mass_exams.new.header")
   .bd
     - semantic_form_for @mass_exam do |f|
       = f.input :teacher_exam, :as => :select, :collection => current_user.teacher_exams
       = f.input :student_ids, :as => :select, :collection => Student.all, :input_html => { :multiple => true }
       - f.buttons do
-        = f.commit_button "Commit"
+        = f.commit_button t("views.confirm")
 = render :partial => 'sidebar/new_exams'

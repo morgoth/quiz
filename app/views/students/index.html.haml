@@ -1,18 +1,22 @@
 .block
   .hd
-    %h1 Listing students
+    %h1= t("views.students.index.header")
   .bd
     %table
       %thead
         %tr
           %td
-            Login
+            = t("activerecord.attributes.user.login")
+          %td
+            = t("activerecord.attributes.user.last_request_at")
           %td
       %tbody
         - @students.each do |student|
           %tr
             %td
               = h student.login
+            %td
+              = h student.last_request_at
             %td.text-right
-              = link_to 'Destroy', student, :method => :delete
+              = link_to t("views.delete"), student, :method => :delete
 = render :partial => 'sidebar/students'

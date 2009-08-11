@@ -1,7 +1,13 @@
 .block
   .hd
-    %h1 Account
+    %h1= t("views.users.show.header")
   .bd
-    = link_to "Edit account", edit_account_path
-    = @user.login
+    %p
+      %b
+        = t("activerecord.attributes.user.login")
+      = h @user.login
+    %p
+      %b
+        = t("activerecord.attributes.user.last_login_at")
+      = h @user.last_login_at
 = render :partial => 'sidebar/account'

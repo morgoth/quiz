@@ -16,6 +16,14 @@ pl:
       mass_exam: "Egzamin dla studentów"
       list_questions: "Lista pytań"
       new_question: "Nowe pytanie"
+      list_exams: "Lista egzaminów"
+      new_teacher_exam: "Nowy egzamin"
+      list_students: "Lista studentów"
+      new_student: "Nowy student"
+      new_student_import: "Import studentów"
+      new_exam: "Nowy egzamin dla studenta"
+      new_mass_exam: "Nowy egzamin dla studentów"
+      edit_account: "Edycja profilu"
 
     teacher_questions:
       index:
@@ -28,3 +36,53 @@ pl:
       show:
         header: "Pytanie"
         answers: "Odpowiedzi"
+
+    teacher_exams:
+      index:
+        header: "Lista egzaminów"
+      new:
+        header: "Nowy egzamin"
+        question_number_hint: "Zostaw puste, jeśli egzamin ma zawierać wszystkie pytania"
+      edit:
+        header: "Edycja egzaminu"
+      show:
+        header: "Egzamin"
+        students: "Studenci"
+        teacher: "Nauczyciel"
+        pdf: "Wersja pdf"
+        questions: "Pytania"
+        max_points: "Maksymalna ilość punktów do zdobycia"
+
+    mass_exams:
+      new:
+        header: "Nowy egzamin dla studentów"
+
+    exams:
+      new:
+        header: "Nowy egzamin dla studenta"
+      index:
+        header: "Lista egzaminów"
+        show_questions: "Pokaż pytania"
+      edit:
+        start: "Start"
+
+    questions:
+      edit:
+        time_to_end: "Pozostały czas:"
+
+    students:
+      index:
+        header: "Lista studentów"
+      new:
+        header: "Nowy student"
+
+    student_imports:
+      new:
+        header: "Import studentów z pliku"
+        yaml_hint: "Tylko pliki YAML"
+
+    users:
+      show:
+        header: "Profil"
+      edit:
+        header: "Edycja profilu"

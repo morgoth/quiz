@@ -22,6 +22,8 @@ a
 #container
   +container
   +block(!main_color, !header_color)
+  text-align: left
+
 #header
   +column(24, true)
   background-color= !main_color
@@ -30,6 +32,9 @@ a
     padding: 0.4em 0 0 0.4em
     margin-bottom: 0
     color= !header_color
+  #language
+    img
+      position: absolute
 
 #navigation
   +push(1)

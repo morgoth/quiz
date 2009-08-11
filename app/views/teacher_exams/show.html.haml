@@ -1,47 +1,47 @@
 .block
   .hd
+    %h1= t("views.teacher_exams.show.header")
   .bd
     %p
       %b
-        Name:
+        = t("activerecord.attributes.teacher_exam.name")
       = h @teacher_exam.name
     %p
       %b
-        Question number in exam:
+        = t("activerecord.attributes.teacher_exam.question_number")
       = h @teacher_exam.question_number
     %p
       %b
-        Duration:
+        = t("activerecord.attributes.teacher_exam.duration")
       = h pluralize(@teacher_exam.duration.min, 'minute')
     %p
       %b
-        Start date:
+        = t("activerecord.attributes.teacher_exam.start_date")
       = h @teacher_exam.start_date
     %p
       %b
-        Teacher:
-      = h @teacher_exam.teacher.login
+        = t("views.teacher_exams.show.teacher")
+      = h @teacher_exam.teacher_login
     %p
       %b
-        Questions:
-      - @teacher_exam.teacher_questions.each do |question|
-        %br
-        = question.content
+        = t("views.teacher_exams.show.questions")
+      %ul
+        - @teacher_exam.teacher_questions.each do |question|
+          %li= question.content
     %p
       %b
-        Max points:
+        = t("views.teacher_exams.show.max_points")
       = @teacher_exam.max_points
     %p
       %b
-        Students:
+        = t("views.teacher_exams.show.students")
       - @teacher_exam.exams.each do |exam|
         %br
-        = exam.student.login
+        = exam.student_login
         = exam.sum_points
         = exam.state
-    = link_to 'Edit', edit_teacher_exam_path(@teacher_exam)
-    %br
-    = link_to "PDF version", teacher_exam_path(@teacher_exam, :format => "pdf")
+    = link_to t("views.edit"), edit_teacher_exam_path(@teacher_exam)
+    = link_to t("views.teacher_exams.show.pdf"), teacher_exam_path(@teacher_exam, :format => "pdf")
 = render :partial => 'sidebar/teacher_exams'
 
 

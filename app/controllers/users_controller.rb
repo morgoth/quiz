@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def update
     @user = @current_user
     if @user.update_attributes(params[:user])
-      flash[:notice] = "Account updated!"
+      flash[:notice] = t("controllers.notice.account_updated")
       redirect_to account_path
     else
       render :action => :edit

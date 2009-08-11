@@ -1,11 +1,11 @@
 .block
   .hd
-    %h1 New student
+    %h1= t("views.students.new.header")
   .bd
     - semantic_form_for @student do |f|
       = f.input :login
       = f.input :password
       = f.input :password_confirmation
       - f.buttons do
-        = f.commit_button "Commit"
+        = f.commit_button t("views.confirm")
 = render :partial => 'sidebar/students'
