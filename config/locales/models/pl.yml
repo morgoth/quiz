@@ -1,0 +1,15 @@
+---
+pl:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            login:
+              blank: "jest wymagane"
+
+    attributes:
+      user:
+        login: "Login"
+        password: "Hasło"
+        password_confirmation: "Potwierdzenie hasła"

@@ -1,0 +1,22 @@
+pl:
+  authlogic:
+    error_messages:
+      login_blank: "jest polem wymaganym"
+      login_not_found: "nie istnieje"
+      login_invalid: "może składać się wyłącznie z liter (a-z) oraz liczb (0-9)"
+      consecutive_failed_logins_limit_exceeded: "Przekroczono dozwoloną ilość prób nieudanego logowania, dostęp do konta został zablokowany"
+      email_invalid: "nie przypomina poprawnego adresu"
+      password_blank: "jest polem wymaganym"
+      password_invalid: "niepoprawne"
+      not_active: "Twoje konto jest nieaktywne"
+      not_confirmed: "Twoje konto nie zostało potwierdzone"
+      not_approved: "Twoje konto nie zostało zatwierdzone"
+      no_authentication_details: "Nie podałeś wymaganych pól"
+    models:
+      user_session:
+    attributes:
+      user_session:
+        login: "Login"
+        email: "E-mail"
+        password: "Hasło"
+        remember_me: "Pamiętaj mnie"
