@@ -4,4 +4,13 @@ en:
     edit: Edit
     delete: Delete
     show: Show
-    change: Change
+
+    path:
+      account: Account
+      login: Log in
+      logout: Log out
+      change_language: Change
+      questions: Questions
+      exams: Exams
+      students: Students
+      mass_exam: Exam for students

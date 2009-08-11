@@ -4,4 +4,27 @@ pl:
     edit: "Edytuj"
     delete: "Usuń"
     show: "Pokaż"
-    change: "Zmień"
+
+    path:
+      account: "Profil"
+      login: "Zaloguj"
+      logout: "Wyloguj"
+      change_language: "Zmień"
+      questions: "Pytania"
+      exams: "Egzaminy"
+      students: "Studenci"
+      mass_exam: "Egzamin dla studentów"
+      list_questions: "Lista pytań"
+      new_question: "Nowe pytanie"
+
+    teacher_questions:
+      index:
+        header: "Lista pytań"
+        answers: "Liczba odpowiedzi"
+      new:
+        header: "Nowe pytanie"
+      edit:
+        header: "Edycja pytania"
+      show:
+        header: "Pytanie"
+        answers: "Odpowiedzi"

@@ -1,33 +1,34 @@
 .block
   .hd
+    %h1= t("views.teacher_questions.show.header")
   .bd
     %p
       %b
-        Content:
+        = t("activerecord.attributes.teacher_question.content")
       = h @teacher_question.content
     %p
       %b
-        Question type:
+        = t("activerecord.attributes.teacher_question.question_type")
       = h @teacher_question.question_type
     %p
       %b
-        Picture:
+        = t("activerecord.attributes.picture.picture")
       = image_tag @teacher_question.picture.picture.url if @teacher_question.picture
     %p
       %b
-        Tags:
+        = t("activerecord.attributes.teacher_question.tag_list")
       = h @teacher_question.tags.to_sentence(:last_word_connector => ', ', :two_words_connector => ', ')
-    = link_to 'Edit', edit_teacher_question_path(@teacher_question)
-    %h3 Answers:
+    = link_to t("views.edit"), edit_teacher_question_path(@teacher_question)
+    %h3= t("views.teacher_questions.show.answers")
     %table
       %thead
         %tr
           %td
-            Content
+            = t("activerecord.attributes.teacher_answer.content")
           %td
-            Points
+            = t("activerecord.attributes.teacher_answer.points")
           %td
-            Picture
+            = t("activerecord.attributes.picture.picture")
           %td
       %tbody
         = render @teacher_question.teacher_answers
@@ -39,5 +40,5 @@
         - f.fields_for :picture do |fp|
           = fp.input :picture, :as => :file, :required => false
         - f.buttons do
-          = f.commit_button "Create"
+          = f.commit_button t("views.confirm")
 = render :partial => 'sidebar/teacher_questions'

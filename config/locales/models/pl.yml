@@ -13,3 +13,15 @@ pl:
         login: "Login"
         password: "Hasło"
         password_confirmation: "Potwierdzenie hasła"
+
+      teacher_question:
+        content: "Treść"
+        question_type: "Typ pytania"
+        tag_list: "Lista tagów"
+
+      teacher_answer:
+        content: "Treść"
+        points: "Punkty"
+
+      picture:
+        picture: "Obraz"

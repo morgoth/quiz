@@ -1,3 +1,7 @@
 en:
   controllers:
-    student_created: Student created
+    notice:
+      student_created: Student created
+      student_destroyed: Student destroyed
+      user_session_created: Login successful
+      user_session_destroyed: Logout successful

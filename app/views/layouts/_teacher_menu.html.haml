@@ -1,5 +1,5 @@
 %ul#primary-navigation
-  %li.first= menu_link_to 'teacher_questions', "questions", teacher_questions_path
-  %li= menu_link_to 'teacher_exams', "exams", teacher_exams_path
-  %li= menu_link_to ['mass_exams', 'exams'], "create exam for students", new_mass_exam_path
-  %li.last= menu_link_to ['students', 'student_imports'], "students", students_path
+  %li.first= menu_link_to 'teacher_questions', t("views.path.questions"), teacher_questions_path
+  %li= menu_link_to 'teacher_exams', t("views.path.exams"), teacher_exams_path
+  %li= menu_link_to ['mass_exams', 'exams'], t("views.path.mass_exam"), new_mass_exam_path
+  %li.last= menu_link_to ['students', 'student_imports'], t("views.path.students"), students_path

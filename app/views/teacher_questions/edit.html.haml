@@ -1,6 +1,6 @@
 .block
   .hd
-    %h1 Edit question
+    %h1= t("views.teacher_questions.edit.header")
   .bd
     - semantic_form_for setup_picture(@teacher_question), :html => { :multipart => true } do |f|
       = render :partial => 'form', :locals => { :f => f }
@@ -10,5 +10,5 @@
         - unless af.object.new_record?
           = af.input :_delete, :as => :boolean, :required => false
       - f.buttons do
-        = f.commit_button "Commit"
+        = f.commit_button t("views.confirm")
 = render :partial => 'sidebar/teacher_questions'

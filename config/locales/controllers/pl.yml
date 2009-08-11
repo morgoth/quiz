@@ -1,3 +1,7 @@
 pl:
   controllers:
-    student_created: "Student utworzony"
+    notice:
+      student_created: "Student utworzony"
+      student_destroyed: "Student usunięty"
+      user_session_created: "Logowanie pomyślne"
+      user_session_destroyed: "Wylogowanie pomyślne"

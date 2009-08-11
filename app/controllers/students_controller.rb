@@ -12,7 +12,7 @@ class StudentsController < ApplicationController
   def create
     @student = Student.new(params[:student])
     if @student.save
-      flash[:notice] = "Student added"
+      flash[:notice] = t("controllers.notice.student_created")
       redirect_to students_path
     else
       render :action => :new
@@ -22,7 +22,7 @@ class StudentsController < ApplicationController
   def destroy
     @student = Student.find params[:id]
     @student.destroy
-    flash[:notice] = "Student destroyed"
+    flash[:notice] = t("controllers.notice.student_desroyed")
     redirect_to students_path
   end
 end

@@ -1,6 +1,6 @@
 .block
   .hd
-    %h1 Listing questions
+    %h1= t("views.teacher_questions.index.header")
   .bd
     - unless @tags.empty?
       %h3
@@ -10,11 +10,11 @@
       %thead
         %tr
           %td
-            Content
+            = t("activerecord.attributes.teacher_question.content")
           %td
-            Answers
+            = t("views.teacher_questions.index.answers")
           %td
-            Question type
+            = t("activerecord.attributes.teacher_question.question_type")
           %td
       %tbody
         - @teacher_questions.each do |question|
@@ -26,7 +26,7 @@
             %td
               =  question.question_type.titleize
             %td.text-right
-              = link_to 'Show', question
-              = link_to 'Edit', edit_teacher_question_path(question)
-              = link_to 'Destroy', question, :method => :delete
+              = link_to t("views.show"), question
+              = link_to t("views.edit"), edit_teacher_question_path(question)
+              = link_to t("views.delete"), question, :method => :delete
 = render :partial => 'sidebar/teacher_questions'
