@@ -12,36 +12,28 @@ class TeacherAnswersController < ApplicationController
 
   def create
     @teacher_answer = TeacherAnswer.new(params[:teacher_answer])
-
-    respond_to do |format|
-      if @teacher_answer.save
-        flash[:notice] = 'Answer was successfully created.'
-        format.html { redirect_to(@teacher_answer.teacher_question) }
-      else
-        format.html { render 'new' }
-      end
+    if @teacher_answer.save
+      flash[:notice] = t("controllers.notice.teacher_answer_created")
+      redirect_to(@teacher_answer.teacher_question)
+    else
+      render :new
     end
   end
 
   def update
     @teacher_answer = TeacherAnswer.find(params[:id])
-
-    respond_to do |format|
-      if @teacher_answer.update_attributes(params[:teacher_answer])
-        flash[:notice] = 'Answer was successfully updated.'
-        format.html { redirect_to(@teacher_answer.teacher_question) }
-      else
-        format.html { render :action => "edit" }
-      end
+    if @teacher_answer.update_attributes(params[:teacher_answer])
+      flash[:notice] = t("controllers.notice.teacher_answer_updated")
+      redirect_to(@teacher_answer.teacher_question)
+    else
+      render :edit
     end
   end
 
   def destroy
     @teacher_answer = TeacherAnswer.find(params[:id])
     @teacher_answer.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(@teacher_answer.teacher_question) }
-    end
+    flash[:notice] = t("controllers.notice.teacher_answer_destroyed")
+    redirect_to(@teacher_answer.teacher_question)
   end
 end

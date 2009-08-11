@@ -7,7 +7,7 @@ class ExamsController < ApplicationController
   end
 
   def show
-    @exam = Exam.find(params[:id])
+    @exam = @current_suer.exams.find(params[:id])
   end
 
   def new
@@ -21,8 +21,8 @@ class ExamsController < ApplicationController
   def create
     @exam = Exam.new(params[:exam])
     if @exam.save
-      flash[:notice] = 'Exam was successfully created.'
-      redirect_to( root_path)
+      flash[:notice] = t("controllers.notice.exam_created")
+      redirect_to root_path
     else
       render :new
     end
@@ -31,7 +31,7 @@ class ExamsController < ApplicationController
   def update
     @exam = @current_user.exams.find(params[:id])
     if @exam.update_attributes(params[:exam])
-      flash[:notice] = 'Exam started'
+      flash[:notice] = t("controllers.notice.exam_started")
       redirect_to edit_exam_question_path @exam, @exam.questions.first
     else
       render :edit
@@ -41,6 +41,7 @@ class ExamsController < ApplicationController
   def destroy
     @exam = @current_user.exams.find(params[:id])
     @exam.destroy
-    redirect_to(exams_url)
+    flash[:notice] = t("controllers.notice.exam_destroyed")
+    redirect_to exams_url
   end
 end

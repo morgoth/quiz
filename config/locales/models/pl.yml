@@ -40,6 +40,7 @@ pl:
       exam:
         teacher_exam_id: "Egzamin"
         student_id: "Student"
+        state: "Stan"
 
       student_import:
         file: "Plik"

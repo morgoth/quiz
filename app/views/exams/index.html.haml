@@ -8,6 +8,8 @@
           %td
             = t("activerecord.attributes.teacher_exam.name")
           %td
+            = t("activerecord.attributes.exam.state")
+          %td
           %td
           %td
       %tbody
@@ -15,6 +17,8 @@
           %tr
             %td
               = h exam.name
+            %td
+              = h exam.state
             %td
               = link_to t("views.show"), edit_exam_path(exam)
             %td

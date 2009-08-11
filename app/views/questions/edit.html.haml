@@ -1,5 +1,8 @@
 .block
   .hd
+    %h2
+      = t("views.questions.edit.question_counter")
+      = question_counter(@exam, @question)
   .bd
     %h2
       = t("views.questions.edit.time_to_end")
@@ -8,8 +11,8 @@
       = f.input :state_event, :as => :hidden, :value => 'visit'
       %li= render :partial => @question.teacher_question.question_type, :locals => { :question => @question, :disabled => false }
       - f.buttons do
-        = f.commit_button "next"
+        = f.commit_button t("views.questions.edit.next"), :button_html => { :name => 'next' }
         - @exam.questions.each do |question|
-          = f.commit_button "#{question.position}"
-        = f.commit_button "finish", :button_html => { :class => 'finish' }
+          = f.commit_button question.position.to_s, :button_html => { :name => 'custom' }
+        = f.commit_button t("views.questions.edit.finish"), :button_html => { :name => 'finish' }
 = render :partial => 'sidebar/exams'

@@ -8,10 +8,10 @@ class StudentImportsController < ApplicationController
   def create
     @student_import = @current_user.student_imports.build(params[:student_import])
     if @student_import.save
-      flash[:notice] = 'Students imported'
-      redirect_to(students_path)
+      flash[:notice] = t("controllers.notice.student_import_created")
+      redirect_to students_path
     else
-      render :action => :new
+      render :new
     end
   end
 

@@ -1,12 +1,12 @@
 .block
   .hd
-    %h1 Log in
+    %h1= t("views.user_sessions.new.header")
   .bd
     - semantic_form_for @user_session, :url => user_session_path do |f|
       = f.input :login
       = f.input :password
       - f.buttons do
-        = f.commit_button "Log in"
+        = f.commit_button t("views.confirm")
 - content_for :sidebar do
   .block
     .hd

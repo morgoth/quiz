@@ -6,7 +6,7 @@ module ApplicationHelper
     return if flash.empty?
     messages = ''
     flash.each do |key, msg|
-      messages <<  content_tag( :div, msg, :class => key)
+      messages <<  content_tag(:div, msg, :class => key)
     end
     messages
   end

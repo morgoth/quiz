@@ -8,7 +8,7 @@ class MassExamsController < ApplicationController
   def create
     @mass_exam = @current_user.mass_exams.build(params[:mass_exam])
     if @mass_exam.save
-      flash[:notice] = "Exams created"
+      flash[:notice] = t("controllers.notice.mass_exam_created")
       redirect_to new_mass_exam_path
     else
       render :new

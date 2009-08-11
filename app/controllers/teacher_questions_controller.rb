@@ -14,7 +14,7 @@ class TeacherQuestionsController < ApplicationController
   def create
     @teacher_question = @current_user.teacher_questions.build(params[:teacher_question])
     if @teacher_question.save
-      flash[:notice] = "Question created"
+      flash[:notice] = t("controllers.notice.question_created")
       redirect_to teacher_question_path @teacher_question
     else
       render :action => :new
@@ -33,7 +33,7 @@ class TeacherQuestionsController < ApplicationController
   def update
     @teacher_question = @current_user.teacher_questions.find(params[:id])
     if @teacher_question.update_attributes(params[:teacher_question])
-      flash[:notice] = "Question updated"
+      flash[:notice] = t("controllers.notice.question_updated")
       redirect_to teacher_questions_path
     else
       render :action => :edit
@@ -43,7 +43,7 @@ class TeacherQuestionsController < ApplicationController
   def destroy
     @teacher_question = @current_user.teacher_questions.find(params[:id])
     @teacher_question.destroy
-    flash[:notice] = "Question deleted"
+    flash[:notice] = t("controllers.notice.question_destroyed")
     redirect_to teacher_questions_path
   end
 end

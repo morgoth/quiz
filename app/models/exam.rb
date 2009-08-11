@@ -5,6 +5,7 @@ class Exam < ActiveRecord::Base
   validates_presence_of :student, :teacher_exam, :state
 
   delegate :name, :start_date, :duration, :to => :teacher_exam
+  delegate :login, :to => :student, :prefix => true
 
   state_machine do
     event :prepare do
@@ -48,7 +49,7 @@ class Exam < ActiveRecord::Base
 
   def set_teacher_questions
     teacher_exam.teacher_questions.shuffle[0...exam_question_number].each do |teacher_question|
-      questions.create(:teacher_question => teacher_question, :state_event => 'prepare')
+      questions.create!(:teacher_question => teacher_question, :state_event => 'prepare')
     end
   end
 

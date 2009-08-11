@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   before_filter :require_student
   before_filter :fetch_exam
   before_filter :exam_finished, :only => [:edit, :update]
-  before_filter :show_results, :only => [:index]
+  before_filter :show_results, :only => :index
 
   def index
     @questions = @exam.questions
@@ -25,14 +25,13 @@ class QuestionsController < ApplicationController
   private
 
   def rotate_question(question)
-    case params[:commit]
-    when 'finish'
+    if params[:finish]
       @exam.finish
       question
-    when 'next'
+    elsif params[:next]
       question.last? ? @exam.questions.first : question.lower_item
-    else
-      @exam.questions.find_by_position(params[:commit])
+    elsif params[:custom]
+      @exam.questions.find_by_position(params[:custom])
     end
   end
 
@@ -42,14 +41,14 @@ class QuestionsController < ApplicationController
 
   def show_results
     unless @exam.finished?
-      flash[:notice] = "You can see questions after finishing exam"
+      flash[:notice] = t("controllers.notice.show_results")
       redirect_to exams_path
     end
   end
 
   def exam_finished
     if @exam.finished?
-      flash[:notice] = "Exam finished"
+      flash[:notice] = t("controllers.notice.exam_finished")
       redirect_to exams_path
     end
   end

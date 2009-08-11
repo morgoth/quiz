@@ -10,6 +10,8 @@
           %td
             = t("activerecord.attributes.user.last_request_at")
           %td
+            = t("activerecord.attributes.user.last_login_ip")
+          %td
       %tbody
         - @students.each do |student|
           %tr
@@ -17,6 +19,8 @@
               = h student.login
             %td
               = h student.last_request_at
+            %td
+              = h student.last_login_ip
             %td.text-right
               = link_to t("views.delete"), student, :method => :delete
 = render :partial => 'sidebar/students'

@@ -11,7 +11,7 @@ class MassExam < ActiveRecord::Base
 
   def create_exams
     student_ids.each do |student_id|
-      Exam.create(:student_id => student_id, :teacher_exam => teacher_exam, :state_event => 'prepare')
+      Exam.create!(:student_id => student_id, :teacher_exam => teacher_exam, :state_event => 'prepare')
     end
   end
 end

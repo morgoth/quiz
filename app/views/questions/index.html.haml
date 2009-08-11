@@ -1,9 +1,9 @@
 .block
   .hd
-    %h1 Questions
+    %h1= t("views.questions.index.header")
   .bd
     %h2
-      Score:
+      = t("views.questions.index.score")
       = @exam.sum_points
     %ul.list
       - @questions.each do |question|
