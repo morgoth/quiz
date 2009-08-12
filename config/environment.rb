@@ -16,6 +16,8 @@ Rails::Initializer.run do |config|
   config.gem 'ryanb-acts-as-list', :lib => 'acts_as_list'
   config.gem 'prawn'
   config.gem 'thoughtbot-paperclip', :lib => 'paperclip'
+  config.gem 'rack'
+
   config.time_zone = 'Warsaw'
 
   config.i18n.load_path += Dir[File.join(Rails.root, "config", "locales", "**", "*.{rb,yml}")]

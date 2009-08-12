@@ -18,7 +18,7 @@ class Exam < ActiveRecord::Base
 
     event :try_finish do
       transition :started => :finished, :if => :time_to_finish?
-      transition :started => :started
+      #transition :started => :started
     end
 
     event :finish do

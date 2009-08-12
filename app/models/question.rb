@@ -33,8 +33,8 @@ class Question < ActiveRecord::Base
   private
 
   def manage_exam_and_answers
-    exam.try_finish
-    set_student_answers unless exam.finished?
+    #exam.try_finish
+    set_student_answers unless exam.try_finish#exam.finished?
   end
 
   def set_student_answers

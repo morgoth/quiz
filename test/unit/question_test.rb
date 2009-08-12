@@ -19,13 +19,13 @@ class QuestionTest < ActiveSupport::TestCase
       @teacher_question = Factory(:teacher_question, :question_type => 'check_box')
       @teacher_answer1 = Factory(:teacher_answer, :teacher_question => @teacher_question, :points => 0.1)
       @teacher_answer2 = Factory(:teacher_answer, :teacher_question => @teacher_question, :points => 0.4)
-      @teacher_question.teacher_answers << [@teacher_answer1, @teacher_answer2]
+      @teacher_question.teacher_answers = [@teacher_answer1, @teacher_answer2]
       @question = Factory.build(:question, :teacher_question => @teacher_question, :state => nil, :state_event => 'prepare')
     end
 
     should "update student answers if changed" do
       @question.save!
-      stub.instance_of(Exam).finished? { false }
+      # stub(Exam.first).try_finish { false }
       assert_equal 2, Answer.count
       answer1 = Answer.find_by_teacher_answer_id(@teacher_answer1.id)
       assert_not_nil answer1
@@ -39,14 +39,14 @@ class QuestionTest < ActiveSupport::TestCase
     should "not update student answers if exam is finihsed" do
       # FIXME: stub does not work
       @question.save!
-      stub.instance_of(Exam).finished? { true }
+      # stub(Exam.first).time_to_finish? { true }
       answer1 = Answer.find_by_teacher_answer_id(@teacher_answer1.id)
-      assert 0, answer1.points
+      assert_equal 0, answer1.points
       @question.student_answers = { 'check_box' => [answer1.id.to_s] }
       @question.state_event = 'visit'
       @question.save!
       answer1.reload
-      #assert_equal 0, answer1.points
+      # assert_equal 0, answer1.points
     end
   end
 
