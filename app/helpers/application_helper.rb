@@ -29,4 +29,8 @@ module ApplicationHelper
     klass = "teacher_" + imageable.class.name.underscore
     image_tag(imageable.send(klass.to_sym).picture.picture.url) if imageable.send(klass.to_sym).picture
   end
+
+  def localize_exam_state(state)
+    I18n.t("views.exam_state.#{state}")
+  end
 end

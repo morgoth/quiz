@@ -12,10 +12,13 @@
       #header
         %h1 Quiz
         #language
-          //= image_tag('/images/pl.gif')
-          //- form_tag language_path, :method => :put do
-          //  = select_tag :language, options_for_select(I18n.available_locales.map(&:to_s), I18n.locale.to_s)
-          //  = submit_tag t('views.path.change_language')
+          - form_tag language_path, :method => :put do
+            - if I18n.locale.to_sym == :en
+              = hidden_field_tag 'language', 'pl'
+              = image_submit_tag('/images/pl.gif')
+            - elsif I18n.locale.to_sym == :pl
+              = hidden_field_tag 'language', 'en'
+              = image_submit_tag('/images/en.gif')
         #navigation
           - if current_user
             = render "layouts/#{current_user.type.underscore}_menu"

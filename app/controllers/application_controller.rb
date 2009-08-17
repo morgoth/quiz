@@ -75,7 +75,7 @@ class ApplicationController < ActionController::Base
   end
 
   def locale
-    params[:locale] or locale_from_browser or I18n.default_locale
+    params[:locale] or I18n.default_locale #locale_from_browser
   end
 
   def locale_from_browser
@@ -84,7 +84,7 @@ class ApplicationController < ActionController::Base
   end
 
   def request_uri_without_locale
-    locales = I18n.available_locales.map { |l| Regexp.escape(l) }.join("|")
+    locales = I18n.available_locales.map { |l| Regexp.escape(l.to_s) }.join("|")
     request.request_uri.sub(/\A\/(#{locales})\//, "/")
   end
 

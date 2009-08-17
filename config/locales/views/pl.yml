@@ -5,6 +5,11 @@ pl:
     delete: "Usuń"
     show: "Pokaż"
 
+    exam_state:
+      prepared: "Gotowy"
+      finished: "Zakończony"
+      started: "Trwający"
+
     path:
       account: "Profil"
       login: "Zaloguj"

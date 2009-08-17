@@ -18,7 +18,7 @@
             %td
               = h student.login
             %td
-              = h student.last_request_at
+              = h student.last_request_at.to_s :short
             %td
               = h student.last_login_ip
             %td.text-right
