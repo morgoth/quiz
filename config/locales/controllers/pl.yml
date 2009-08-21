@@ -11,7 +11,7 @@ pl:
       exam_started: "Egzamin rozpoczęty"
       exam_finished: "Egzamin zakończony"
       question_created: "Pytanie utworzone"
-      question_udpated: "Pytanie zakutalizowane"
+      question_updated: "Pytanie zakutalizowane"
       question_destroyed: "Pytanie usunięte"
       teacher_exam_created: "Egzamin utworzony"
       teacher_exam_updated: "Egzamin zaktualizowany"

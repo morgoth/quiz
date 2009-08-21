@@ -1,0 +1,1 @@
+Formtastic::SemanticFormBuilder.inline_order = [:input, :errors, :hints]

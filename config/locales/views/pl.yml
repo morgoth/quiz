@@ -1,4 +1,6 @@
 pl:
+  formtastic:
+    required: "Pole wymagane"
   views:
     confirm: "Zatwierdź"
     edit: "Edytuj"
