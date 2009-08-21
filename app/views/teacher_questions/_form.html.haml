@@ -2,7 +2,7 @@
 - if f.object.new_record?
   = f.input :question_type, :as => :select, :collection => TeacherQuestion::QUESTION_TYPES
 - else
-  = text_field_tag :question_type, f.object.question_type, :disabled => true
+  = f.input :question_type, :input_html => { :disabled => true }
 = f.input :tag_list, :required => false
 - f.fields_for :picture do |fp|
   = fp.input :picture, :as => :file, :required => false

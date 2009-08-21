@@ -18,7 +18,7 @@ class TeacherExam < ActiveRecord::Base
   private
 
   def size_of_question_number
-    errors.add(:question_number, "can not be greater than questions total") if question_number && question_number > teacher_questions_size
+    errors.add(:question_number, :greater_than_total) if question_number && question_number > teacher_questions_size
   end
 
   def owner_of_question

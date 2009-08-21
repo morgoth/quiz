@@ -10,7 +10,6 @@
   %body
     #container
       #header
-        %h1 Quiz
         #language
           - form_tag language_path, :method => :put do
             - if I18n.locale.to_sym == :en
@@ -19,6 +18,7 @@
             - elsif I18n.locale.to_sym == :pl
               = hidden_field_tag 'language', 'en'
               = image_submit_tag('/images/en.gif')
+        %h1 Quiz
         #navigation
           - if current_user
             = render "layouts/#{current_user.type.underscore}_menu"

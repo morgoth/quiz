@@ -8,6 +8,11 @@ pl:
             login:
               blank: "jest wymagane"
 
+        teacher_exam:
+          attributes:
+            question_number:
+              greater_than_total: "nie może być większa niż ilość dostępnych pytań"
+
     attributes:
       user:
         login: "Login"
