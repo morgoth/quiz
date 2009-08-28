@@ -17,6 +17,7 @@ Rails::Initializer.run do |config|
   config.gem 'prawn'
   config.gem 'thoughtbot-paperclip', :lib => 'paperclip'
   config.gem 'rack'
+  config.gem 'svenfuchs-routing-filter', :lib => 'routing_filter'
 
   config.time_zone = 'Warsaw'
 
