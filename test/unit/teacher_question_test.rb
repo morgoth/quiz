@@ -14,7 +14,7 @@ class TeacherQuestionTest < ActiveSupport::TestCase
   end
 
   context "Max points" do
-    setup { @teacher_question = Factory.build(:teacher_question) }
+    setup { @teacher_question = Factory.build(:teacher_question, :question_type => 'check_box') }
 
     should "be calculated" do
       @teacher_question.teacher_answers << Factory(:teacher_answer, :points => 0.3)
@@ -22,6 +22,15 @@ class TeacherQuestionTest < ActiveSupport::TestCase
       @teacher_question.teacher_answers << Factory(:teacher_answer, :points => 0.2)
       @teacher_question.save!
       assert_equal 0.5, @teacher_question.max_points
+    end
+
+    should "include only max value when radiobutton" do
+      @teacher_question.question_type = 'radio_button'
+      @teacher_question.teacher_answers << Factory(:teacher_answer, :points => 0.6)
+      @teacher_question.teacher_answers << Factory(:teacher_answer, :points => -0.8)
+      @teacher_question.teacher_answers << Factory(:teacher_answer, :points => 0.2)
+      @teacher_question.save!
+      assert_equal 0.6, @teacher_question.max_points
     end
   end
 end

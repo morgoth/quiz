@@ -19,7 +19,11 @@
         = t("activerecord.attributes.teacher_question.tag_list")
       = h @teacher_question.tags.to_sentence(:last_word_connector => ', ', :two_words_connector => ', ')
     = link_to t("views.edit"), edit_teacher_question_path(@teacher_question)
-    %h3= t("views.teacher_questions.show.answers")
+
+.block
+  .hd
+    %h1= t("views.teacher_questions.show.answers")
+  .bd
     %table
       %thead
         %tr

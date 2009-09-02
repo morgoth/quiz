@@ -1,54 +1,52 @@
 ---
-pl:
+en:
   activerecord:
     errors:
       models:
-        user:
-          attributes:
-            login:
-              blank: "jest wymagane"
-
         teacher_exam:
           attributes:
             question_number:
-              greater_than_total: "nie może być większa niż ilość dostępnych pytań"
+              greater_than_total: can not be greater than total
 
     attributes:
       user:
-        login: "Login"
-        password: "Hasło"
-        password_confirmation: "Potwierdzenie hasła"
-        last_request_at: "Ostatnia aktywność"
-        last_login_at: "Ostatnie logowanie"
-        last_login_ip: "IP ostatniego logowania"
+        login: Login
+        password: Password
+        password_confirmation: Password confirmation
+        last_request_at: Last request at
+        last_login_at: Last login at
+        last_login_ip: Last login ip
 
       teacher_question:
-        content: "Treść"
-        question_type: "Typ pytania"
-        tag_list: "Lista tagów"
+        content: Content
+        question_type: Question type
+        tag_list: Tag list
 
       teacher_answer:
-        content: "Treść"
-        points: "Punkty"
+        content: Content
+        points: Points
 
       teacher_exam:
-        name: "Nazwa"
-        duration: "Czas trwania"
-        start_date: "Data rozpoczęcia"
-        question_number: "Ilość pytań"
-        teacher_question_ids: "Pytania"
+        name: Name
+        duration: Duration
+        start_date: Start date
+        question_number: Question number
+        teacher_question_ids: Questions
 
       mass_exam:
-        teacher_exam_id: "Egzamin"
-        student_ids: "Studenci"
+        teacher_exam_id: Exam
+        student_ids: Students
 
       exam:
-        teacher_exam_id: "Egzamin"
-        student_id: "Student"
-        state: "Stan"
+        teacher_exam_id: Exam
+        student_id: Student
+        state: State
+        students: Students
+        sum_points: Sum points
+        percentage_score: Percentage score
 
       student_import:
-        file: "Plik"
+        file: File
 
       picture:
-        picture: "Obraz"
+        picture: Picture

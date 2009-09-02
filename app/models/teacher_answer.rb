@@ -10,7 +10,6 @@ class TeacherAnswer < ActiveRecord::Base
   before_destroy :destroyable?
 
   accepts_nested_attributes_for :picture
-  # BUG: picture not valid
 
   def destroyable?
     answers.empty?

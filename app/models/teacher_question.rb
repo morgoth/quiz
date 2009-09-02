@@ -17,7 +17,11 @@ class TeacherQuestion < ActiveRecord::Base
   accepts_nested_attributes_for :picture
 
   def max_points
-    teacher_answers.map { |q| q.points if q.points > 0 }.compact.inject { |sum, q| sum += q }
+    if question_type == 'radio_button'
+      teacher_answers.map { |q| q.points }.compact.max
+    else
+      teacher_answers.map { |q| q.points if q.points > 0 }.compact.inject { |sum, q| sum += q }
+    end
   end
 
   def destroyable?

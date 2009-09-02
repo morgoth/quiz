@@ -4,7 +4,7 @@
   .bd
     %h2
       = t("views.questions.index.score")
-      = @exam.sum_points
+      = number_to_percentage(@exam.percentage_score, :precision => 0)
     %ul.list
       - @questions.each do |question|
         %li

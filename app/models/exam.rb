@@ -18,7 +18,6 @@ class Exam < ActiveRecord::Base
 
     event :try_finish do
       transition :started => :finished, :if => :time_to_finish?
-      #transition :started => :started
     end
 
     event :finish do
@@ -31,6 +30,10 @@ class Exam < ActiveRecord::Base
 
   def sum_points
     questions.map { |q| q.sum_points }.compact.inject { |sum, q| sum += q }
+  end
+
+  def percentage_score
+    ((sum_points / teacher_exam.max_points) * 100).round
   end
 
   private

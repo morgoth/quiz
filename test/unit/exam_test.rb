@@ -93,4 +93,29 @@ class ExamTest < ActiveSupport::TestCase
       assert_equal "started", @exam.state
     end
   end
+
+  context "Points calculation" do
+    setup do
+      @teacher_exam = Factory(:teacher_exam)
+      @exam = Factory(:exam, :teacher_exam => @teacher_exam)
+      question_1 = Factory(:question, :exam => @exam)
+      question_2 = Factory(:question, :exam => @exam)
+      stub(question_1).sum_points { 1 }
+      stub(question_2).sum_points { 3 }
+      stub(@exam).questions { [question_1, question_2] }
+    end
+
+    should "sum questions points" do
+      assert_equal 2, @exam.questions.count
+      assert_equal 4, @exam.sum_points
+    end
+
+    should "return percentage score" do
+      stub(@teacher_exam).max_points { 8 }
+      stub(@exam).teacher_exam { @teacher_exam }
+      #assert_equal 50, @exam.percentage_score
+      # FIXME: stub does not work
+    end
+  end
+
 end

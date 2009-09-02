@@ -33,14 +33,28 @@
       %b
         = t("views.teacher_exams.show.max_points")
       = @teacher_exam.max_points
-    %p
-      %b
-        = t("views.teacher_exams.show.students")
-      - @teacher_exam.exams.each do |exam|
-        %br
-        = exam.student_login
-        = exam.sum_points
-        = exam.state
+    %table
+      %thead
+        %tr
+          %td
+            = t("activerecord.attributes.exam.students")
+          %td
+            = t("activerecord.attributes.exam.sum_points")
+          %td
+            = t("activerecord.attributes.exam.percentage_score")
+          %td
+            = t("activerecord.attributes.exam.state")
+      %tbody
+        - @teacher_exam.exams.each do |exam|
+          %tr
+            %td
+              = h exam.student_login
+            %td
+              = h exam.sum_points
+            %td
+              = h number_to_percentage(exam.percentage_score, :precision => 0)
+            %td
+              = h exam.state
     = link_to t("views.edit"), edit_teacher_exam_path(@teacher_exam)
     = link_to t("views.teacher_exams.show.pdf"), teacher_exam_path(@teacher_exam, :format => "pdf")
 = render :partial => 'sidebar/teacher_exams'
