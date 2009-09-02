@@ -22,7 +22,7 @@ class StudentsController < ApplicationController
   def destroy
     @student = Student.find params[:id]
     @student.destroy
-    flash[:notice] = t("controllers.notice.student_desroyed")
+    flash[:notice] = t("controllers.notice.student_destroyed")
     redirect_to students_path
   end
 end

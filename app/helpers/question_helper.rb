@@ -8,7 +8,7 @@ module QuestionHelper
   def time_to_end_exam(exam)
     sec = ((exam.started_at + exam.teacher_exam.duration.min.minutes) - Time.now).round
     min, sec = sec.divmod(60)
-    "#{min}:#{sec}"
+    "%d:%02d" % [min,sec]
   end
 
   def question_counter(exam, question)

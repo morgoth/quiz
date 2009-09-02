@@ -58,7 +58,8 @@ pl:
         teacher: "Nauczyciel"
         pdf: "Wersja pdf"
         questions: "Pytania"
-        max_points: "Maksymalna ilość punktów do zdobycia"
+        max_points: "Maksymalna punktacja:"
+        results: "Wynik egzaminu:"
 
     mass_exams:
       new:

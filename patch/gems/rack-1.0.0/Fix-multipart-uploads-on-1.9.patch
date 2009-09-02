@@ -1,0 +1,31 @@
+From 44ed4640f077504a49b7f1cabf8d6ad7a13f6441 Mon Sep 17 00:00:00 2001
+From: raggi <jftucker@gmail.com>
+Date: Wed, 29 Apr 2009 00:15:53 +0100
+Subject: [PATCH] Fix multipart uploads on 1.9
+
+---
+ lib/rack/utils.rb |    4 +++-
+ 1 files changed, 3 insertions(+), 1 deletions(-)
+
+diff --git a/lib/rack/utils.rb b/lib/rack/utils.rb
+index 1538acf..3d26849 100644
+--- a/lib/rack/utils.rb
++++ b/lib/rack/utils.rb
+@@ -1,3 +1,5 @@
++# coding=binary
++
+ require 'set'
+ require 'tempfile'
+ 
+@@ -351,7 +353,7 @@ module Rack
+           input = env['rack.input']
+           input.rewind
+ 
+-          boundary_size = boundary.size + EOL.size
++          boundary_size = Utils.bytesize(boundary) + EOL.size
+           bufsize = 16384
+ 
+           content_length -= boundary_size
+-- 
+1.6.0.4
+

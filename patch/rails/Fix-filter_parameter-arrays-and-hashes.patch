@@ -1,0 +1,45 @@
+From da5af16e016ebcc3a3589c609070a42ce4eb5529 Mon Sep 17 00:00:00 2001
+From: Sebastian Delmont <sd@notso.net>
+Date: Mon, 20 Jul 2009 17:53:23 -0400
+Subject: [PATCH] filter_parameters was overeager when filtering array contents and tried to filter numeric objects. Crazy, right?
+
+---
+ actionpack/lib/action_controller/base.rb         |    7 ++++++-
+ actionpack/test/controller/filter_params_test.rb |    3 ++-
+ 2 files changed, 8 insertions(+), 2 deletions(-)
+
+diff --git a/actionpack/lib/action_controller/base.rb b/actionpack/lib/action_controller/base.rb
+index 3c89fc8..0801bd6 100644
+--- a/actionpack/lib/action_controller/base.rb
++++ b/actionpack/lib/action_controller/base.rb
+@@ -493,7 +493,12 @@ module ActionController #:nodoc:
+               filtered_parameters[key] = filter_parameters(value)
+             elsif value.is_a?(Array)
+               filtered_parameters[key] = value.collect do |item|
+-                filter_parameters(item)
++                case item
++                when Hash, Array
++                  filter_parameters(item)
++                else
++                  item
++                end
+               end
+             elsif block_given?
+               key = key.dup
+diff --git a/actionpack/test/controller/filter_params_test.rb b/actionpack/test/controller/filter_params_test.rb
+index 0f48088..6994aae 100644
+--- a/actionpack/test/controller/filter_params_test.rb
++++ b/actionpack/test/controller/filter_params_test.rb
+@@ -24,7 +24,8 @@ class FilterParamTest < Test::Unit::TestCase
+     [{'foo'=>'bar', 'baz'=>'foo'},{'foo'=>'[FILTERED]', 'baz'=>'[FILTERED]'},%w'foo baz'],
+     [{'bar'=>{'foo'=>'bar','bar'=>'foo'}},{'bar'=>{'foo'=>'[FILTERED]','bar'=>'foo'}},%w'fo'],
+     [{'foo'=>{'foo'=>'bar','bar'=>'foo'}},{'foo'=>'[FILTERED]'},%w'f banana'],
+-    [{'baz'=>[{'foo'=>'baz'}]}, {'baz'=>[{'foo'=>'[FILTERED]'}]}, %w(foo)]]
++    [{'baz'=>[{'foo'=>'baz'}]}, {'baz'=>[{'foo'=>'[FILTERED]'}]}, %w(foo)],
++    [{'baz'=>[{'foo'=>'baz'}, 1, 2, 3]}, {'baz'=>[{'foo'=>'[FILTERED]'}, 1, 2, 3]}, %w(foo)]]
+ 
+     test_hashes.each do |before_filter, after_filter, filter_words|
+       FilterParamController.filter_parameter_logging(*filter_words)
+-- 
+1.6.3.3
+

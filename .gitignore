@@ -5,3 +5,4 @@ config/database.yml
 public/stylesheets/compiled/*
 public/images/pictures/**/*
 vendor/rails/**/*
+vendor/gems/**/*

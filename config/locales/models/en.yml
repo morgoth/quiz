@@ -1,0 +1,54 @@
+---
+pl:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            login:
+              blank: "jest wymagane"
+
+        teacher_exam:
+          attributes:
+            question_number:
+              greater_than_total: "nie może być większa niż ilość dostępnych pytań"
+
+    attributes:
+      user:
+        login: "Login"
+        password: "Hasło"
+        password_confirmation: "Potwierdzenie hasła"
+        last_request_at: "Ostatnia aktywność"
+        last_login_at: "Ostatnie logowanie"
+        last_login_ip: "IP ostatniego logowania"
+
+      teacher_question:
+        content: "Treść"
+        question_type: "Typ pytania"
+        tag_list: "Lista tagów"
+
+      teacher_answer:
+        content: "Treść"
+        points: "Punkty"
+
+      teacher_exam:
+        name: "Nazwa"
+        duration: "Czas trwania"
+        start_date: "Data rozpoczęcia"
+        question_number: "Ilość pytań"
+        teacher_question_ids: "Pytania"
+
+      mass_exam:
+        teacher_exam_id: "Egzamin"
+        student_ids: "Studenci"
+
+      exam:
+        teacher_exam_id: "Egzamin"
+        student_id: "Student"
+        state: "Stan"
+
+      student_import:
+        file: "Plik"
+
+      picture:
+        picture: "Obraz"

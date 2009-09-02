@@ -3,6 +3,7 @@
     %h2 New answer
   .bd
     - semantic_form_for setup_picture(@teacher_answer), :html => { :multipart => true } do |f|
+      = f.error_messages
       = f.input :teacher_question_id, :as => :hidden
       = f.input :content
       = f.input :points

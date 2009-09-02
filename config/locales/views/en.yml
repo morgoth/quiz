@@ -1,9 +1,16 @@
 en:
+  formtastic:
+    required: "Required"
   views:
     confirm: Confirm
     edit: Edit
     delete: Delete
     show: Show
+
+    exam_state:
+      prepared: Prepared
+      finished: Finished
+      started: Started
 
     path:
       account: Account
@@ -14,3 +21,85 @@ en:
       exams: Exams
       students: Students
       mass_exam: Exam for students
+      list_questions: List of questions
+      new_question: New question
+      list_exams: List of exams
+      new_teacher_exam: New exam
+      list_students: List of students
+      new_student: New student
+      new_student_import: Students import
+      new_exam: New exam for student
+      new_mass_exam: New exam for students
+      edit_account: Edit account
+
+    teacher_questions:
+      index:
+        header: List of questions
+        answers: Answers count
+      new:
+        header: New question
+      edit:
+        header: Edit question
+      show:
+        header: Question
+        answers: Answers
+
+    teacher_exams:
+      index:
+        header: List of exams
+      new:
+        header: New exam
+        question_number_hint: Leave empty if all
+      edit:
+        header: Edit exam
+      show:
+        header: Exam
+        students: Students
+        teacher: Teacher
+        pdf: PDF version
+        questions: Questions
+        max_points: Max points to score
+
+    mass_exams:
+      new:
+        header: New exam for students
+
+    exams:
+      new:
+        header: New exam for student
+      index:
+        header: List of exams
+        show_questions: Show questions
+      edit:
+        start: Start
+
+    questions:
+      edit:
+        time_to_end: "Time left:"
+        question_counter: Question
+        next: Next
+        finish: Finish
+      index:
+        header: List of questions
+        score: Score
+
+    students:
+      index:
+        header: List of students
+      new:
+        header: New student
+
+    student_imports:
+      new:
+        header: Students import
+        yaml_hint: Only YAML files
+
+    users:
+      show:
+        header: Account
+      edit:
+        header: Edit account
+
+    user_sessions:
+      new:
+        header: Log in
