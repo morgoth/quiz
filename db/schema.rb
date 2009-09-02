@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090728164221) do
+ActiveRecord::Schema.define(:version => 20090902141224) do
 
   create_table "answers", :force => true do |t|
     t.integer  "teacher_answer_id"
@@ -94,8 +94,8 @@ ActiveRecord::Schema.define(:version => 20090728164221) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "question_number"
-    t.time     "duration"
     t.datetime "start_date"
+    t.integer  "duration"
   end
 
   create_table "teacher_exams_teacher_questions", :id => false, :force => true do |t|

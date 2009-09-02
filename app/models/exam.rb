@@ -44,7 +44,7 @@ class Exam < ActiveRecord::Base
   end
 
   def time_to_finish?
-    (started_at + teacher_exam.duration.min * 60).past?
+    (started_at + teacher_exam.duration * 60).past?
   end
 
   def set_teacher_questions

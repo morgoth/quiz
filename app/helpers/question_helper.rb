@@ -6,7 +6,7 @@ module QuestionHelper
   end
 
   def time_to_end_exam(exam)
-    sec = ((exam.started_at + exam.teacher_exam.duration.min.minutes) - Time.now).round
+    sec = ((exam.started_at + exam.teacher_exam.duration.minutes) - Time.now).round
     min, sec = sec.divmod(60)
     "%d:%02d" % [min,sec]
   end

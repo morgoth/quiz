@@ -50,6 +50,7 @@ pl:
       new:
         header: "Nowy egzamin"
         question_number_hint: "Zostaw puste, jeśli egzamin ma zawierać wszystkie pytania"
+        duration_hint: "W minutach"
       edit:
         header: "Edycja egzaminu"
       show:
@@ -60,6 +61,7 @@ pl:
         questions: "Pytania"
         max_points: "Maksymalna punktacja:"
         results: "Wynik egzaminu:"
+        duration_in_minutes: "Ilość minut:"
 
     mass_exams:
       new:

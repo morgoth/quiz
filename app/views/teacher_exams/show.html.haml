@@ -13,7 +13,8 @@
     %p
       %b
         = t("activerecord.attributes.teacher_exam.duration")
-      = h pluralize(@teacher_exam.duration.min, 'minute')
+      = t("views.teacher_exams.show.duration_in_minutes")
+      = h @teacher_exam.duration
     %p
       %b
         = t("activerecord.attributes.teacher_exam.start_date")
