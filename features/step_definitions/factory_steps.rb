@@ -4,6 +4,6 @@ Given /^the following (.+) records?$/ do |factory, table|
   end
 end
 
-Given /^a user with login "([^\"]*)" and password "([^\"]*)" exists$/ do |login, password|
-  Factory(:user, :login => login, :password => password)
+Given /^a student with login "([^\"]*)" and password "([^\"]*)" exists$/ do |login, password|
+  Factory(:student, :login => login, :password => password)
 end
