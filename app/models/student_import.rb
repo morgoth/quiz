@@ -10,13 +10,13 @@ class StudentImport < ActiveRecord::Base
   private
 
   def format_of_file
-    errors.add(:file, 'wrong type') unless file.original_filename =~ /\.yml$/i
+    errors.add(:file, :invalid) unless file.original_filename =~ /\.yml$/i
   end
 
   # OPTIMIZE: cleanup yaml parsing
   def parse_file
     users = YAML::load(file)
-    users.each do |key, attributes|
+    users.each do |attributes|
       Student.create(attributes.merge('password_confirmation' => attributes['password']))
     end
   end

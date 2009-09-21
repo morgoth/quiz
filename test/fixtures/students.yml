@@ -1,9 +1,5 @@
-1:
-  login: stefan
-  password: secret
-2:
-  login: zdzisek
-  password: secret
-3:
-  login: bronek
-  password: supersecret
+- login: "bogdan"
+  password: "secret"
+
+- login: "johndoe"
+  password: "secret"
