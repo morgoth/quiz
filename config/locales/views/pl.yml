@@ -87,10 +87,13 @@ pl:
         score: "Wynik"
 
     students:
+      group_hint: "Kolejne grupy oddzielaj przecinkiem"
       index:
         header: "Lista studentów"
       new:
         header: "Nowy student"
+      edit:
+        header: "Edycja studenta"
 
     student_imports:
       new:

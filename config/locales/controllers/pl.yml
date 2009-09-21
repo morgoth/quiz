@@ -3,6 +3,7 @@ pl:
     notice:
       student_created: "Student utworzony"
       student_destroyed: "Student usunięty"
+      student_updated: "Student został zaktualizowany"
       user_session_created: "Logowanie pomyślne"
       user_session_destroyed: "Wylogowanie pomyślne"
       account_updated: "Profil zaktualizowany"

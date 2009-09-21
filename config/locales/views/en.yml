@@ -84,10 +84,13 @@ en:
         score: Score
 
     students:
+      group_hint: Groups separate by comma
       index:
         header: List of students
       new:
         header: New student
+      edit:
+        header: Edit student
 
     student_imports:
       new:

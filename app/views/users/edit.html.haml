@@ -3,6 +3,8 @@
     %h1= t("views.users.edit.header")
   .bd
     - semantic_form_for :user, @user, :url => account_path, :html => { :method => :put } do |f|
+      = f.input :first_name, :required => false
+      = f.input :last_name, :required => false
       = f.input :password
       = f.input :password_confirmation
       - f.buttons do

@@ -2,15 +2,23 @@
   .hd
     %h1= t("views.students.index.header")
   .bd
+    - unless @groups.empty?
+      %h3
+        - tag_cloud @groups, %w(tag1 tag2 tag3 tag4) do |tag, css_class|
+          = link_to tag.name, students_path(:group => tag.name), :class => css_class
     %table
       %thead
         %tr
           %td
             = t("activerecord.attributes.user.login")
           %td
+            = t("activerecord.attributes.user.full_name")
+          %td
             = t("activerecord.attributes.user.last_request_at")
           %td
             = t("activerecord.attributes.user.last_login_ip")
+          %td
+            = t("activerecord.attributes.user.group_list")
           %td
       %tbody
         - @students.each do |student|
@@ -18,9 +26,14 @@
             %td
               = h student.login
             %td
+              = h student.full_name
+            %td
               = h student.last_request_at.to_s :short if student.last_request_at
             %td
               = h student.last_login_ip
+            %td
+              = h student.group_list
             %td.text-right
+              = link_to t("views.edit"), edit_student_path(student)
               = link_to t("views.delete"), student, :method => :delete
 = render :partial => 'sidebar/students'

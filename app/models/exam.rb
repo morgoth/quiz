@@ -6,6 +6,7 @@ class Exam < ActiveRecord::Base
 
   delegate :name, :start_date, :duration, :to => :teacher_exam
   delegate :login, :to => :student, :prefix => true
+  delegate :full_name, :to => :student, :prefix => true, :allow_nil => true
 
   state_machine do
     event :prepare do

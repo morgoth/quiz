@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   validate_on_update :login_not_changed
 
-  attr_accessible :login, :password, :password_confirmation
+  attr_accessible :login, :password, :password_confirmation, :first_name, :last_name
 
   acts_as_authentic do |config|
     config.validates_length_of_login_field_options = { :in => 3..64 }
@@ -16,9 +16,13 @@ class User < ActiveRecord::Base
     type == 'Student'
   end
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
   private
 
   def login_not_changed
-    errors.add :login, "can not be changed" if login_changed?
+    errors.add :login, :changed if login_changed?
   end
 end

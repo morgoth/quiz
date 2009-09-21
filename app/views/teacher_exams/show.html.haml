@@ -48,7 +48,7 @@
         - @teacher_exam.exams.each do |exam|
           %tr
             %td
-              = h exam.student_login
+              = h (exam.student_full_name.blank? ? exam.student_login : exam.student_full_name)
             %td
               = h exam.sum_points
             %td

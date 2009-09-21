@@ -3,5 +3,6 @@ en:
     notice:
       student_created: Student created
       student_destroyed: Student destroyed
+      student_updated: Student updated
       user_session_created: Login successful
       user_session_destroyed: Logout successful

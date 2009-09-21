@@ -16,6 +16,9 @@ en:
         last_request_at: Last request at
         last_login_at: Last login at
         last_login_ip: Last login ip
+        first_name: First name
+        last_name: Last name
+        full_name: Full name
 
       teacher_question:
         content: Content

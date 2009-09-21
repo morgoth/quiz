@@ -4,7 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :language, :only => :update
   map.resource :account, :controller => "users"
   map.resources :users
-  map.resources :students, :only => [:index, :new, :create, :destroy]
+  map.resources :students, :only => [:index, :new, :create, :destroy, :edit, :update]
   map.resource :user_session
   map.resources :teacher_questions
   map.resources :teacher_answers, :except => [:index, :show]

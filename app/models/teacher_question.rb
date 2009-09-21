@@ -31,6 +31,6 @@ class TeacherQuestion < ActiveRecord::Base
   private
 
   def question_type_not_changed
-    errors.add :question_type, 'can not be changed' if question_type_changed?
+    errors.add :question_type, :changed if question_type_changed?
   end
 end

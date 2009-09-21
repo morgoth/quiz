@@ -21,6 +21,10 @@ pl:
         last_request_at: "Ostatnia aktywność"
         last_login_at: "Ostatnie logowanie"
         last_login_ip: "IP ostatniego logowania"
+        first_name: "Imię"
+        last_name: "Nazwisko"
+        full_name: "Imię i nazwisko"
+        group_list: "Grupy"
 
       teacher_question:
         content: "Treść"

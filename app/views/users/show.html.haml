@@ -4,6 +4,10 @@
   .bd
     %p
       %b
+        = t("activerecord.attributes.user.full_name")
+      = h @user.full_name
+    %p
+      %b
         = t("activerecord.attributes.user.login")
       = h @user.login
     %p
