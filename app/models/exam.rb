@@ -14,7 +14,7 @@ class Exam < ActiveRecord::Base
     end
 
     event :start do
-      transition [:prepared, :started, :finished] => :started, :if => :time_to_start?
+      transition :prepared => :started, :if => :time_to_start?
     end
 
     event :try_finish do
@@ -22,11 +22,11 @@ class Exam < ActiveRecord::Base
     end
 
     event :finish do
-      transition any => :finished
+      transition :started => :finished
     end
 
     after_transition nil => :prepared, :do => :set_teacher_questions
-    before_transition [:prepared, :finished] => :started, :do => :set_started_at
+    before_transition :on => :start, :do => :set_started_at
   end
 
   def sum_points
