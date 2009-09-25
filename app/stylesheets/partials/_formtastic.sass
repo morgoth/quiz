@@ -23,12 +23,25 @@ form.formtastic
     float: left
     padding-top: .2em
 
+  .datetime
+    fieldset ol
+      margin-left= !formtastic_offset
+
+      li
+        float: left
+        padding: 5px
+        label
+          width: auto
+        select
+          display: block
+
   fieldset ol
     margin-left= !formtastic_offset
 
     li
       float: left
       padding: 5px
+
       label
         width: auto
       select

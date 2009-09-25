@@ -4,7 +4,7 @@
   .bd
     - semantic_form_for @mass_exam do |f|
       = f.input :teacher_exam, :as => :select, :collection => current_user.teacher_exams
-      = f.input :student_ids, :as => :select, :collection => Student.all, :input_html => { :multiple => true }
+      = f.input :student_ids, :as => :check_boxes, :collection => Student.all
       - f.buttons do
         = f.commit_button t("views.confirm")
 = render :partial => 'sidebar/new_exams'

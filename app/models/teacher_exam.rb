@@ -6,7 +6,8 @@ class TeacherExam < ActiveRecord::Base
   validates_presence_of :teacher, :name
   validates_numericality_of :question_number, :only_integer => true, :allow_nil => true
   validates_numericality_of :duration, :only_integer => true, :greater_than => 0
-  validate :size_of_question_number, :owner_of_question
+  validate :size_of_question_number, :if => :question_number
+  validate :owner_of_question
 
   delegate :login, :to => :teacher, :prefix => true
   delegate :login, :to => :student, :prefix => true
@@ -18,7 +19,7 @@ class TeacherExam < ActiveRecord::Base
   private
 
   def size_of_question_number
-    errors.add(:question_number, :greater_than_total) if question_number && question_number > teacher_questions_size
+    errors.add(:question_number, :greater_than_total) if question_number > teacher_questions_size
   end
 
   def owner_of_question

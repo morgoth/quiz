@@ -3,7 +3,7 @@
   = f.input :question_number, :required => false, :hint => t("views.teacher_exams.new.question_number_hint")
   = f.input :start_date, :include_blank => true, :required => false, :start_year => Time.now.year, :minute_step => 15
   = f.input :duration, :hint => t("views.teacher_exams.new.duration_hint")
-  = f.input :teacher_questions, :collection => @current_user.teacher_questions, :label_method => :content, :include_blank => false
+  = f.input :teacher_questions, :as => :check_boxes, :collection => @current_user.teacher_questions, :label_method => :content, :include_blank => false
   - f.buttons do
     = f.commit_button t("views.confirm")
 

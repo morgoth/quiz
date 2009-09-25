@@ -18,9 +18,9 @@ class TeacherQuestion < ActiveRecord::Base
 
   def max_points
     if question_type == 'radio_button'
-      teacher_answers.map { |q| q.points }.compact.max
+      teacher_answers.map { |a| a.points }.compact.max
     else
-      teacher_answers.map { |q| q.points if q.points > 0 }.compact.inject { |sum, q| sum += q }
+      teacher_answers.map { |a| a.points if a.points > 0 }.compact.inject { |sum, p| sum += p }
     end
   end
 

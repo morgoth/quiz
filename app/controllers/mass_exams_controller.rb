@@ -14,5 +14,4 @@ class MassExamsController < ApplicationController
       render :new
     end
   end
-
 end

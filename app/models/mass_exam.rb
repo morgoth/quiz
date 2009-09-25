@@ -2,12 +2,17 @@ class MassExam < ActiveRecord::Base
   belongs_to :teacher
   belongs_to :teacher_exam
   validates_presence_of :teacher_exam, :student_ids
-  # FIXME: student_ids => [''] pass validation
+  # FIXME: when :new is rendered student ids not match
   attr_accessor :student_ids
 
+  before_validation :remove_blank_ids
   before_save :create_exams
 
   private
+
+  def remove_blank_ids
+    student_ids.delete ""
+  end
 
   def create_exams
     student_ids.each do |student_id|

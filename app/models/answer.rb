@@ -28,6 +28,6 @@ class Answer < ActiveRecord::Base
   def levenshtein_match?
     # number 6 is taken from polish nerd quiz
     distance = Levenshtein.distance(teacher_answer.content.downcase, value.downcase)
-    teacher_answer.content.gsub(' ','').length/6 >= distance
+    teacher_answer.content.gsub(/\s/,'').length / 6 >= distance
   end
 end
