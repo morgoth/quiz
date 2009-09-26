@@ -25,6 +25,8 @@ config.gem 'cucumber', :lib => false
 config.gem 'webrat', :lib => false
 config.gem 'thoughtbot-shoulda', :lib => 'shoulda'
 config.gem 'rr'
+config.gem 'rspec', :lib => false
+config.gem 'rspec-rails', :lib => false
 
 # en locale is nedded for cucumber tests
 config.i18n.default_locale = :en
