@@ -6,6 +6,5 @@
   %td
     = image_tag(teacher_answer.picture.picture.url(:small)) if teacher_answer.picture
   %td.text-right
-    - if teacher_answer.destroyable?
-      = link_to 'Edit', edit_teacher_answer_path(teacher_answer)
-      = link_to 'Destroy', teacher_answer, :method => :delete
+    = link_to t("views.edit"), edit_teacher_answer_path(teacher_answer)
+    = link_to_if teacher_answer.destroyable?, t("views.delete"), teacher_answer, :method => :delete

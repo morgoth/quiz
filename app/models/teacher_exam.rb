@@ -9,11 +9,17 @@ class TeacherExam < ActiveRecord::Base
   validate :size_of_question_number, :if => :question_number
   validate :owner_of_question
 
+  before_destroy :destroyable?
+
   delegate :login, :to => :teacher, :prefix => true
   delegate :login, :to => :student, :prefix => true
 
   def max_points
     teacher_questions.map { |q| q.max_points }.compact.inject { |sum, q| sum += q }
+  end
+
+  def destroyable?
+    exams.empty?
   end
 
   private

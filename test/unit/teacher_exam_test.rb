@@ -26,6 +26,21 @@ class TeacherExamTest < ActiveSupport::TestCase
       @teacher_exam.teacher_questions << Factory(:teacher_question, :teacher => Factory(:teacher))
       assert !@teacher_exam.valid?
     end
+  end
 
+  context "Created teacher exam" do
+    setup { @teacher_exam = Factory(:teacher_exam) }
+
+    should "not allow to destroy when have exam" do
+      Factory(:exam, :teacher_exam => @teacher_exam)
+      assert_equal 1, @teacher_exam.exams.count
+      assert !@teacher_exam.destroyable?
+      assert !@teacher_exam.destroy
+    end
+
+    should "allow to destroy when does not have exams" do
+      assert @teacher_exam.destroyable?
+      assert @teacher_exam.destroy
+    end
   end
 end

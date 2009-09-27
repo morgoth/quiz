@@ -7,7 +7,7 @@
       - f.fields_for :teacher_answers do |af|
         = af.input :content
         = af.input :points
-        - unless af.object.new_record?
+        - if !af.object.new_record? and af.object.destroyable?
           = af.input :_delete, :as => :boolean, :required => false
       - f.buttons do
         = f.commit_button t("views.confirm")

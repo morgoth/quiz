@@ -3,12 +3,18 @@ class Answer < ActiveRecord::Base
 
   belongs_to :question
   belongs_to :teacher_answer
+  has_many :answers
 
   validates_presence_of :question, :teacher_answer
 
   before_update :calculate_points
+  before_destroy :destroyable?
 
   delegate :content, :to => :teacher_answer
+
+  def destroyable?
+    answers.empty?
+  end
 
   private
 

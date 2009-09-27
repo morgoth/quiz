@@ -20,5 +20,5 @@
             %td.text-right
               = link_to t("views.show"), exam
               = link_to t("views.edit"), edit_teacher_exam_path(exam)
-              = link_to t("views.delete"), exam, :method => :delete
+              = link_to_if exam.destroyable?, t("views.delete"), exam, :method => :delete
 = render :partial => 'sidebar/teacher_exams'

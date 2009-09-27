@@ -27,7 +27,6 @@
               =  question.question_type.titleize
             %td.text-right
               = link_to t("views.show"), question
-              - if question.destroyable?
-                = link_to t("views.edit"), edit_teacher_question_path(question)
-                = link_to t("views.delete"), question, :method => :delete
+              = link_to t("views.edit"), edit_teacher_question_path(question)
+              = link_to_if question.destroyable?, t("views.delete"), question, :method => :delete
 = render :partial => 'sidebar/teacher_questions'
