@@ -52,6 +52,13 @@ class ExamTest < ActiveSupport::TestCase
       assert_equal 'started', @exam.state
     end
 
+    should "not set finished at when finish and duration not gone beyond" do
+      @exam.save!
+      @exam.start
+      @exam.try_finish
+      assert_nil @exam.finished_at
+    end
+
     should "be finished when try finish and duration gone beyond" do
       @exam.save!
       @exam.start
@@ -66,6 +73,14 @@ class ExamTest < ActiveSupport::TestCase
       @exam.start
       @exam.finish
       assert_equal 'finished', @exam.state
+    end
+
+    should "set finished at when finished" do
+      @exam.save!
+      @exam.start
+      assert_nil @exam.finished_at
+      @exam.finish
+      assert_not_nil @exam.finished_at
     end
 
     should "not set started_at when is already started" do

@@ -14,6 +14,7 @@ class TeacherExam < ActiveRecord::Base
   delegate :login, :to => :teacher, :prefix => true
   delegate :login, :to => :student, :prefix => true
 
+  # FIXME: it should be calculated from question in given attempt
   def max_points
     teacher_questions.map { |q| q.max_points }.compact.inject { |sum, q| sum += q }
   end

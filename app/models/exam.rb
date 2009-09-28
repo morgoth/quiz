@@ -27,6 +27,7 @@ class Exam < ActiveRecord::Base
 
     after_transition nil => :prepared, :do => :set_teacher_questions
     before_transition :on => :start, :do => :set_started_at
+    before_transition :on => :finish, :do => :set_finished_at
   end
 
   def sum_points
@@ -41,6 +42,10 @@ class Exam < ActiveRecord::Base
 
   def set_started_at
     self.started_at = Time.now
+  end
+
+  def set_finished_at
+    self.finished_at = Time.now
   end
 
   def time_to_start?
