@@ -7,7 +7,7 @@ class Question < ActiveRecord::Base
 
   validates_presence_of :teacher_question, :exam, :state
 
-  delegate :content, :to => :teacher_question
+  delegate :content, :question_type, :to => :teacher_question
 
   def sum_points
     answers.map { |a| a.points }.compact.inject { |sum, a| sum += a }

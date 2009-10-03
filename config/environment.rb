@@ -7,17 +7,17 @@ RAILS_GEM_VERSION = '2.3.4' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
-  config.gem "chriseppstein-compass", :lib => "compass"
+  config.gem "chriseppstein-compass", :lib => "compass", :source => "http://gems.github.com"
   config.gem 'haml'
   config.gem 'authlogic'
   config.gem 'state_machine'
-  config.gem "mbleigh-acts-as-taggable-on", :lib => "acts-as-taggable-on"
-  config.gem "justinfrench-formtastic", :lib => 'formtastic'
-  config.gem 'ryanb-acts-as-list', :lib => 'acts_as_list'
+  config.gem "mbleigh-acts-as-taggable-on", :lib => "acts-as-taggable-on", :source => "http://gems.github.com"
+  config.gem "justinfrench-formtastic", :lib => 'formtastic', :source => "http://gems.github.com"
+  config.gem 'ryanb-acts-as-list', :lib => 'acts_as_list', :source => "http://gems.github.com"
   config.gem 'prawn'
   config.gem 'thoughtbot-paperclip', :lib => 'paperclip'
   config.gem 'rack'
-  config.gem 'svenfuchs-routing-filter', :lib => 'routing_filter'
+  config.gem 'svenfuchs-routing-filter', :lib => 'routing_filter', :source => "http://gems.github.com"
 
   config.time_zone = 'Warsaw'
 
