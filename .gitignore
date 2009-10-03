@@ -3,6 +3,7 @@ tmp/**/*
 db/*.sqlite3
 config/database.yml
 public/stylesheets/compiled/*
+!public/stylesheets/compiled/.keep
 public/images/pictures/**/*
 vendor/rails/**/*
 vendor/gems/**/*
