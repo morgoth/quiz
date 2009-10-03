@@ -15,7 +15,7 @@ Rails::Initializer.run do |config|
   config.gem "justinfrench-formtastic", :lib => 'formtastic', :source => "http://gems.github.com"
   config.gem 'ryanb-acts-as-list', :lib => 'acts_as_list', :source => "http://gems.github.com"
   config.gem 'prawn'
-  config.gem 'thoughtbot-paperclip', :lib => 'paperclip'
+  config.gem 'thoughtbot-paperclip', :lib => 'paperclip', :source => "http://gems.github.com"
   config.gem 'rack'
   config.gem 'svenfuchs-routing-filter', :lib => 'routing_filter', :source => "http://gems.github.com"
 
