@@ -18,7 +18,7 @@
     %p
       %b
         = t("activerecord.attributes.teacher_exam.start_date")
-      = h @teacher_exam.start_date
+      = h @teacher_exam.start_date.to_s :long if @teacher_exam.start_date
     %p
       %b
         = t("views.teacher_exams.show.teacher")

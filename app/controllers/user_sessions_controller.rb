@@ -7,7 +7,7 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:notice] = t("controllers.notice.user_session_created")
-      redirect_to account_path
+      redirect_back_or_default account_path
     else
       render :action => :new
     end
@@ -18,5 +18,4 @@ class UserSessionsController < ApplicationController
     flash[:notice] = t("controllers.notice.user_session_destroyed")
     redirect_back_or_default new_user_session_url
   end
-
 end
