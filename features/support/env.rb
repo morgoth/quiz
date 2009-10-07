@@ -28,5 +28,5 @@ Webrat.configure do |config|
   config.open_error_files = false # Set to true if you want error pages to pop up in the browser
 end
 
-require 'cucumber/rails/rspec'
+# require 'cucumber/rails/rspec'
 require 'webrat/core/matchers'

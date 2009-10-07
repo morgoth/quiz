@@ -116,46 +116,46 @@ When /^I attach the file at "([^\"]*)" to "([^\"]*)"$/ do |path, field|
 end
 
 Then /^I should see "([^\"]*)"$/ do |text|
-  response.should contain(text)
+  assert_match /#{text}/m, response.body
 end
 
 Then /^I should see "([^\"]*)" within "([^\"]*)"$/ do |text, selector|
   within(selector) do |content|
-    content.should contain(text)
+    assert_match /#{text}/m, content
   end
 end
 
 Then /^I should see \/([^\/]*)\/$/ do |regexp|
   regexp = Regexp.new(regexp)
-  response.should contain(regexp)
+  assert_match regexp, response.body
 end
 
 Then /^I should see \/([^\/]*)\/ within "([^\"]*)"$/ do |regexp, selector|
   within(selector) do |content|
     regexp = Regexp.new(regexp)
-    content.should contain(regexp)
+    assert_match regexp, content
   end
 end
 
 Then /^I should not see "([^\"]*)"$/ do |text|
-  response.should_not contain(text)
+  assert_no_match /#{text}/m, response.body
 end
 
 Then /^I should not see "([^\"]*)" within "([^\"]*)"$/ do |text, selector|
   within(selector) do |content|
-    content.should_not contain(text)
+    assert_no_match /#{text}/m, content
   end
 end
 
 Then /^I should not see \/([^\/]*)\/$/ do |regexp|
   regexp = Regexp.new(regexp)
-  response.should_not contain(regexp)
+  assert_no_match regexp, response.body
 end
 
 Then /^I should not see \/([^\/]*)\/ within "([^\"]*)"$/ do |regexp, selector|
   within(selector) do |content|
     regexp = Regexp.new(regexp)
-    content.should_not contain(regexp)
+    assert_no_match regexp, content
   end
 end
 
@@ -168,11 +168,11 @@ Then /^the "([^\"]*)" field should not contain "([^\"]*)"$/ do |field, value|
 end
 
 Then /^the "([^\"]*)" checkbox should be checked$/ do |label|
-  field_labeled(label).should be_checked
+  assert field_labeled(label).checked?
 end
 
 Then /^the "([^\"]*)" checkbox should not be checked$/ do |label|
-  field_labeled(label).should_not be_checked
+  assert !field_labeled(label).checked?
 end
 
 Then /^I should be on (.+)$/ do |page_name|
