@@ -9,10 +9,10 @@ require File.join(File.dirname(__FILE__), 'boot')
 Rails::Initializer.run do |config|
   config.gem 'rack'
   config.gem 'haml'
-  config.gem "compass" :source => "http://gemcutter.org"
+  config.gem "compass", :source => "http://gemcutter.org"
   config.gem 'authlogic'
   config.gem 'state_machine'
-  config.gem "mbleigh-acts-as-taggable-on", :lib => "acts-as-taggable-on", :source => "http://gems.github.com"
+  config.gem "acts-as-taggable-on", :source => "http://gemcutter.org"
   config.gem "formtastic", :source => "http://gemcutter.org"
   config.gem 'acts-as-list', :lib => 'acts_as_list', :source => "http://gemcutter.org"
   config.gem 'prawn'
