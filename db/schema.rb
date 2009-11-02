@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090928163403) do
+ActiveRecord::Schema.define(:version => 20091102221322) do
 
   create_table "answers", :force => true do |t|
     t.integer  "teacher_answer_id"
@@ -126,6 +126,9 @@ ActiveRecord::Schema.define(:version => 20090928163403) do
     t.datetime "updated_at"
     t.string   "first_name"
     t.string   "last_name"
+    t.datetime "current_login_at"
+    t.string   "current_login_ip"
+    t.integer  "failed_login_count"
   end
 
 end

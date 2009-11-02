@@ -13,5 +13,5 @@
     %p
       %b
         = t("activerecord.attributes.user.last_login_at")
-      = h @user.last_login_at
+      = h @user.last_login_at.to_s(:long) if @user.last_login_at
 = render :partial => 'sidebar/account'

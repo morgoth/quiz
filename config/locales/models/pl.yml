@@ -40,7 +40,7 @@ pl:
         duration: "Czas trwania"
         start_date: "Data rozpoczęcia"
         question_number: "Ilość pytań"
-        teacher_question_ids: "Pytania"
+        teacher_questions: "Pytania"
 
       mass_exam:
         teacher_exam: "Egzamin"

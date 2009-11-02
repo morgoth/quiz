@@ -1,7 +1,7 @@
 unless Symbol.method_defined?(:to_proc)
   class Symbol
     def to_proc
-      return Proc.new {|*args| args.shift.send(self, *args) }
+      return Proc.new { |*args| args.shift.send(self, *args) }
     end
   end
 end
