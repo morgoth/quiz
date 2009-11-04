@@ -23,6 +23,7 @@ pl:
       student_import_created: "Studenci zostali zaimportowani"
       show_results: "Możesz zobaczyć pytania po ukończeniu egzaminu"
       mass_exam_created: "Egzamin dla studentów został utworzony"
+      teacher_created: "Konto nauczyciela zostało utworzone"
       require_user: "Musisz być zalogowany"
       require_teacher: "Musisz być zalogowany jako nauczyciel"
       require_student: "Musisz być zalogowany jako student"

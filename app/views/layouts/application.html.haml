@@ -27,6 +27,7 @@
               %li.first= link_to t("views.path.account"), account_path
               %li.last= link_to t("views.path.logout"), user_session_path, :method => :delete
             - else
+              %li.first= link_to t("views.path.register"), new_teacher_path
               %li.last= link_to t("views.path.login"), new_user_session_path
 
       #sidebar

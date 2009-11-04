@@ -14,6 +14,7 @@ pl:
 
     path:
       account: "Profil"
+      register: "Zarejestruj"
       login: "Zaloguj"
       logout: "Wyloguj"
       change_language: "Zmień"
@@ -109,3 +110,7 @@ pl:
     user_sessions:
       new:
         header: "Zaloguj się"
+
+    teachers:
+      new:
+        header: "Stwórz konto nauczyciela"

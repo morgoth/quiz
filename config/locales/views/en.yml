@@ -14,6 +14,7 @@ en:
 
     path:
       account: Account
+      register: Register
       login: Log in
       logout: Log out
       change_language: Change
@@ -106,3 +107,7 @@ en:
     user_sessions:
       new:
         header: Log in
+
+    teachers:
+      new:
+        header: "Create new teacher account"
