@@ -15,8 +15,9 @@
         = t("activerecord.attributes.teacher_exam.question_number")
       = h @exam.questions.count
 
-    - semantic_form_for @exam do |f|
-      = f.input :state_event, :as => :hidden, :value => 'start'
-      - f.buttons do
-        = f.commit_button t("views.exams.edit.start")
+    - if @exam.prepared?
+      - semantic_form_for @exam do |f|
+        = f.input :state_event, :as => :hidden, :value => 'start'
+        - f.buttons do
+          = f.commit_button t("views.exams.edit.start")
 = render :partial => 'sidebar/exams'

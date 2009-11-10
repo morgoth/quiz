@@ -7,7 +7,7 @@ class ExamsController < ApplicationController
   end
 
   def show
-    @exam = @current_suer.exams.find(params[:id])
+    @exam = @current_user.exams.find(params[:id])
   end
 
   def new
@@ -34,6 +34,7 @@ class ExamsController < ApplicationController
       flash[:notice] = t("controllers.notice.exam_started")
       redirect_to edit_exam_question_path @exam, @exam.questions.first
     else
+      flash[:notice] = t("controllers.notice.exam_not_started")
       render :edit
     end
   end

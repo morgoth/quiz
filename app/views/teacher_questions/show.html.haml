@@ -9,7 +9,7 @@
     %p
       %b
         = t("activerecord.attributes.teacher_question.question_type")
-      = h @teacher_question.question_type
+      = h localize_question_type(@teacher_question.question_type)
     %p
       %b
         = t("activerecord.attributes.picture.picture")

@@ -1,6 +1,10 @@
 pl:
   formtastic:
     required: "Pole wymagane"
+  question_type:
+    check_box: "wielokrotnego wyboru"
+    radio_button: "jednokrotnego wyboru"
+    text_field: "porównujące do wzorca"
   views:
     confirm: "Zatwierdź"
     edit: "Edytuj"
@@ -44,6 +48,12 @@ pl:
       show:
         header: "Pytanie"
         answers: "Odpowiedzi"
+
+    teacher_answers:
+      new:
+        header: "Nowa odpowiedź"
+      edit:
+        header: "Edycja odpowiedzi"
 
     teacher_exams:
       index:

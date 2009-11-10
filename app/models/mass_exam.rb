@@ -11,7 +11,7 @@ class MassExam < ActiveRecord::Base
   private
 
   def remove_blank_ids
-    student_ids.delete ""
+    student_ids.delete "" if student_ids
   end
 
   def create_exams

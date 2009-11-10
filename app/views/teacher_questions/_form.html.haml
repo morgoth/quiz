@@ -1,8 +1,8 @@
 = f.input :content
 - if f.object.new_record?
-  = f.input :question_type, :as => :select, :collection => TeacherQuestion::QUESTION_TYPES
+  = f.input :question_type, :as => :select, :collection => teacher_question_types_for_select
 - else
-  = f.input :question_type, :input_html => { :disabled => true }
+  = f.input :question_type, :as => :select, :collection => teacher_question_types_for_select, :input_html => { :disabled => true }
 = f.input :tag_list, :required => false
 - f.fields_for :picture do |fp|
   = fp.input :picture, :as => :file, :required => false

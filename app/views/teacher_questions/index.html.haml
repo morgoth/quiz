@@ -22,9 +22,9 @@
             %td
               = h question.content
             %td
-              =  question.teacher_answers.count
+              = question.teacher_answers.count
             %td
-              =  question.question_type.titleize
+              = localize_question_type(question.question_type)
             %td.text-right
               = link_to t("views.show"), question
               = link_to t("views.edit"), edit_teacher_question_path(question)

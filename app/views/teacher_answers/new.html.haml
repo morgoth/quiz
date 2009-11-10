@@ -1,6 +1,6 @@
 .block
   .hd
-    %h2 New answer
+    %h1= t("views.teacher_answers.new.header")
   .bd
     - semantic_form_for setup_picture(@teacher_answer), :html => { :multipart => true } do |f|
       = f.input :teacher_question_id, :as => :hidden
@@ -9,5 +9,5 @@
       - f.fields_for :picture do |fp|
         = fp.input :picture, :as => :file, :required => false
       - f.buttons do
-        = f.commit_button 'Commit'
+        = f.commit_button t("views.confirm")
 = render :partial => 'sidebar/teacher_questions'

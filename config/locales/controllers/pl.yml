@@ -11,6 +11,7 @@ pl:
       exam_destroyed: "Egzamin usunięty"
       exam_started: "Egzamin rozpoczęty"
       exam_finished: "Egzamin zakończony"
+      exam_not_started: "Egzamin nie może zostać rozpoczęty"
       question_created: "Pytanie utworzone"
       question_updated: "Pytanie zakutalizowane"
       question_destroyed: "Pytanie usunięte"

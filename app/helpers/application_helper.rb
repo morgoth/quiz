@@ -33,4 +33,20 @@ module ApplicationHelper
   def localize_exam_state(state)
     I18n.t("views.exam_state.#{state}")
   end
+
+  def teacher_question_types_for_select
+    collection = []
+    TeacherQuestion::QUESTION_TYPES.each do |type|
+      collection << [I18n.t("question_type.#{type}"), type]
+    end
+    collection
+  end
+
+  def localize_question_type(type)
+    I18n.t("question_type.#{type}")
+  end
+
+  def students_for_select
+    Student.all
+  end
 end
