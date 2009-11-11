@@ -8,8 +8,9 @@
       = t("views.questions.edit.time_to_end")
       = time_to_end_exam(@exam)
     - semantic_form_for [@exam, @question] do |f|
-      = f.input :state_event, :as => :hidden, :value => 'visit'
-      %li= render :partial => @question.teacher_question.question_type, :locals => { :question => @question, :disabled => false }
+      - f.inputs do
+        = f.input :state_event, :as => :hidden, :value => 'visit'
+        %li= render :partial => @question.teacher_question.question_type, :locals => { :question => @question, :disabled => false }
       - f.buttons do
         = f.commit_button t("views.questions.edit.next"), :button_html => { :name => 'next' }
         - @exam.questions.each do |question|

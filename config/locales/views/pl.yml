@@ -45,9 +45,11 @@ pl:
         header: "Nowe pytanie"
       edit:
         header: "Edycja pytania"
+        answers: "Odpowiedzi"
       show:
         header: "Pytanie"
         answers: "Odpowiedzi"
+        answer: "Odpowiedź"
 
     teacher_answers:
       new:

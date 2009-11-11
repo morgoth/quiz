@@ -3,9 +3,10 @@
     %h1= t("views.exams.new.header")
   .bd
     - semantic_form_for @exam do |f|
-      = f.input :state_event, :as => :hidden, :value => 'prepare'
-      = f.input :teacher_exam, :collection => @current_user.teacher_exams
-      = f.input :student
+      - f.inputs do
+        = f.input :state_event, :as => :hidden, :value => 'prepare'
+        = f.input :teacher_exam, :collection => @current_user.teacher_exams
+        = f.input :student
       - f.buttons do
         = f.commit_button t("views.confirm")
 = render :partial => 'sidebar/new_exams'

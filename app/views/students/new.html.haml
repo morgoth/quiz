@@ -3,12 +3,13 @@
     %h1= t("views.students.new.header")
   .bd
     - semantic_form_for @student do |f|
-      = f.input :login
-      = f.input :first_name, :required => false
-      = f.input :last_name, :required => false
-      = f.input :password
-      = f.input :password_confirmation
-      = f.input :group_list, :required => false, :hint => t("views.students.group_hint")
+      - f.inputs do
+        = f.input :login
+        = f.input :first_name, :required => false
+        = f.input :last_name, :required => false
+        = f.input :password
+        = f.input :password_confirmation
+        = f.input :group_list, :required => false, :hint => t("views.students.group_hint")
       - f.buttons do
         = f.commit_button t("views.confirm")
 = render :partial => 'sidebar/students'

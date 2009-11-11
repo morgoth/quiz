@@ -1,6 +1,10 @@
 en:
   formtastic:
     required: "Required"
+  question_type:
+    check_box: check box
+    radio_button: radio button
+    text_field: compare to source
   views:
     confirm: Confirm
     edit: Edit
@@ -41,9 +45,17 @@ en:
         header: New question
       edit:
         header: Edit question
+        answers: Answers
       show:
         header: Question
         answers: Answers
+        answer: Answer
+
+    teacher_answers:
+      new:
+        header: New answer
+      edit:
+        header: Edit answer
 
     teacher_exams:
       index:

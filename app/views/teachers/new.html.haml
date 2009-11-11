@@ -3,9 +3,10 @@
     %h1= t("views.teachers.new.header")
   .bd
     - semantic_form_for @teacher do |f|
-      = f.input :login
-      = f.input :password
-      = f.input :password_confirmation
+      - f.inputs do
+        = f.input :login
+        = f.input :password
+        = f.input :password_confirmation
       - f.buttons do
         = f.submit t("views.confirm")
 - content_for :sidebar do

@@ -17,7 +17,7 @@ Rails::Initializer.run do |config|
   config.gem 'acts-as-list', :lib => 'acts_as_list', :source => "http://gemcutter.org"
   config.gem 'prawn'
   config.gem 'paperclip', :source => "http://gemcutter.org"
-  config.gem 'svenfuchs-routing-filter', :lib => 'routing_filter', :source => "http://gems.github.com"
+  config.gem 'routing-filter', :lib => 'routing_filter', :source => "http://gemcutter.org"
 
   config.time_zone = 'Warsaw'
 

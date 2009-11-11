@@ -3,7 +3,7 @@
 @import compass/reset, compass/utilities
 @import partials/block
 @import partials/table
-@import partials/formtastic
+@import partials/formtastic_base
 
 +blueprint-typography
 +blueprint-debug
@@ -11,6 +11,10 @@
 !main_color= #187a7a
 !header_color= #fff
 //#7a1818
+
+form.formtastic
+  //+formtastic(20*!blueprint_grid_width,4*!blueprint_grid_width,15*!blueprint_grid_width,1*!blueprint_grid_width,"left",true)
+  +formtastic
 
 body
   background-color: #f0f0ee
@@ -23,6 +27,7 @@ a
   +container
   +block(!main_color, !header_color)
   text-align: left
+
 #header
   +column(24, true)
   background-color= !main_color
@@ -68,7 +73,7 @@ a
 #content
   +column(20, true)
   +table
-
+  +blueprint-grid
 #sidebar
   +column(4)
   +no-bullets
