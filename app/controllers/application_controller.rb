@@ -1,8 +1,7 @@
 class ApplicationController < ActionController::Base
   helper :all
   protect_from_forgery
-  # FIXME: Rails 2.3 bug - fitler_parameter_logging
-  # filter_parameter_logging :password, :password_confirmation
+  filter_parameter_logging :password
   helper_method :current_user_session, :current_user, :teacher, :student
   before_filter :set_locale, :store_location
 
@@ -95,5 +94,4 @@ class ApplicationController < ActionController::Base
       session[:return_to]
     end
   end
-
 end
