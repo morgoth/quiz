@@ -4,5 +4,6 @@ en:
       student_created: Student created
       student_destroyed: Student destroyed
       student_updated: Student updated
+      teacher_created: Teacher created
       user_session_created: Login successful
       user_session_destroyed: Logout successful

@@ -12,6 +12,8 @@ module NavigationHelpers
       '/'
     when /the login page/
       new_user_session_path
+    when /the new teacher page/
+      new_teacher_path
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
         "Now, go and add a mapping in #{__FILE__}"

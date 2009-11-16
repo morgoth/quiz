@@ -1,0 +1,26 @@
+From 0780023a0fbaad494c1e7d164291e6c5ea1d7aab Mon Sep 17 00:00:00 2001
+From: =?utf-8?q?Jakub=20Ku=C5=BAma?= <qoobaa+github@gmail.com>
+Date: Mon, 19 Oct 2009 11:39:17 +0200
+Subject: [PATCH] rack.input requires ASCII-8BIT encoded StringIO
+
+---
+ actionpack/lib/action_controller/integration.rb |    3 +++
+ 1 files changed, 3 insertions(+), 0 deletions(-)
+
+diff --git a/actionpack/lib/action_controller/integration.rb b/actionpack/lib/action_controller/integration.rb
+index f0c165c..8c75512 100644
+--- a/actionpack/lib/action_controller/integration.rb
++++ b/actionpack/lib/action_controller/integration.rb
+@@ -271,6 +271,9 @@ module ActionController
+ 
+           data = data.is_a?(IO) ? data : StringIO.new(data || '')
+ 
++          # rack requires binary encoded rack.input
++          data.set_encoding(Encoding::ASCII_8BIT) if data.respond_to?(:set_encoding)
++
+           env.update(
+             "REQUEST_METHOD"  => method.to_s.upcase,
+             "SERVER_NAME"     => host,
+-- 
+1.6.0.4
+
