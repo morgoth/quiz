@@ -47,7 +47,7 @@ pl:
         student_ids: "Studenci"
 
       exam:
-        teacher_exam_id: "Egzamin"
+        teacher_exam: "Egzamin"
         student_id: "Student"
         state: "Stan"
         students: "Studenci"
