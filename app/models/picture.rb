@@ -8,5 +8,5 @@ class Picture < ActiveRecord::Base
 
   #validates_presence_of :imageable_id, :imageable_type
   validates_attachment_content_type :picture, :content_type => ['image/jpeg', 'image/png', 'image/gif', 'image/jpg']
-  validates_attachment_size :picture, :less_than => 100.kilobytes
+  validates_attachment_size :picture, :less_than => 800.kilobytes
 end

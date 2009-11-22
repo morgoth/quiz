@@ -14,7 +14,8 @@ class TeacherQuestion < ActiveRecord::Base
   before_destroy :destroyable?
 
   accepts_nested_attributes_for :teacher_answers, :allow_destroy => true
-  accepts_nested_attributes_for :picture
+  # FIXME: empty picture is created when question is edited
+  accepts_nested_attributes_for :picture, :reject_if => proc { |attrs| attrs['picture'].nil? }
 
   def max_points
     if question_type == 'radio_button'
