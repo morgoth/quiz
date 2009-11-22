@@ -7,6 +7,10 @@ class TeacherExamsController < ApplicationController
 
   def show
     @teacher_exam = @current_user.teacher_exams.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf { render :layout => false }
+    end
   end
 
   def new
@@ -23,7 +27,7 @@ class TeacherExamsController < ApplicationController
       flash[:notice] = t("controllers.notice.teacher_exam_created")
       redirect_to(@teacher_exam)
     else
-      render :action => "new"
+      render :new
     end
   end
 
@@ -33,7 +37,7 @@ class TeacherExamsController < ApplicationController
       flash[:notice] = t("controllers.notice.teacher_exam_updated")
       redirect_to(@teacher_exam)
     else
-      render :action => "edit"
+      render :edit
     end
   end
 

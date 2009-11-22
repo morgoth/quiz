@@ -54,7 +54,7 @@
             %td
               = h number_to_percentage(exam.percentage_score, :precision => 0)
             %td
-              = h exam.state
+              = h localize_exam_state(exam.state)
     = link_to t("views.edit"), edit_teacher_exam_path(@teacher_exam)
     = link_to t("views.teacher_exams.show.pdf"), teacher_exam_path(@teacher_exam, :format => "pdf")
 = render :partial => 'sidebar/teacher_exams'
