@@ -1,0 +1,10 @@
+haml
+compass
+authlogic
+state_machine
+acts-as-taggable-on
+formtastic
+acts-as-list
+prawn
+paperclip
+routing-filter
