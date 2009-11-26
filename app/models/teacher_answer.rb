@@ -1,6 +1,5 @@
 class TeacherAnswer < ActiveRecord::Base
   belongs_to :teacher_question
-  has_one :picture, :as => :imageable, :dependent => :destroy
   has_many :answers
 
   validates_numericality_of :points
@@ -8,8 +7,6 @@ class TeacherAnswer < ActiveRecord::Base
   validate_on_create :one_answer_only, :if => :text_field?
 
   before_destroy :destroyable?
-
-  accepts_nested_attributes_for :picture
 
   def destroyable?
     answers.empty?

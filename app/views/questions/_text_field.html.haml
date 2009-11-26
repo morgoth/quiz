@@ -1,6 +1,6 @@
 %label
   = question.content
-  = picture_tag(question)
+  = image_tag(question.picture_url) if question.picture_url.present?
 = text_field_tag "question[student_answers][text_field]", question.answers.first.value, :disabled => disabled
 - unless disabled
   %p.inline-hints= generate_hint(question.teacher_question.teacher_answers.first.content)

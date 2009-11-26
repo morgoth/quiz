@@ -18,17 +18,6 @@ module ApplicationHelper
     link_to(name, options, html_options)
   end
 
-  def setup_picture(imageable)
-    returning(imageable) do |i|
-      (i.picture = Picture.new) if i.picture.nil?
-    end
-  end
-
-  def picture_tag(imageable)
-    klass = "teacher_" + imageable.class.name.underscore
-    image_tag(imageable.send(klass.to_sym).picture.picture.url) if imageable.send(klass.to_sym).picture
-  end
-
   def localize_exam_state(state)
     I18n.t("views.exam_state.#{state}")
   end

@@ -2,12 +2,12 @@
   %legend
     %span.label
       = question.content
-      = picture_tag(question)
+      = image_tag(question.picture_url) if question.picture_url.present?
   %ol.list
     - question.answers.each do |answer|
       %li
         %label
           = check_box_tag "question[student_answers][check_box][]", answer.id, answer.value == 'true', :disabled => disabled
           = answer.content
-          = picture_tag(answer)
+          = image_tag(answer.picture_url) if answer.picture_url.present?
         = answer.points if disabled and answer.value == 'true'

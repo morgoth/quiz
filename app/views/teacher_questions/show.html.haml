@@ -12,8 +12,8 @@
       = h localize_question_type(@teacher_question.question_type)
     %p
       %b
-        = t("activerecord.attributes.picture.picture")
-      = image_tag @teacher_question.picture.picture.url if @teacher_question.picture
+        = t("activerecord.attributes.teacher_question.picture_url")
+      = image_tag(@teacher_question.picture_url) if @teacher_question.picture_url.present?
     %p
       %b
         = t("activerecord.attributes.teacher_question.tag_list")
@@ -32,18 +32,17 @@
           %td
             = t("activerecord.attributes.teacher_answer.points")
           %td
-            = t("activerecord.attributes.picture.picture")
+            = t("activerecord.attributes.teacher_answer.picture_url")
           %td
       %tbody
         = render @teacher_question.teacher_answers
     - unless @teacher_question.question_type == 'text_field' and !@teacher_question.teacher_answers.empty?
-      - semantic_form_for TeacherAnswer.new(:teacher_question => @teacher_question, :picture => Picture.new), :html => { :multipart => true } do |f|
+      - semantic_form_for TeacherAnswer.new(:teacher_question => @teacher_question), :html => { :multipart => true } do |f|
         - f.inputs :name => t("views.teacher_questions.show.answer") do
           = f.input :teacher_question_id, :as => :hidden
           = f.input :content, :required => false
           = f.input :points
-          - f.fields_for :picture do |fp|
-            = fp.input :picture, :as => :file, :required => false
+          = f.input :picture_url, :required => false
         - f.buttons do
           = f.commit_button t("views.confirm")
 = render :partial => 'sidebar/teacher_questions'

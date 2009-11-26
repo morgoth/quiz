@@ -4,7 +4,7 @@
   %td
     = h teacher_answer.points
   %td
-    = image_tag(teacher_answer.picture.picture.url(:small)) if teacher_answer.picture
+    = image_tag(teacher_answer.picture_url) if teacher_answer.picture_url.present?
   %td.text-right
     = link_to t("views.edit"), edit_teacher_answer_path(teacher_answer)
     = link_to_if teacher_answer.destroyable?, t("views.delete"), teacher_answer, :method => :delete

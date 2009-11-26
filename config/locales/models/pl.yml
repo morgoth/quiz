@@ -30,10 +30,12 @@ pl:
         content: "Treść"
         question_type: "Typ pytania"
         tag_list: "Lista tagów"
+        picture_url: "Ilustracja"
 
       teacher_answer:
         content: "Treść"
         points: "Punkty"
+        picture_url: "Ilustracja"
 
       teacher_exam:
         name: "Nazwa"
@@ -56,6 +58,3 @@ pl:
 
       student_import:
         file: "Plik"
-
-      picture:
-        picture: "Obraz"

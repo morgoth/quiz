@@ -2,7 +2,7 @@
   .hd
     %h1= t("views.teacher_questions.edit.header")
   .bd
-    - semantic_form_for setup_picture(@teacher_question), :html => { :multipart => true } do |f|
+    - semantic_form_for @teacher_question, :html => { :multipart => true } do |f|
       = render :partial => 'form', :locals => { :f => f }
       - f.inputs :name => t("views.teacher_questions.edit.answers") do
         - f.fields_for :teacher_answers do |af|

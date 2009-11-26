@@ -2,12 +2,11 @@
   .hd
     %h1= t("views.teacher_answers.edit.header")
   .bd
-    - semantic_form_for setup_picture(@teacher_answer), :html => { :multipart => true } do |f|
+    - semantic_form_for @teacher_answer, :html => { :multipart => true } do |f|
       - f.inputs do
         = f.input :content
         = f.input :points
-        - f.fields_for :picture do |fp|
-          = fp.input :picture, :as => :file, :required => false
+        = f.input :picture_url, :required => false
       - f.buttons do
         = f.commit_button t("views.confirm")
 = render :partial => 'sidebar/teacher_questions'

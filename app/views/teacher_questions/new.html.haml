@@ -2,7 +2,7 @@
   .hd
     %h1= t("views.teacher_questions.new.header")
   .bd
-    - semantic_form_for setup_picture(@teacher_question), :html => { :multipart => true } do |f|
+    - semantic_form_for @teacher_question, :html => { :multipart => true } do |f|
       = render :partial => 'form', :locals => { :f => f }
       - f.buttons do
         = f.commit_button t("views.confirm")
