@@ -1,6 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.filter 'locale'
 
+  map.resource :home, :only => [:show]
   map.resource :language, :only => :update
   map.resource :account, :controller => "users"
   map.resources :users, :only => [:show, :edit, :update]
@@ -15,6 +16,5 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :exams do |exams|
     exams.resources :questions, :only => [:index, :edit, :update]
   end
-  map.root :controller => "user_sessions", :action => "new"
-
+  map.root :controller => "homes", :action => "show"
 end

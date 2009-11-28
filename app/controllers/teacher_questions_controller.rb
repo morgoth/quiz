@@ -2,7 +2,7 @@ class TeacherQuestionsController < ApplicationController
   before_filter :require_teacher
 
   def index
-    @teacher_questions = params[:tag].nil? ? @current_user.teacher_questions.all : @current_user.teacher_questions.find_tagged_with( params[:tag])
+    @teacher_questions = params[:tag].nil? ? @current_user.teacher_questions.all : @current_user.teacher_questions.find_tagged_with(params[:tag])
     @tags = TeacherQuestion.tag_counts
   end
 

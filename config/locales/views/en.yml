@@ -123,3 +123,8 @@ en:
     teachers:
       new:
         header: "Create new teacher account"
+
+    homes:
+      show:
+        header: "Start page"
+        body: "Application is in heavy development"

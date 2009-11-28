@@ -10,7 +10,7 @@ class Answer < ActiveRecord::Base
   before_update :calculate_points
   before_destroy :destroyable?
 
-  delegate :content, :to => :teacher_answer
+  delegate :content, :picture_url, :to => :teacher_answer
 
   def destroyable?
     answers.empty?

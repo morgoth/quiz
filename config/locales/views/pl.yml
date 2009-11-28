@@ -126,3 +126,8 @@ pl:
     teachers:
       new:
         header: "Stwórz konto nauczyciela"
+
+    homes:
+      show:
+        header: "Strona startowa"
+        body: "Aplikacja jest w rozwoju"

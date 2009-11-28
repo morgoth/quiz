@@ -6,7 +6,7 @@
   .bd
     %h2
       = t("views.questions.edit.time_to_end")
-      = time_to_end_exam(@exam)
+      .countdown= time_to_end_exam(@exam)
     - semantic_form_for [@exam, @question] do |f|
       - f.inputs do
         = f.input :state_event, :as => :hidden, :value => 'visit'
