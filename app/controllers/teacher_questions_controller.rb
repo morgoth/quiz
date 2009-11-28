@@ -8,7 +8,6 @@ class TeacherQuestionsController < ApplicationController
 
   def new
     @teacher_question = TeacherQuestion.new
-    #@teacher_question.picture = Picture.new
   end
 
   def create
@@ -17,13 +16,12 @@ class TeacherQuestionsController < ApplicationController
       flash[:notice] = t("controllers.notice.question_created")
       redirect_to teacher_question_path @teacher_question
     else
-      render :action => :new
+      render :new
     end
   end
 
   def show
     @teacher_question = @current_user.teacher_questions.find(params[:id])
-
   end
 
   def edit
@@ -36,7 +34,7 @@ class TeacherQuestionsController < ApplicationController
       flash[:notice] = t("controllers.notice.question_updated")
       redirect_to teacher_questions_path
     else
-      render :action => :edit
+      render :edit
     end
   end
 

@@ -18,7 +18,7 @@ class QuestionsController < ApplicationController
     if @question.update_attributes(params[:question])
       redirect_to edit_exam_question_path(@exam, rotate_question(@question))
     else
-      render :action => :edit
+      render :edit
     end
   end
 
