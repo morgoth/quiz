@@ -6,4 +6,3 @@ public/stylesheets/compiled/*
 !public/stylesheets/compiled/.keep
 public/images/pictures/**/*
 vendor/rails/**/*
-vendor/gems/**/*
