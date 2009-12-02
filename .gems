@@ -8,5 +8,3 @@ prawn
 paperclip
 routing-filter
 acts-as-taggable-on
-rails -v 2.3.5
-rack -v ">= 1.0.1"
