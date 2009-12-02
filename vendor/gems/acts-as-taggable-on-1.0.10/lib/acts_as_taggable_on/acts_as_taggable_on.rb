@@ -177,7 +177,7 @@ module ActiveRecord
                      "  ON #{taggings_alias}.taggable_id = #{table_name}.#{primary_key}" +
                      " AND #{taggings_alias}.taggable_type = #{quote_value(base_class.name)}"
 
-            group = "#{table_name}.#{primary_key} HAVING COUNT(#{taggings_alias}.taggable_id) = #{tags.size}"
+            group = "#{column_names_for_tagging_group} HAVING COUNT(#{taggings_alias}.taggable_id) = #{tags.size}"
           end
 
           { :joins      => joins.join(" "),
@@ -232,7 +232,7 @@ module ActiveRecord
           at_least  = sanitize_sql(['COUNT(*) >= ?', options.delete(:at_least)]) if options[:at_least]
           at_most   = sanitize_sql(['COUNT(*) <= ?', options.delete(:at_most)]) if options[:at_most]
           having    = [at_least, at_most].compact.join(' AND ')
-          group_by  = "#{Tag.table_name}.id, #{Tag.table_name}.name HAVING COUNT(*) > 0"
+          group_by  = "#{column_names_for_tag_group} HAVING COUNT(*) > 0"
           group_by << " AND #{having}" unless having.blank?
 
           { :select     => "#{Tag.table_name}.*, COUNT(*) AS count",
@@ -246,6 +246,14 @@ module ActiveRecord
 
         def is_taggable?
           true
+        end
+
+        def column_names_for_tag_group
+          Tag.column_names.map { |column| "#{Tag.table_name}.#{column}" }.join(", ")
+        end
+
+        def column_names_for_tagging_group
+          column_names.map { |column| "#{table_name}.#{column}" }.join(", ")
         end
       end
 
@@ -360,4 +368,3 @@ module ActiveRecord
     end
   end
 end
-
