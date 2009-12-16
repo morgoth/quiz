@@ -22,11 +22,11 @@ config.action_mailer.delivery_method = :test
 # config.active_record.schema_format = :sql
 config.gem 'factory_girl', :source => "http://gemcutter.org"
 config.gem 'cucumber', :lib => false
+config.gem 'cucumber-rails', :lib => false
+config.gem 'database_cleaner', :lib => false
 config.gem 'webrat', :lib => false
 config.gem 'shoulda', :source => "http://gemcutter.org"
 config.gem 'rr'
-# config.gem 'rspec', :lib => false
-# config.gem 'rspec-rails', :lib => false
 
 # en locale is nedded for cucumber tests
 config.i18n.default_locale = :en
