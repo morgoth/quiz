@@ -8,15 +8,15 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
   config.gem 'haml'
-  config.gem "compass", :source => "http://gemcutter.org"
+  config.gem "compass"
   config.gem 'authlogic'
   config.gem 'state_machine'
-  config.gem "acts-as-taggable-on", :source => "http://gemcutter.org"
-  config.gem "formtastic", :source => "http://gemcutter.org"
-  config.gem 'acts-as-list', :lib => 'acts_as_list', :source => "http://gemcutter.org"
+  config.gem "acts-as-taggable-on"
+  config.gem "formtastic"
+  config.gem 'acts-as-list', :lib => 'acts_as_list'
   config.gem 'prawn'
-  config.gem 'paperclip', :source => "http://gemcutter.org"
-  config.gem 'routing-filter', :lib => 'routing_filter', :source => "http://gemcutter.org"
+  config.gem 'paperclip'
+  config.gem 'routing-filter', :lib => 'routing_filter'
 
   config.time_zone = 'Warsaw'
 
