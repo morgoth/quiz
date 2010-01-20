@@ -7,3 +7,4 @@ public/stylesheets/compiled/*
 public/images/pictures/**/*
 vendor/rails/**/*
 rerun.txt
+vendor/bundler_gems/*
