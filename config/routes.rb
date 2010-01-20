@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.filter 'locale'
+  map.filter :locale
 
   map.resource :home, :only => [:show]
   map.resource :language, :only => :update
