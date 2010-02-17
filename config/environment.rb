@@ -10,6 +10,8 @@ Rails::Initializer.run do |config|
 
   config.time_zone = 'Warsaw'
 
+  config.gem "acts-as-taggable-on"
+
   config.i18n.load_path += Dir[File.join(Rails.root, "config", "locales", "**", "*.{rb,yml}")]
   config.i18n.default_locale = :pl
 end
