@@ -1,3 +1,4 @@
+source :gemcutter
 
 gem "rails"
 
@@ -11,6 +12,14 @@ gem "prawn"
 gem "paperclip"
 gem "routing-filter", :require => "routing_filter"
 gem "acts-as-taggable-on"
+
+group :development do
+  gem "sqlite3-ruby", :require => "sqlite3"
+end
+
+group :production do
+  gem "pg"
+end
 
 group :test do
   gem 'factory_girl'
