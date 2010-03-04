@@ -1,6 +1,6 @@
 source :gemcutter
 
-gem "rails"
+gem "rails", :require => nil
 
 gem "haml"
 gem "compass"
