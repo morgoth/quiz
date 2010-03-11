@@ -2,11 +2,11 @@ source :gemcutter
 
 gem "rails", :require => nil
 
+gem "formtastic"
 gem "haml"
 gem "compass"
 gem "authlogic"
 gem "state_machine"
-gem "formtastic"
 gem "acts-as-list", :require => "acts_as_list"
 gem "prawn"
 gem "paperclip"
