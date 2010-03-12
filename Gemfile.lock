@@ -1,189 +1,179 @@
 --- 
-hash: 579c90d2219c6af40d2dbeae6173e496ed58f388
-sources: 
-- Rubygems: 
-    uri: http://gemcutter.org
+dependencies: 
+  rr: 
+    group: 
+    - :test
+    version: ">= 0"
+  routing-filter: 
+    group: 
+    - :default
+    version: ">= 0"
+    require: 
+    - routing_filter
+  compass: 
+    group: 
+    - :default
+    version: ">= 0"
+  rails: 
+    group: 
+    - :default
+    version: ">= 0"
+    require: []
+
+  pg: 
+    group: 
+    - :production
+    version: ">= 0"
+  sqlite3-ruby: 
+    group: 
+    - :development
+    version: ">= 0"
+    require: 
+    - sqlite3
+  prawn: 
+    group: 
+    - :default
+    version: ">= 0"
+  haml: 
+    group: 
+    - :default
+    version: ">= 0"
+  authlogic: 
+    group: 
+    - :default
+    version: ">= 0"
+  shoulda: 
+    group: 
+    - :test
+    version: ">= 0"
+  acts-as-list: 
+    group: 
+    - :default
+    version: ">= 0"
+    require: 
+    - acts_as_list
+  acts-as-taggable-on: 
+    group: 
+    - :default
+    version: ">= 0"
+  formtastic: 
+    group: 
+    - :default
+    version: ">= 0"
+  database_cleaner: 
+    group: 
+    - :test
+    version: ">= 0"
+    require: []
+
+  webrat: 
+    group: 
+    - :test
+    version: ">= 0"
+    require: []
+
+  cucumber-rails: 
+    group: 
+    - :test
+    version: ">= 0"
+    require: []
+
+  factory_girl: 
+    group: 
+    - :test
+    version: ">= 0"
+  paperclip: 
+    group: 
+    - :default
+    version: ">= 0"
+  state_machine: 
+    group: 
+    - :default
+    version: ">= 0"
+  cucumber: 
+    group: 
+    - :test
+    version: ">= 0"
+    require: []
+
 specs: 
 - rake: 
     version: 0.8.7
-- rails: 
-    version: 2.3.5
-- formtastic: 
-    version: 0.9.7
-- haml: 
-    version: 2.2.20
+- rr: 
+    version: 0.10.10
 - compass: 
     version: 0.8.17
-- actionpack: 
-    version: 2.3.5
-- activesupport: 
-    version: 2.3.5
-- paperclip: 
-    version: 2.3.1.1
-- sqlite3-ruby: 
-    version: 1.2.5
-- thin: 
-    version: 1.2.7
-- pg: 
-    version: 0.9.0
 - routing-filter: 
     version: 0.0.1
 - activeresource: 
     version: 2.3.5
-- daemons: 
-    version: 1.0.10
+- term-ansicolor: 
+    version: 1.0.5
+- pg: 
+    version: 0.9.0
+- rails: 
+    version: 2.3.5
+- activerecord: 
+    version: 2.3.5
+- prawn-core: 
+    version: 0.8.4
+- prawn: 
+    version: 0.8.4
+- haml: 
+    version: 2.2.20
+- sqlite3-ruby: 
+    version: 1.2.5
+- authlogic: 
+    version: 2.1.3
+- diff-lcs: 
+    version: 1.1.2
+- polyglot: 
+    version: 0.3.0
+- prawn-security: 
+    version: 0.8.4
+- shoulda: 
+    version: 2.10.3
+- treetop: 
+    version: 1.4.4
 - acts-as-taggable-on: 
     version: 1.1.7
 - acts-as-list: 
     version: 0.1.2
-- shoulda: 
-    version: 2.10.3
+- prawn-layout: 
+    version: 0.8.4
+- database_cleaner: 
+    version: 0.5.0
+- formtastic: 
+    version: 0.9.7
+- rack: 
+    version: 1.0.1
+- webrat: 
+    version: 0.7.0
+- cucumber-rails: 
+    version: 0.3.0
+- paperclip: 
+    version: 2.3.1.1
 - factory_girl: 
     version: 1.2.3
 - state_machine: 
     version: 0.8.0
-- rack: 
-    version: 1.0.1
-- actionmailer: 
-    version: 2.3.5
-- eventmachine: 
-    version: 0.12.10
-- authlogic: 
-    version: 2.1.3
-- activerecord: 
-    version: 2.3.5
-- rr: 
-    version: 0.10.10
-- webrat: 
-    version: 0.7.0
-- rack-test: 
-    version: 0.5.3
-- nokogiri: 
-    version: 1.4.1
-- database_cleaner: 
-    version: 0.5.0
-- cucumber-rails: 
-    version: 0.3.0
-- cucumber: 
-    version: 0.6.3
-- term-ansicolor: 
-    version: 1.0.4
-- diff-lcs: 
-    version: 1.1.2
-- builder: 
-    version: 2.1.2
-- polyglot: 
-    version: 0.3.0
-- prawn: 
-    version: 0.8.4
-- prawn-security: 
-    version: 0.8.4
-- prawn-layout: 
-    version: 0.8.4
-- prawn-core: 
-    version: 0.8.4
 - json_pure: 
     version: 1.2.3
-- treetop: 
-    version: 1.4.4
-dependencies: 
-  rails: 
-    version: ">= 0"
-    group: 
-    - :default
-    require: []
-
-  formtastic: 
-    version: ">= 0"
-    group: 
-    - :default
-  haml: 
-    version: ">= 0"
-    group: 
-    - :default
-  compass: 
-    version: ">= 0"
-    group: 
-    - :default
-  authlogic: 
-    version: ">= 0"
-    group: 
-    - :default
-  state_machine: 
-    version: ">= 0"
-    group: 
-    - :default
-  acts-as-list: 
-    version: ">= 0"
-    group: 
-    - :default
-    require: 
-    - acts_as_list
-  prawn: 
-    version: ">= 0"
-    group: 
-    - :default
-  paperclip: 
-    version: ">= 0"
-    group: 
-    - :default
-  routing-filter: 
-    version: ">= 0"
-    group: 
-    - :default
-    require: 
-    - routing_filter
-  acts-as-taggable-on: 
-    version: ">= 0"
-    group: 
-    - :default
-  sqlite3-ruby: 
-    version: ">= 0"
-    group: 
-    - :development
-    require: 
-    - sqlite3
-  thin: 
-    version: ">= 0"
-    group: 
-    - :production
-  pg: 
-    version: ">= 0"
-    group: 
-    - :production
-  factory_girl: 
-    version: ">= 0"
-    group: 
-    - :test
-  cucumber: 
-    version: ">= 0"
-    group: 
-    - :test
-    require: []
-
-  cucumber-rails: 
-    version: ">= 0"
-    group: 
-    - :test
-    require: []
-
-  database_cleaner: 
-    version: ">= 0"
-    group: 
-    - :test
-    require: []
-
-  webrat: 
-    version: ">= 0"
-    group: 
-    - :test
-    require: []
-
-  shoulda: 
-    version: ">= 0"
-    group: 
-    - :test
-  rr: 
-    version: ">= 0"
-    group: 
-    - :test
+- cucumber: 
+    version: 0.6.3
+- actionmailer: 
+    version: 2.3.5
+- actionpack: 
+    version: 2.3.5
+- rack-test: 
+    version: 0.5.3
+- activesupport: 
+    version: 2.3.5
+- builder: 
+    version: 2.1.2
+- nokogiri: 
+    version: 1.4.1
+hash: 7381d3b8a18e05854dec031d820f3b8a1d666ecb
+sources: 
+- Rubygems: 
+    uri: http://rubygems.org

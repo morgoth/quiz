@@ -1,4 +1,4 @@
-source :gemcutter
+source "http://rubygems.org"
 
 gem "rails", :require => nil
 
@@ -18,7 +18,6 @@ group :development do
 end
 
 group :production do
-  gem "thin"
   gem "pg"
 end
 
