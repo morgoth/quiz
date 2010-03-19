@@ -2,7 +2,6 @@ source "http://rubygems.org"
 
 gem "rails", :require => nil
 
-gem "formtastic"
 gem "haml"
 gem "compass"
 gem "authlogic"
@@ -12,10 +11,9 @@ gem "prawn"
 gem "paperclip"
 gem "routing-filter", :require => "routing_filter"
 gem "acts-as-taggable-on"
+gem "formtastic"
 
-group :development do
-  gem "sqlite3-ruby", :require => "sqlite3"
-end
+gem "sqlite3-ruby", :require => "sqlite3", :groups => [:development, :test]
 
 group :production do
   gem "pg"
