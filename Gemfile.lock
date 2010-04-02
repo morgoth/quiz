@@ -1,5 +1,5 @@
 --- 
-hash: 05444d9e9b9d4381d41c97d25776e477dbb0ad0d
+hash: 8923516acd08650e911ee86b8e7ca24d18dc2fdb
 sources: 
 - Rubygems: 
     uri: http://rubygems.org
@@ -21,13 +21,13 @@ specs:
 - acts-as-list: 
     version: 0.1.2
 - acts-as-taggable-on: 
-    version: 1.1.7
+    version: 2.0.3
 - authlogic: 
     version: 2.1.3
 - builder: 
     version: 2.1.2
 - haml: 
-    version: 2.2.21
+    version: 2.2.22
 - compass: 
     version: 0.8.17
 - diff-lcs: 
@@ -35,21 +35,21 @@ specs:
 - json_pure: 
     version: 1.2.3
 - polyglot: 
-    version: 0.3.0
+    version: 0.3.1
 - term-ansicolor: 
     version: 1.0.5
 - treetop: 
-    version: 1.4.4
+    version: 1.4.5
 - cucumber: 
-    version: 0.6.3
+    version: 0.6.4
 - cucumber-rails: 
     version: 0.3.0
 - database_cleaner: 
     version: 0.5.0
 - factory_girl: 
-    version: 1.2.3
+    version: 1.2.4
 - formtastic: 
-    version: 0.9.7
+    version: 0.9.8
 - nokogiri: 
     version: 1.4.1
 - paperclip: 
@@ -71,13 +71,15 @@ specs:
 - routing-filter: 
     version: 0.0.1
 - rr: 
-    version: 0.10.10
+    version: 0.10.11
 - shoulda: 
     version: 2.10.3
 - sqlite3-ruby: 
     version: 1.2.5
 - state_machine: 
     version: 0.8.1
+- test-unit: 
+    version: 2.0.7
 - webrat: 
     version: 0.7.0
 dependencies: 
@@ -142,6 +144,12 @@ dependencies:
     version: ">= 0"
     group: 
     - :production
+  test-unit: 
+    version: ">= 2.0.7"
+    group: 
+    - :test
+    require: 
+    - test/unit
   factory_girl: 
     version: ">= 0"
     group: 
