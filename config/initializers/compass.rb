@@ -1,7 +1,7 @@
 Compass.configuration do |config|
   config.project_type = :rails
   config.project_path = RAILS_ROOT if defined?(RAILS_ROOT)
-  config.css_dir = "public/stylesheets/compiled"
+  config.css_dir = "tmp/stylesheets/compiled"
   config.sass_dir = "app/stylesheets"
   config.images_dir = "public/images"
   config.javascripts_dir = "public/javascripts"
