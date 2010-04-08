@@ -11,7 +11,7 @@ gem "prawn"
 gem "paperclip"
 gem "routing-filter", :require => "routing_filter"
 gem "acts-as-taggable-on"
-gem "formtastic"
+gem "formtastic", ">=0.9.8"
 
 gem "sqlite3-ruby", :require => "sqlite3", :group => [:development, :test]
 

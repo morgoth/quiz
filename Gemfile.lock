@@ -1,5 +1,5 @@
 --- 
-hash: 8923516acd08650e911ee86b8e7ca24d18dc2fdb
+hash: ab16fdf573d1a13fafec7f10e8536b69a1bfa602
 sources: 
 - Rubygems: 
     uri: http://rubygems.org
@@ -21,7 +21,7 @@ specs:
 - acts-as-list: 
     version: 0.1.2
 - acts-as-taggable-on: 
-    version: 2.0.3
+    version: 2.0.4
 - authlogic: 
     version: 2.1.3
 - builder: 
@@ -33,7 +33,7 @@ specs:
 - diff-lcs: 
     version: 1.1.2
 - json_pure: 
-    version: 1.2.3
+    version: 1.2.4
 - polyglot: 
     version: 0.3.1
 - term-ansicolor: 
@@ -130,7 +130,7 @@ dependencies:
     group: 
     - :default
   formtastic: 
-    version: ">= 0"
+    version: ">= 0.9.8"
     group: 
     - :default
   sqlite3-ruby: 

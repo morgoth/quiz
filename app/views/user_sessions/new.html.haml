@@ -3,8 +3,8 @@
     %h1= t("views.user_sessions.new.header")
   .bd
     - semantic_form_for @user_session, :url => user_session_path do |f|
+      = f.semantic_errors
       - f.inputs do
-        = f.semantic_errors
         = f.input :login
         = f.input :password
       - f.buttons do
