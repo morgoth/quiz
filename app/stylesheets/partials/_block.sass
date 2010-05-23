@@ -1,24 +1,24 @@
-@import rounded.sass
+@import rounded
 
-=main-block(!block_background= #7a1818, !header_color=#fff)
+=main-block($block_background: #7a1818, $header_color: white)
   .block
     margin-bottom: 1.5em
     .hd
       +rounded
-      background-color= !block_background
+      background-color: $block_background
       padding: 0.7em 1em
-      color= !header_color
+      color: $header_color
       border-bottom: 10px solid #262626
       h1, h2, h3
-        font-size:100%
-        margin-bottom:0
-        color= !header_color
+        font-size: 100%
+        margin-bottom: 0
+        color: $header_color
     .bd
       padding: 1em
-      background-color: #fff
+      background-color: white
       h2
-        color= !block_background
+        color: $block_background
       h3
-        color= !block_background
+        color: $block_background
       a
-        +link-colors(!block_background)
+        +link-colors($block_background)

@@ -1,16 +1,20 @@
 @import partials/base
 @import blueprint
-@import compass/reset, compass/utilities
+@import compass/reset
+
+@import compass/utilities
 @import partials/block
 @import partials/table
 @import partials/formtastic_base
 @import partials/formtastic_changes
 
 +blueprint-typography
+
 +blueprint-debug
 
-!main_color= #187a7a
-!header_color= #fff
+$main_color: #187a7a
+$header_color: white
+
 //#7a1818
 
 form.formtastic
@@ -20,24 +24,26 @@ form.formtastic
 
 body
   background-color: #f0f0ee
-  color: #222
+  color: #222222
   font-size: 13px
   line-height: 1.231
+
 a
   +hover-link
+
 #container
   +container
-  +main-block(!main_color, !header_color)
+  +main-block($main_color, $header_color)
   text-align: left
 
 #header
   +column(24, true)
-  background-color= !main_color
-  margin-bottom= !blueprint_grid_margin
+  background-color: $main_color
+  margin-bottom: $blueprint_grid_margin
   h1
     padding: 0.4em 0 0 0.4em
     margin-bottom: 0
-    color= !header_color
+    color: $header_color
   #language
     input
       float: right
@@ -51,9 +57,8 @@ a
   margin-bottom: 0
   +rounded
   a
-    +link-colors(#fff)
+    +link-colors(white)
     line-height: 2.5em
-
   #primary-navigation
     +horizontal-list
     float: left
@@ -63,7 +68,7 @@ a
         font-size: 116%
         &.active
           background-color: #f0f0ee
-          color: #000
+          color: black
           +rounded
   #user-navigation
     +horizontal-list
@@ -76,11 +81,13 @@ a
   +column(20, true)
   +table
   +blueprint-grid
+
 #sidebar
   +column(4)
   +no-bullets
   ul
     margin: 0
+
 #footer
   +column(24, true)
   text-align: center
@@ -93,4 +100,4 @@ a
   text-align: center
   border: 2px solid #1fdf00
   background-color: #bbffb6
-  margin-bottom= !blueprint_grid_margin
+  margin-bottom: $blueprint_grid_margin

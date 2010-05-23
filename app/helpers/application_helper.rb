@@ -1,5 +1,5 @@
 module ApplicationHelper
-  include TagsHelper
+  include ActsAsTaggableOn::TagsHelper
 
   def flash_messages
     return if flash.empty?
